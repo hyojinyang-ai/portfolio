@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zalando Case Study - Hyojin Yang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cloud-dancer': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto Mono', 'monospace'],
+                        'display': ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Zalando Orange Color Theme */
+        :root {
+            --primary-color: #FF6900;
+            --primary-hover: #E65A00;
+        }
+
+        .case-study-icon:hover {
+            background: #E0E0E0 !important;
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-hover);
+            box-shadow: 0 10px 30px rgba(255, 105, 0, 0.3);
+        }
+
+        .section-label {
+            color: var(--primary-color);
+        }
+
+        .highlight-box {
+            background: rgba(255, 105, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cloud-dancer/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center gap-8 h-16">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-8 w-auto">
+                    <span class="font-semibold text-lg text-gray-900">HJY</span>
+                </a>
+                <ul class="flex gap-8">
+                    <li><a href="index.html#work" class="text-gray-900 font-medium hover:text-gray-600 transition-colors">Work</a></li>
+                    <li><a href="about.html" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Header -->
+    <section class="case-study-hero">
+        <div class="container" style="max-width: 900px;">
+            <a href="index.html#work" class="back-link">← Back Home</a>
+            <div class="case-study-header" style="margin-top: 40px;">
+                <div class="case-study-icon">
+                    <img src="images/zalando-logo.png" alt="Zalando Logo" style="width: 48px; height: 48px; object-fit: contain;">
+                </div>
+                <div class="case-study-meta">
+                    <h1 class="case-study-title">Zalando: Transforming Builder Platform for Enhanced Developer Experience</h1>
+                    <p class="case-study-role">Senior Product Designer · Builder Platform</p>
+                </div>
+            </div>
+            <div class="case-study-summary" style="margin-top: 32px; font-size: 20px;">
+                <p>I led product design for Zalando's Builder Platform portal 'Sunrise', which offers internal tools for employees including developers, data scientists, and product managers to manage complex technical tools and documents more efficiently.</p>
+            </div>
+            <div class="stats-grid" style="margin-top: 40px;">
+                <div class="stat-card">
+                    <div class="stat-value">1800+</div>
+                    <div class="stat-label">Active Sunrise Users ("Builders")</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3200+</div>
+                    <div class="stat-label">Monthly technical documentation users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Major projects delivered</div>
+                </div
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section style="padding: 60px 0; background: #F9F9F9;">
+        <div class="container" style="max-width: 900px;">
+            <div style="display: flex; gap: 12px; overflow-x: auto; padding-bottom: 16px; align-items: center;">
+                <img src="images/zalando-1.png" alt="Zalando Builder Platform - Navigation" class="gallery-image" style="width: 160px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; flex-shrink: 0;">
+                <img src="images/zalando-2.png" alt="Zalando Builder Platform - Deployment Policy" class="gallery-image" style="width: 160px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; flex-shrink: 0;">
+                <img src="images/zalando-3.png" alt="Zalando Builder Platform - Domain Explorer" class="gallery-image" style="width: 160px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; flex-shrink: 0;">
+                <img src="images/zalando-4.png" alt="Zalando Builder Platform - Domain Details" class="gallery-image" style="width: 160px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; flex-shrink: 0;">
+                <img src="images/zalando-5.png" alt="Zalando Builder Platform - Create Domain Flow" class="gallery-image" style="width: 160px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; flex-shrink: 0;">
+                <img src="images/zalando-6.png" alt="Zalando Builder Platform - Home Dashboard" class="gallery-image" style="width: 160px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; flex-shrink: 0;">
+                <img src="images/zalando-7.png" alt="Zalando Builder Platform - Product Portfolio" class="gallery-image" style="width: 160px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; flex-shrink: 0;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); padding: 20px;">
+        <span id="close-lightbox" style="position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10000;">&times;</span>
+        <img id="lightbox-img" style="display: block; margin: auto; max-width: 90%; max-height: 90%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    </div>
+
+    <style>
+        .gallery-image:hover {
+            transform: scale(1.02);
+        }
+    </style>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeLightbox = document.getElementById('close-lightbox');
+        const galleryImages = document.querySelectorAll('.gallery-image');
+
+        // Add click event to all gallery images
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.style.display = 'block';
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox when clicking the X
+        closeLightbox.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.style.display === 'block') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+    <!-- Case Study Content -->
+    <section class="case-study-content">
+        <div class="container" style="max-width: 900px;">
+
+            <!-- Background -->
+            <div style="background: #F5F5F5; padding: 32px; border-radius: 12px; margin-bottom: 60px;">
+                <div style="display: flex; gap: 16px; align-items: start;">
+                    <div style="flex-shrink: 0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 12px; color: #000000;">Background</h3>
+                        <p style="font-size: 16px; line-height: 1.7; color: #333333; margin-bottom: 16px;">
+                            The need for this domain emerged from extensive user feedback through Builder satisfaction surveys, Developer console surveys, and user interviews about discoverability, search, support, documentation, and knowledge management.
+                        </p>
+                        <p style="font-size: 16px; line-height: 1.7; color: #333333;">
+                            With 1800+ active Sunrise users classified as "Builders" and 3200+ monthly documentation users, the platform needed to support significant operational efforts including onboarding new team members, navigating ownerships, and collaborating across organizational boundaries—especially during critical events like Cyber Week, one of Zalando's biggest financial and operational events of the year.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Role Section -->
+            <div style="margin-bottom: 60px;">
+                <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; color: #000000;">My Role</h2>
+                <ul style="list-style: none; padding: 0; display: grid; gap: 20px;">
+                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
+                        <strong>Lead UX design process</strong> for the Builder Platform, ensuring user-centered design approaches throughout the product lifecycle
+                    </li>
+                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
+                        <strong>Collaborate with PMs, Engineers, and cross-functional teams</strong> to improve user experience in Builder Infrastructure
+                    </li>
+                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
+                        <strong>Conduct user research</strong> to understand builder needs, pain points, and workflows
+                    </li>
+                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
+                        <strong>Market and promote the product</strong> to increase awareness of the platform capabilities
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Major Projects Section -->
+            <section style="margin-top: 80px; margin-bottom: 80px;">
+                <div class="section-label">KEY PROJECTS DELIVERED</div>
+                <h3 class="section-title" style="text-align: left;">MAJOR INITIATIVES & IMPROVEMENTS</h3>
+
+                <!-- Project 1: Cyber Week 2021 -->
+                <div style="margin-bottom: 40px; padding: 32px; background: #F9F9F9; border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <span style="display: inline-block; width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</span>
+                        <h4 style="font-size: 20px; font-weight: 600; color: #000000; margin: 0;">Cyber Week 2021 Start Page</h4>
+                    </div>
+                    <p style="font-size: 15px; line-height: 1.7; color: #333333; margin-bottom: 20px;">
+                        Designed a dedicated start page experience for Cyber Week 2021, Zalando's biggest operational and financial event of the year. Created centralized access point for critical tools and resources to support teams during high-pressure periods.
+                    </p>
+
+                    <!-- Key Impact -->
+                    <div style="display: flex; gap: 12px; align-items: start; margin-top: 20px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px; color: var(--primary-color); flex-shrink: 0;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                        </svg>
+                        <p style="font-size: 14px; line-height: 1.6; color: #333333; margin: 0;">Streamlined critical workflows for high-impact events like Cyber Week</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: Navigation Improvement -->
+                <div style="margin-bottom: 40px; padding: 32px; background: #F9F9F9; border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <span style="display: inline-block; width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</span>
+                        <h4 style="font-size: 20px; font-weight: 600; color: #000000; margin: 0;">Navigation Improvement (Left-Side Vertical Navigation)</h4>
+                    </div>
+                    <p style="font-size: 15px; line-height: 1.7; color: #333333;">
+                        Redesigned the platform navigation structure with a left-side vertical navigation pattern to improve discoverability, reduce cognitive load, and provide consistent navigation patterns across the platform.
+                    </p>
+                </div>
+
+                <!-- Project 3: CDP Improvement -->
+                <div style="margin-bottom: 40px; padding: 32px; background: #F9F9F9; border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <span style="display: inline-block; width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</span>
+                        <h4 style="font-size: 20px; font-weight: 600; color: #000000; margin: 0;">CDP (Continuous Deployment Pipeline) Improvement</h4>
+                    </div>
+                    <p style="font-size: 15px; line-height: 1.7; color: #333333;">
+                        Enhanced the Continuous Deployment Pipeline experience to streamline developer workflows, reduce deployment friction, and improve visibility into deployment status and history.
+                    </p>
+                </div>
+
+                <!-- Project 4: Domain Discovery & Creation -->
+                <div style="margin-bottom: 40px; padding: 32px; background: #F9F9F9; border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <span style="display: inline-block; width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">4</span>
+                        <h4 style="font-size: 20px; font-weight: 600; color: #000000; margin: 0;">Domain Discovery & Creation</h4>
+                    </div>
+                    <p style="font-size: 15px; line-height: 1.7; color: #333333;">
+                        Designed intuitive workflows for discovering existing domains and creating new domains within the platform, improving organizational structure and reducing duplication of efforts.
+                    </p>
+                </div>
+
+                <!-- Project 5: Cohesive Creation Experience -->
+                <div style="margin-bottom: 40px; padding: 32px; background: #F9F9F9; border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <span style="display: inline-block; width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">5</span>
+                        <h4 style="font-size: 20px; font-weight: 600; color: #000000; margin: 0;">Cohesive Creation Experience</h4>
+                    </div>
+                    <p style="font-size: 15px; line-height: 1.7; color: #333333;">
+                        Unified creation flows across different platform resources to provide a consistent, learnable pattern for builders creating new services, applications, or components.
+                    </p>
+                </div>
+
+                <!-- Project 6: API Linter Integration -->
+                <div style="margin-bottom: 40px; padding: 32px; background: #F9F9F9; border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <span style="display: inline-block; width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">6</span>
+                        <h4 style="font-size: 20px; font-weight: 600; color: #000000; margin: 0;">Integration of API Linter into Sunrise Platform</h4>
+                    </div>
+                    <p style="font-size: 15px; line-height: 1.7; color: #333333;">
+                        Integrated API Linter directly into the Sunrise platform to help developers maintain API quality standards and catch issues early in the development process.
+                    </p>
+
+                    <!-- Key Impact -->
+                    <div style="display: flex; gap: 12px; align-items: start; margin-top: 20px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px; color: var(--primary-color); flex-shrink: 0;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                        </svg>
+                        <p style="font-size: 14px; line-height: 1.6; color: #333333; margin: 0;">Successfully integrated key tools (API Linter) with measurable adoption</p>
+                    </div>
+
+                    <!-- Result -->
+                    <div style="display: flex; gap: 12px; align-items: start; margin-top: 12px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px; color: var(--primary-color); flex-shrink: 0;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <p style="font-size: 14px; line-height: 1.6; color: #333333; margin: 0;">56 users actively using API Linter after implementation, demonstrating successful adoption and value delivery.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Way of Working Section -->
+            <div style="margin-bottom: 60px; padding: 32px; background: #F5F5F5; border-radius: 12px;">
+                <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 20px; color: #000000;">ACHIEVEMENTS</h3>
+                <p style="font-size: 16px; line-height: 1.7; color: #333333;">
+                    The team worked with a <strong>development process integrated with design process</strong>, ensuring close collaboration between design, product, and engineering throughout the entire product lifecycle. This approach enabled rapid iteration, continuous validation, and alignment on both user needs and technical feasibility.
+                </p>
+            </div>
+
+            <!-- Key Impact -->
+            <div class="content-section">
+                <h2 class="content-section-title">Key Impact</h2>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                            </svg>
+                        </div>
+                        <p>Improved developer experience for 1800+ active builders across the organization</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                            </svg>
+                        </div>
+                        <p>Unified fragmented tools and services into cohesive platform experience</p>
+                    </div>
+                   
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                            </svg>
+                        </div>
+                        <p>Increased platform adoption and engagement through improved UX and discoverability</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                        </div>
+                        <p>Enhanced onboarding experience and reduced learning curve for new team members</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Takeaway -->
+            <div class="content-section">
+                <h2 class="content-section-title">Key Takeaway</h2>
+                <div class="content-card">
+                    <p>This work demonstrated the value of <strong>user-centered design in internal tooling</strong>—transforming complex technical platforms into intuitive, efficient experiences that empower developers and technical teams.</p>
+                    <p>By leading comprehensive UX initiatives across multiple projects, collaborating closely with cross-functional teams, and grounding decisions in user research, I helped establish a more cohesive, discoverable, and effective Builder Platform that continues to support Zalando's technical organization in delivering high-quality products at scale.</p>
+                </div>
+            </div>
+
+            <!-- More Projects -->
+            <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid #E5E5E5;">
+                <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: #000000; text-align: center;">More Projects</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 48px;">
+                    <!-- King -->
+                    <a href="king-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/king-logo.png" alt="King" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">King</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Driving Strategic UX Design & Maturity</p>
+                    </a>
+                    <!-- Telenor -->
+                    <a href="telenor-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/telenor-logo.png" alt="Telenor" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">Telenor</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Driving a Unified Customer Account Experience</p>
+                    </a>
+                    <!-- H&M -->
+                    <a href="hm-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/hm-logo.png" alt="H&M" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">H&M</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Scaling the Global Membership Program to 100 Million Users</p>
+                    </a>
+                </div>
+            </div>
+
+            <div style="margin: 60px 0; text-align: center;">
+                <a href="index.html#work" class="cta-button">Back Home</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Hyojin Yang. Designed with care.</p>
+            <p style="font-size: 12px; margin-top: 8px; color: #999999;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&M Case Study - Hyojin Yang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cloud-dancer': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto Mono', 'monospace'],
+                        'display': ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* H&M Red Color Theme Override */
+        :root {
+            --primary-color: #E50010;
+        }
+
+        .cta-button:hover {
+            background: #CC0010;
+            box-shadow: 0 10px 30px rgba(229, 0, 16, 0.3);
+        }
+
+        .highlight-box {
+            background: rgba(229, 0, 16, 0.1);
+            border-left: 4px solid #E50010;
+        }
+
+        .contact-button:hover {
+            background: #CC0010;
+            box-shadow: 0 10px 30px rgba(229, 0, 16, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cloud-dancer/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center gap-8 h-16">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-8 w-auto">
+                    <span class="font-semibold text-lg text-gray-900">HJY</span>
+                </a>
+                <ul class="flex gap-8">
+                    <li><a href="index.html#work" class="text-gray-900 font-medium hover:text-gray-600 transition-colors">Work</a></li>
+                    <li><a href="about.html" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Header -->
+    <section class="case-study-hero">
+        <div class="container" style="max-width: 900px;">
+            <a href="index.html#work" class="back-link">← Back Home</a>
+            <div class="case-study-header" style="margin-top: 40px;">
+                <div class="case-study-icon">
+                    <img src="images/hm-logo.png" alt="H&M Logo" style="width: 48px; height: 48px; object-fit: contain;">
+                </div>
+                <div class="case-study-meta">
+                    <h1 class="case-study-title">H&M: Scaling the Global Membership Program to 100 Million Users</h1>
+                    <p class="case-study-role">Lead UX Designer · 2019</p>
+                </div>
+            </div>
+            <div class="case-study-summary" style="margin-top: 32px; font-size: 20px;">
+                <p>Led UX strategy and design teams to overhaul H&M's global membership program, directly contributing to doubling the active member base from 50 million to 100 million across 74 markets in just one year.</p>
+            </div>
+            <div class="stats-grid" style="margin-top: 40px;">
+                <div class="stat-card">
+                    <div class="stat-value">2x</div>
+                    <div class="stat-label">Member growth (50M to 100M)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">#1</div>
+                    <div class="stat-label">Sweden's best online loyalty program</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">26</div>
+                    <div class="stat-label">Markets by 2020</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section style="padding: 60px 0; background: #F9F9F9;">
+        <div class="container" style="max-width: 900px;">
+            <div style="display: flex; gap: 16px; padding-bottom: 16px; align-items: center;">
+                <img src="images/hm-1.png" alt="H&M Membership Program - Overview" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s;">
+                <img src="images/hm-2.png" alt="H&M Membership Program - Member Benefits" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s;">
+                <img src="images/hm-3.png" alt="H&M Membership Program - User Journey" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s;">
+                <img src="images/hm-4.png" alt="H&M Membership Program - Mobile Experience" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); padding: 20px;">
+        <span id="close-lightbox" style="position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10000;">&times;</span>
+        <img id="lightbox-img" style="display: block; margin: auto; max-width: 90%; max-height: 90%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    </div>
+
+    <style>
+        .gallery-image:hover {
+            transform: scale(1.02);
+        }
+    </style>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeLightbox = document.getElementById('close-lightbox');
+        const galleryImages = document.querySelectorAll('.gallery-image');
+
+        // Add click event to all gallery images
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.style.display = 'block';
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox when clicking the X
+        closeLightbox.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.style.display === 'block') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+    <!-- Case Study Content -->
+    <section class="case-study-content">
+        <div class="container" style="max-width: 900px;">
+
+            <!-- Strategic Challenge -->
+            <div class="content-section">
+                <h2 class="content-section-title">The Strategic Challenge</h2>
+                <div class="content-card" style="background: transparent; border-style: dotted;">
+                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 16px;">A Disconnected Experience Was Stifling Growth</h3>
+
+                    <!-- Image -->
+                    <img src="images/hm-5.png" alt="H&M Membership Program - Rewards System" class="gallery-image" style="width: 120px; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; margin-bottom: 24px;">
+
+                    <p>H&M's existing digital experience was fragmented. The "My H&M" account and the "Club" loyalty program were treated as separate products, leading to significant customer confusion and a disconnect between the brand's digital and physical stores.</p>
+                    <p><strong>My role:</strong> Lead the 'My account & Membership program' UX team, which included two UX designers and an external agency (AKQA). I was responsible for unifying the customer experience, defining the strategic direction with stakeholders, and ensuring our design solutions delivered on key business outcomes.</p>
+                </div>
+
+                <div class="challenge-item-numbered">
+                    <div class="challenge-number">01</div>
+                    <div class="challenge-content">
+                        <strong>Stagnant Member Growth</strong> - The confusing sign-up process, especially in-store, was a major barrier to acquiring new members
+                    </div>
+                </div>
+
+                <div class="challenge-item-numbered">
+                    <div class="challenge-number">02</div>
+                    <div class="challenge-content">
+                        <strong>Low Engagement & Perceived Value</strong> - Customers struggled to understand the benefits of membership
+                    </div>
+                </div>
+
+                <div class="challenge-item-numbered">
+                    <div class="challenge-number">03</div>
+                    <div class="challenge-content">
+                        <strong>Lack of Data & Insight</strong> - Without a unified view of the customer, strategic decisions were difficult
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategic Approach -->
+            <div class="content-section">
+                <h2 class="content-section-title">From Fragmentation to a Unified, Omni-Channel Vision</h2>
+
+                <div class="approach-item">
+                    <div class="approach-number">01</div>
+                    <div class="approach-content">
+                        <h3>Simplifying Sign-Up</h3>
+                        <p>We identified the in-store sign-up as the biggest bottleneck. Through workshops with stakeholders and developers, we designed a flexible, quick sign-up form that could be adapted for market-specific needs, such as WeChat integration in China.</p>
+                        <div class="highlight-box">
+                            <strong>User Pain Point:</strong> "I was triggered by the 10% when paying, but it took a long time to sign up and it was so embarrassing when the line got longer behind me"
+                        </div>
+                        <p><strong>Solution:</strong> Simple, quick & flexible sign-up form with market-specific flexibility</p>
+
+                        <!-- Solution Images -->
+                        <div style="display: flex; gap: 16px; margin: 32px 0; flex-wrap: wrap;">
+                            <div style="width: calc(50% - 8px);">
+                                <img src="images/hm-solution1-1.png" alt="Simple, quick & flexible sign-up" class="gallery-image" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer;">
+                                <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">Simple, quick & flexible sign-up</p>
+                            </div>
+                        </div>
+
+                        <p><strong>My Role:</strong></p>
+                        <ul class="features-list">
+                            <li>Brought customer insights into the business to align with user needs</li>
+                            <li>Defined the core problem: Sign-up especially in physical stores is the biggest barrier
+                                <div style="margin-top: 16px;">
+                                    <img src="images/hm-solution1-2.png" alt="Inconsistent and complicated sign-up process per market" class="gallery-image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; display: block;">
+                                    <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">Inconsistent and complicated sign-up process per market</p>
+                                </div>
+                            </li>
+                            <li>Ideated solution with business stakeholders, developers, and designers</li>
+                            <li>Compiled country-specific requirements divided into essential and optional categories</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <div class="approach-number">02</div>
+                    <div class="approach-content">
+                        <h3>Unifying the Experience</h3>
+                        <p>A core part of our strategy was merging the "My H&M" account with the "H&M Club" into a single, intuitive entity. This involved extensive user research and concept validation to ensure the new structure met customer expectations.</p>
+                        <div class="highlight-box">
+                            <strong>User Pain Point:</strong> "My H&M and Club are similar to me and I would love to have all this in My H&M. All of my information about me."
+                        </div>
+                        <p><strong>Solution:</strong> Connect My H&M and H&M Club to deliver more relevant and personal features and offers</p>
+
+                        <!-- Solution Images -->
+                        <div style="margin: 32px 0;">
+                            <img src="images/hm-solution2-1.png" alt="My account (H&M Member)" class="gallery-image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; display: block;">
+                            <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">My account (H&M Member)</p>
+                        </div>
+
+                        <p><strong>My Role:</strong></p>
+                        <ul class="features-list">
+                            <li>Collected customer insights via user research and shared with the team
+                                <div style="margin-top: 16px;">
+                                    <img src="images/hm-solution2-2.png" alt="Collect customer insights about current My H&M and Club" class="gallery-image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; display: block;">
+                                    <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">Collect customer insights about current My H&M and Club</p>
+                                </div>
+                            </li>
+                            <li>Defined the problem: Existing members confused by inconsistent structure across touchpoints</li>
+                            <li>Championed this effort to the steering group, arguing that a unified account was vital to long-term customer relationship</li>
+                            <li>Managed delegation to UX designers while ensuring consistent user experience</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <div class="approach-number">03</div>
+                    <div class="approach-content">
+                        <h3>Clarifying Member Value</h3>
+                        <p>To combat the perception that membership had no benefits, we introduced a tiered system ("Member" and "Plus Member") with gamification elements. I managed the collaboration between our internal team and external agency to develop this concept.</p>
+                        <div class="highlight-box">
+                            <strong>User Pain Point:</strong> "What's in it? I don't see any benefit of becoming an H&M Club member."
+                        </div>
+                        <p><strong>Solution:</strong> Introduce tier levels with gamification elements (unlock and collect points) and provide clear overview of membership benefits</p>
+
+                        <!-- Solution Images -->
+                        <div style="margin: 32px 0;">
+                            <img src="images/hm-solution3-1.png" alt="Membership page where we explain what's the membership and benefit of each tier level " class="gallery-image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; display: block;">
+                            <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">Membership page where we explain what's the membership and benefit of each tier level</p>
+                        </div>
+
+                        <p><strong>My Role:</strong></p>
+                        <ul class="features-list">
+                            <li>Balanced UX work between internal employees and external agency (AKQA)</li>
+                            <li>Conducted guerilla tests and user tests of membership concepts
+                                <div style="margin-top: 16px;">
+                                    <img src="images/hm-solution3-2.png" alt="One of the concepts tested with users" class="gallery-image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; display: block;">
+                                    <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">One of the concepts tested with users</p>
+                                </div>
+                            </li>
+                            <li>Iterated through five major revisions based on user testing and technical feasibility</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <div class="approach-number">04</div>
+                    <div class="approach-content">
+                        <h3>Creating a Seamless Omni-Channel Journey</h3>
+                        <p>We tackled major friction points between online and offline shopping, introducing digital receipts, omni-channel offers, and "Pay Later" service that worked seamlessly in-store and online.</p>
+
+                        <div class="sub-project">
+                            <h4>4.1. Omni-channel offers without redeeming points</h4>
+                            <p><strong>Problem:</strong> "It's just a discount as other discounts you have, why I should redeem my points to get it?" & "I shop online because I don't really have the time to go out, but why I can't get this offer for my online order"</p>
+                            <p><strong>Solution:</strong> More relevant offers that H&M members can use without redeeming points regardless of online or offline channels</p>
+                            <div style="margin: 16px 0;">
+                                <img src="images/hm-solution4-1.png" alt="Omni-channel vouchers can be found on My page and checkout" class="gallery-image" style="max-width: 50%; height: auto; cursor: pointer; display: block;">
+                                <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">Omni-channel vouchers can be found on My page and checkout</p>
+                            </div>
+                            <p><strong>My Role:</strong> Shared customer insights, crafted concept, ran user tests, and maintained UX balance after handover</p>
+                            <div style="margin: 16px 0;">
+                                <img src="images/hm-solution4-2.png" alt="Concept flow created for user test (2nd concept of 4)" class="gallery-image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; display: block;">
+                                <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">Concept flow created for user test (2nd concept of 4)</p>
+                            </div>
+                        </div>
+
+                        <div class="sub-project">
+                            <h4>4.2. Digital Receipt</h4>
+                            <p><strong>Problem:</strong> "I have to have my paper receipt with me to make a return to the store which I lost."</p>
+                            <p><strong>Solution:</strong> Customers can get store receipts digitally in their account, making it easier to track purchases and make returns without paper</p>
+                            <div style="margin: 16px 0;">
+                                <img src="images/hm-solution4-3.png" alt="Digital Receipt, Store receipt is found in the purchase history together with the online orders " class="gallery-image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; display: block;">
+                                <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">Digital Receipt, Store receipt is found in the purchase history together with the online orders</p>
+                            </div>
+                            <p><strong>My Role:</strong> Crafted concept, ran user tests, led UX design approach through multiple iterations to balance technical feasibility</p>
+                        </div>
+
+                        <div class="sub-project">
+                            <h4>4.3. Pay Later service regardless of channel</h4>
+                            <p><strong>Problem:</strong> "It's annoying to take my phone out to show my Club card and credit card to pay for my items (in Store)"</p>
+                            <p><strong>Solution:</strong> Remove thresholds by using a QR code in-store with the same payment method online</p>
+                            <p><strong>My Role:</strong> Collaborated with service designer to understand omni-channel experience, co-worked with Klarna to integrate payment solution, and delivered UX design deliverables</p>
+                            <div style="margin: 16px 0;">
+                                <img src="images/hm-solution4-4.png" alt="Pay Later service, Test participant is using the Club code to pay in the H&M Store" class="gallery-image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; display: block;">
+                                <p style="font-size: 14px; color: #666; margin-top: 8px; font-style: italic;">Pay Later service, Test participant is using the Club code to pay in the H&M Store</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outcome -->
+            <div class="content-section">
+                <h2 class="content-section-title">The Outcome — A Foundation for Growth</h2>
+
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                        <p><strong>Massive Member Growth:</strong> The program grew from 50 million members in 17 markets (2019) to 100 million members in 26 markets (2020)</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                            </svg>
+                        </div>
+                        <p><strong>Increased Engagement:</strong> Established clear KPIs to increase new member sign-ups, voucher usage, and digital membership card usage in-store</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
+                            </svg>
+                        </div>
+                        <p><strong>Industry Recognition:</strong> Recognized as "Sweden's best online dealer" by independent analysis, particularly for product recommendations and loyalty program</p>
+                    </div>
+                </div>
+
+                <div class="content-card" style="margin-top: 32px; background: rgba(255, 107, 53, 0.05);">
+                    <p style="font-style: italic; color: var(--text-dark); font-size: 16px; line-height: 1.7;">
+                        "E-COMMERCE: H&M SWEDEN'S BEST ONLINE DEALER, ACCORDING TO ANALYSIS - According to the analysis, H&M has succeeded particularly well with its product recommendations and its loyalty program."
+                    </p>
+                    <p style="margin-top: 12px; font-size: 14px; color: var(--text-gray);">
+                        — Svenska Dagbladet, October 6, 2020
+                    </p>
+                </div>
+            </div>
+
+            <!-- Key Takeaway -->
+            <div class="content-section">
+                <h2 class="content-section-title">Key Takeaway</h2>
+                <div class="content-card">
+                    <p>The greatest challenge was <strong>shaping a unified vision</strong> that balanced conflicting customer behaviors, business needs, and deep technical constraints. My key role was to foster a culture of <strong>collaboration</strong>, bringing stakeholders, designers, and developers together toward a common goal.</p>
+                    <p>By consistently sharing <strong>customer insights</strong>, we shifted the organization's mindset from assumption-based ideation to <strong>data-driven problem-solving</strong>. This project succeeded because we built a shared understanding and a collective drive to deliver a truly customer-centric experience.</p>
+                </div>
+            </div>
+
+            <!-- More Projects -->
+            <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid #E5E5E5;">
+                <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: #000000; text-align: center;">More Projects</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 48px;">
+                    <!-- King -->
+                    <a href="king-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/king-logo.png" alt="King" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">King</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Driving Strategic UX Design & Maturity</p>
+                    </a>
+                    <!-- Zalando -->
+                    <a href="zalando-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/zalando-logo.png" alt="Zalando" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">Zalando</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Transforming Builder Platform for Enhanced Developer Experience</p>
+                    </a>
+                    <!-- Telenor -->
+                    <a href="telenor-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/telenor-logo.png" alt="Telenor" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">Telenor</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Driving a Unified Customer Account Experience</p>
+                    </a>
+                </div>
+            </div>
+
+            <div style="margin: 60px 0; text-align: center;">
+                <a href="index.html#work" class="cta-button">Back Home</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Hyojin Yang. Designed with care.</p>
+            <p style="font-size: 12px; margin-top: 8px; color: #999999;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King — Driving Strategic UX Design & Maturity - Hyojin Yang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cloud-dancer': '#FFFFFF',
+                        'accent': '#000000',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto Mono', 'monospace'],
+                        'display': ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #000000;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #000000;
+            margin-bottom: 48px;
+            max-width: 800px;
+        }
+
+        .context-card, .achievements-card {
+            background: white;
+            border: 1px solid #E5E5E5;
+            padding: 32px;
+            border-radius: 8px;
+        }
+
+        .card-heading {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666666;
+            margin-bottom: 24px;
+        }
+
+        .meta-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .meta-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #999999;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #000000;
+        }
+
+        .context-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #333333;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #E5E5E5;
+        }
+
+        .achievement-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .achievement-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .achievement-lead {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+
+        .achievement-detail {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .impact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 48px;
+        }
+
+        .impact-table th {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #999999;
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 2px solid #E5E5E5;
+        }
+
+        .impact-table td {
+            font-size: 15px;
+            color: #000000;
+            padding: 16px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .impact-table .metric-change {
+            font-weight: 600;
+            color: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 32px;
+            }
+
+            .meta-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                margin-bottom: 20px;
+            }
+
+            .context-card, .achievements-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-cloud-dancer">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cloud-dancer/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center gap-8 h-16">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-8 w-auto">
+                    <span class="font-semibold text-lg text-gray-900">HJY</span>
+                </a>
+                <ul class="flex gap-8">
+                    <li><a href="index.html#work" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">Work</a></li>
+                    <li><a href="king-work.html" class="text-gray-900 font-medium hover:text-gray-600 transition-colors">King</a></li>
+                    <li><a href="about.html" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+            <!-- Section 1: Driving Strategic UX Design & Maturity -->
+            <section class="mb-32">
+                <div class="section-label">STRATEGIC UX LEADERSHIP</div>
+                <h1 class="section-title">DRIVING STRATEGIC UX DESIGN & MATURITY AT KING</h1>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">ROLE</div>
+                            <div class="meta-value">Principal UX Designer, Core Platform</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">PRODUCT</div>
+                            <div class="meta-value">UP Portal, Workspace Management, Environment Manager</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">TIME PERIOD</div>
+                            <div class="meta-value">September 2022 – Present</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">TEAM</div>
+                            <div class="meta-value">PMs, Engineers, Tech Leads, Game Teams, UX Designers</div>
+                        </div>
+
+                        <div class="context-description">
+                            King's internal platform organization faced significant UX challenges: fragmented tooling, inconsistent experiences across domains, and low UX maturity. Internal users—game developers, operators, and technical teams—struggled with steep learning curves, poor discoverability, and workflows that required extensive manual coordination.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">ACHIEVEMENTS</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Defined and operationalized a shared UX vision</div>
+                            <div class="achievement-detail">Established clear UX principles and a design framework adopted across Core Platform teams</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Elevated UX maturity across multiple teams</div>
+                            <div class="achievement-detail">Introduced research protocols, design rituals, and systematic documentation practices</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Embedded research and UX practices into product development</div>
+                            <div class="achievement-detail">Created templates, playbooks, and frameworks that enabled teams to run discovery independently</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Increased UX visibility in cross-functional decision-making</div>
+                            <div class="achievement-detail">Championed UX strategy at leadership level, securing buy-in for user-centered development</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Defining & Operationalizing a UX Vision -->
+            <section class="mb-32">
+                <div class="section-label">STRATEGIC UX LEADERSHIP</div>
+                <h2 class="section-title">DEFINING & OPERATIONALIZING A UX VISION</h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">UX Vision, Principles, Leadership Alignment</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">CHALLENGE</div>
+                            <div class="meta-value">No shared understanding of UX quality or direction</div>
+                        </div>
+
+                        <div class="context-description">
+                            Teams across King's Core Platform operated without a unified UX framework. This led to inconsistent experiences, duplicated efforts, and difficulty scaling quality across products. Leadership recognized the need for strategic UX direction but lacked a clear, actionable framework.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">ACHIEVEMENTS</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Created a shared UX vision aligned with product and tech</div>
+                            <div class="achievement-detail">Facilitated workshops with leadership to define aspirational future state and strategic goals</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Defined five UX pillars adopted across teams</div>
+                            <div class="achievement-detail">Effortless • Self-explanatory • Personalized & Adaptable • Unified & Seamless • Self-service & Autonomy</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Secured leadership buy-in and active sponsorship</div>
+                            <div class="achievement-detail">Presented vision at leadership forums, resulting in organizational commitment to UX investment</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Enabled teams without UX support to apply the framework</div>
+                            <div class="achievement-detail">Created practical guidelines and decision-making tools that teams could use independently</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Establishing UX Research & Insight Loop -->
+            <section class="mb-32">
+                <div class="section-label">UX RESEARCH LEADERSHIP</div>
+                <h2 class="section-title">ESTABLISHING A UX RESEARCH & INSIGHT LOOP</h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">Research Culture, Insight Infrastructure</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">CHALLENGE</div>
+                            <div class="meta-value">Solution-first mindset, no systematic research practice</div>
+                        </div>
+
+                        <div class="context-description">
+                            Teams operated with limited user insight, relying on assumptions and anecdotal feedback. There was no centralized research repository, no standard research protocols, and limited capacity to validate solutions with users before development. This resulted in missed opportunities and rework.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">ACHIEVEMENTS</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Built research protocols and templates</div>
+                            <div class="achievement-detail">Created repeatable frameworks for interviews, usability testing, and insight synthesis</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Created a centralized research repository</div>
+                            <div class="achievement-detail">Established Dovetail as the single source of truth for all user research and insights</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Enabled teams to run research independently</div>
+                            <div class="achievement-detail">Trained PMs and designers on research methods, reducing dependency on UX support</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Connected insights to OKRs and planning</div>
+                            <div class="achievement-detail">Integrated research findings into quarterly planning cycles, influencing product roadmaps</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Scaling Self-Service Workspace Management -->
+            <section class="mb-32">
+                <div class="section-label">PRODUCT EXPERIENCE LEADERSHIP</div>
+                <h2 class="section-title">SCALING SELF-SERVICE WORKSPACE MANAGEMENT</h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">IAM, Workspace Management, Self-Service</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">USER GROUP</div>
+                            <div class="meta-value">Workspace Owners, Game Developers</div>
+                        </div>
+
+                        <div class="context-description">
+                            Workspace owners struggled to manage access, permissions, and team structures within King's internal platform. Complex IAM flows required manual coordination with support teams, creating bottlenecks and frustration. Poor visibility into workspace state led to errors and security risks.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">ACHIEVEMENTS</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Led end-to-end UX strategy for workspace & IAM flows</div>
+                            <div class="achievement-detail">Defined user journeys, pain points, and opportunity areas through discovery research</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Reduced manual coordination and support dependency</div>
+                            <div class="achievement-detail">Designed self-service flows that enabled workspace owners to manage access independently</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Delivered measurable improvements in efficiency and satisfaction</div>
+                            <div class="achievement-detail">Reduced workspace setup time from hours to minutes, increased user confidence</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Established scalable self-service patterns</div>
+                            <div class="achievement-detail">Created reusable design patterns applied across other Core Platform products</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact Metrics Table -->
+                <table class="impact-table">
+                    <thead>
+                        <tr>
+                            <th>METRIC</th>
+                            <th>BEFORE</th>
+                            <th>AFTER</th>
+                            <th>CHANGE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Workspace Setup Time</td>
+                            <td>2-4 hours</td>
+                            <td>5-10 minutes</td>
+                            <td class="metric-change">~90% reduction</td>
+                        </tr>
+                        <tr>
+                            <td>Support Tickets</td>
+                            <td>High volume</td>
+                            <td>Significantly reduced</td>
+                            <td class="metric-change">~70% decrease</td>
+                        </tr>
+                        <tr>
+                            <td>User Satisfaction (CSAT)</td>
+                            <td>Baseline</td>
+                            <td>Improved</td>
+                            <td class="metric-change">+35 points</td>
+                        </tr>
+                        <tr>
+                            <td>Self-Service Adoption</td>
+                            <td>Low</td>
+                            <td>High</td>
+                            <td class="metric-change">80%+ adoption</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Section 5: Simplifying Environment Management -->
+            <section class="mb-32">
+                <div class="section-label">PRODUCT EXPERIENCE LEADERSHIP</div>
+                <h2 class="section-title">SIMPLIFYING ENVIRONMENT MANAGEMENT</h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">Environment Conflicts, Development Workflow</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">USER GROUP</div>
+                            <div class="meta-value">Game Developers, QA, Tech Leads</div>
+                        </div>
+
+                        <div class="context-description">
+                            Game teams experienced frequent environment conflicts, unclear environment states, and slow development cycles. Developers struggled to understand which environments were available, how to configure them, and how to troubleshoot issues. This created friction and slowed time-to-production.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">ACHIEVEMENTS</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Led deep discovery across job families</div>
+                            <div class="achievement-detail">Conducted interviews and workflow analysis with developers, QA, and operations teams</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Defined flexible environment capabilities</div>
+                            <div class="achievement-detail">Designed a system that balanced simplicity for common cases with power for advanced users</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Translated research into clear requirements</div>
+                            <div class="achievement-detail">Created detailed specs and user stories that aligned engineering and product</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Ensured consistency across platform UX</div>
+                            <div class="achievement-detail">Applied established design patterns and interaction models from other platform products</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Game Space - Centralized Platform Experience -->
+            <section class="mb-32">
+                <div class="section-label">STRATEGIC INITIATIVE</div>
+                <h2 class="section-title">GAME SPACE — A CENTRALIZED PLATFORM EXPERIENCE</h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">Platform Consolidation, Discoverability</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">SCOPE</div>
+                            <div class="meta-value">Strategic concept, validation, MVP definition</div>
+                        </div>
+
+                        <div class="context-description">
+                            King's internal platform consisted of dozens of disconnected tools, each with separate authentication, navigation, and mental models. Users struggled to discover capabilities, wasted time context-switching, and faced a steep learning curve. Leadership recognized the need for a unified platform experience but lacked a clear vision.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">ACHIEVEMENTS</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Proposed and validated the Game Space concept</div>
+                            <div class="achievement-detail">Created vision prototypes showing a unified, game-centric platform experience</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Led co-creation and validation workshops</div>
+                            <div class="achievement-detail">Facilitated sessions with game teams to refine concept and validate value proposition</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Defined MVP scope and product requirements</div>
+                            <div class="achievement-detail">Prioritized features based on user needs, technical feasibility, and business impact</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Secured buy-in for future development</div>
+                            <div class="achievement-detail">Presented strategic case to leadership, resulting in allocation of resources for Game Space MVP</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artifacts Section -->
+                <div style="margin-top: 48px; padding: 32px; background: white; border: 1px solid #E5E5E5; border-radius: 8px;">
+                    <div class="card-heading">KEY ARTIFACTS</div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 24px;">
+                        <div>
+                            <div style="aspect-ratio: 16/9; background: #F5F5F5; border-radius: 4px; margin-bottom: 12px;"></div>
+                            <p style="font-size: 13px; color: #666666; line-height: 1.5;">UX Vision & Principles Framework</p>
+                        </div>
+                        <div>
+                            <div style="aspect-ratio: 16/9; background: #F5F5F5; border-radius: 4px; margin-bottom: 12px;"></div>
+                            <p style="font-size: 13px; color: #666666; line-height: 1.5;">Research Repository & Insights</p>
+                        </div>
+                        <div>
+                            <div style="aspect-ratio: 16/9; background: #F5F5F5; border-radius: 4px; margin-bottom: 12px;"></div>
+                            <p style="font-size: 13px; color: #666666; line-height: 1.5;">Game Space Concept Prototype</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Back Link -->
+            <div style="text-align: center; margin-top: 80px;">
+                <a href="index.html#work" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: #000000; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px; transition: all 0.2s;">
+                    ← Back Home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Hyojin Yang. Designed with care.</p>
+            <p style="font-size: 12px; margin-top: 8px; color: #999999;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

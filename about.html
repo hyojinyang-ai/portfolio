@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Hyojin Yang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cloud-dancer': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto Mono', 'monospace'],
+                        'display': ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Remove hover effects from non-linked CV items */
+        .cv-item {
+            transition: none !important;
+        }
+
+        .cv-item:hover {
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        /* Remove hover effects from skill tags */
+        .skill-tag {
+            transition: none !important;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--border-color) !important;
+            color: var(--text-dark) !important;
+        }
+
+        /* Remove hover effects from skill categories */
+        .skill-category {
+            transition: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cloud-dancer/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center gap-8 h-16">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-8 w-auto">
+                    <span class="font-semibold text-lg text-gray-900">HJY</span>
+                </a>
+                <ul class="flex gap-8">
+                    <li><a href="index.html#work" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">Work</a></li>
+                    <li><a href="about.html" class="text-gray-900 font-medium hover:text-gray-600 transition-colors">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="case-study-hero">
+        <div class="container" style="max-width: 900px;">
+            <!-- Image -->
+            <div style="display: flex; justify-content: center; margin-bottom: 48px;">
+                <img src="images/AboutHyojin.png" alt="Hyojin Yang" style="width: 200px; height: 200px; border-radius: 16px; object-fit: cover;">
+            </div>
+
+            <!-- Content -->
+            <div>
+                <p style="font-size: 18px; line-height: 1.7; color: var(--text-dark); margin-bottom: 24px; font-weight: 500;">
+                    Hello, I'm Hyojin, a Stockholm-based principal UX/Product designer who connects the dots between humans and systems.
+                </p>
+
+                <a href="CV_Hyojin Yang.pdf" target="_blank" rel="noopener noreferrer" class="view-project-button" style="margin-top: 32px; display: inline-flex;">
+                    Download CV
+                    <span class="arrow">↓</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How I Work & How I Can Help -->
+    <section style="padding: 60px 0; background: var(--bg-light);">
+        <div class="container" style="max-width: 900px;">
+
+            <!-- How I Work -->
+            <div style="margin-bottom: 60px;">
+                <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">How I Work</h2>
+                <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark);">
+                    I focus on owning ambiguous problem spaces and helping teams find the right problems to solve. I work end-to-end—from discovery and validation to defining MVPs and shaping product direction.
+                </p>
+                <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); margin-top: 20px;">
+                    I partner closely with PMs and engineers, stay close to users, and balance user needs with business goals and technical constraints to deliver outcomes that scale.
+                </p>
+            </div>
+
+            <!-- How I Can Help -->
+            <div>
+                <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">How I Can Help</h2>
+
+                <div style="display: grid; gap: 20px;">
+                    <div style="padding: 20px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">Product Discovery & Direction</h3>
+                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px;">Frame problems, validate ideas, and define what to build next.</p>
+                    </div>
+
+                    <div style="padding: 20px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">End-to-End Product Design</h3>
+                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px;">Design flows, systems, and interactions that support real workflows.</p>
+                    </div>
+
+                    <div style="padding: 20px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">Cross-Functional Execution</h3>
+                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px;">Move teams from insight to shipped outcomes with clarity and alignment.</p>
+                    </div>
+
+                    <div style="padding: 20px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">UX Vision & Strategy</h3>
+                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px;">Define principles, direction, and experience foundations that guide teams.</p>
+                    </div>
+
+                    <div style="padding: 20px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">Research at Scale</h3>
+                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px;">Establish research practices that inform decisions beyond individual teams.</p>
+                    </div>
+
+                    <div style="padding: 20px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">UX Maturity & Enablement</h3>
+                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px;">Help teams grow confidence, autonomy, and consistency in how they design.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Stack -->
+            <div style="margin-top: 60px;">
+                <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">Current Stack</h2>
+
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #E5E5E5;">
+                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
+                                <a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">ChatGPT</a>
+                            </td>
+                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
+                                <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">Figma</a>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #E5E5E5;">
+                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
+                                <a href="https://www.notion.so/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">Notion</a>
+                            </td>
+                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
+                                <a href="https://v0.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">V0.dev</a>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #E5E5E5;">
+                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
+                                <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">Claude Code</a>
+                            </td>
+                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
+                                <a href="https://lovable.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">Lovable</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
+                                <a href="https://cursor.sh/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">Cursor</a>
+                            </td>
+                            <td style="padding: 16px 0;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Back Home Button -->
+    <section style="padding: 60px 0; text-align: center;">
+        <div class="container" style="max-width: 900px;">
+            <a href="index.html#work" class="cta-button">Back Home</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Hyojin Yang. Designed with care.</p>
+            <p style="font-size: 12px; margin-top: 8px; color: #999999;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

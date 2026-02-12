@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyojin Yang - UX Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cloud-dancer': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto Mono', 'monospace'],
+                        'display': ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Roboto Mono", monospace;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto Mono", monospace;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        /* Animated Gradient Text */
+        .animated-gradient-text {
+            background: linear-gradient(
+                90deg,
+                #000000 0%,
+                #434343 25%,
+                #000000 50%,
+                #434343 75%,
+                #000000 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 4s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% center;
+            }
+            50% {
+                background-position: 100% center;
+            }
+            100% {
+                background-position: 0% center;
+            }
+        }
+    </style>
+</head>
+<body class="bg-cloud-dancer antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cloud-dancer/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center gap-8 h-16">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-8 w-auto">
+                    <span class="font-semibold text-lg text-gray-900">HJY</span>
+                </a>
+                <ul class="flex gap-8">
+                    <li><a href="index.html#work" class="text-gray-900 font-medium hover:text-gray-600 transition-colors">Work</a></li>
+                    <li><a href="about.html" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-start pt-32 pb-20 lg:pt-40">
+        <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
+            <img src="images/HyojinYang.png" alt="Hyojin Yang" style="width: 200px; height: auto; margin-bottom: 2em; display: block;">
+            <div style="font-size: 16px; line-height: 1.8; color: #0A0A0A; letter-spacing: 0.01em;">
+                <p style="margin-bottom: 2em;">
+                    Nice to meet you — I'm <b>Hyojin Yang</b>, a UX / Product Designer based in Stockholm.
+                </p>
+
+                <p style="margin-bottom: 2em;">
+                    I focus on building clear, intuitive experiences for complex systems—especially internal tools and platforms that are critical but often invisible. I care about making interfaces and interactions feel simple, understandable, and trustworthy, without losing what actually matters.
+                </p>
+
+                <p style="margin-bottom: 2em;">
+                    I'm currently a Principal UX Designer at <a href="https://www.king.com" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">King</a>, working closely with product and engineering to shape UX strategy, improve workflows, and help teams move from assumptions to shared understanding. I'm drawn to high-agency environments where problems are ambiguous, collaboration is strong, and design plays a strategic role in decision-making.
+                </p>
+
+                <p style="margin-bottom: 2em;">
+                    What keeps me excited about UX is that the problems are always evolving. My work is grounded in listening closely, asking the right questions, and translating complexity into clarity—so people can do their best work with confidence.
+                </p>
+
+                <p style="margin-bottom: 2em;">
+                    Outside of day-to-day design work, I enjoy experimenting with new tools, building prototypes, and exploring how AI is reshaping how we design, think, and collaborate.
+                </p>
+
+                <!-- View Featured Work Button -->
+                <div style="margin-top: 48px;">
+                    <a href="index.html#work" style="display: inline-flex; align-items: center; padding: 16px 32px; background: #0A0A0A; color: white; text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 8px; transition: all 0.2s;">
+                        View featured work
+                        <span style="margin-left: 8px;">↓</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
+        <div class="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="work" class="py-20 lg:py-24">
+        <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
+            <div style="font-size: 16px; line-height: 1.8; color: #0A0A0A; letter-spacing: 0.01em;">
+                <h2 style="margin-bottom: 3em; font-size: 16px; font-weight: 400; letter-spacing: 0.01em;"><b>Work Experience</b></h2>
+
+                <!-- King -->
+                <div style="margin-bottom: 3em;">
+                    <a href="king-case.html" style="text-decoration: none; color: #0A0A0A; display: flex; align-items: flex-start; gap: 0.75em; cursor: pointer;">
+                        <img src="images/king-logo.png" alt="King" style="width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; margin-top: 0.15em;">
+                        <span><span style="text-decoration: underline;">King</span><br>Leading the transformation of King's Core Platform from fragmented internal tooling with low UX maturity to a unified, research-driven experience that empowers developers and game teams. <br><span style="color: #666;">2022 — Current (3 years +) </span></span>
+                    </a>
+                </div>
+
+                <!-- Zalando -->
+                <div style="margin-bottom: 3em;">
+                    <a href="zalando-case.html" style="text-decoration: none; color: #0A0A0A; display: flex; align-items: flex-start; gap: 0.75em; cursor: pointer;">
+                        <img src="images/zalando-logo.png" alt="Zalando" style="width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; margin-top: 0.15em;">
+                        <span><span style="text-decoration: underline;">Zalando</span><br>Leading UX design for Zalando's Builder Platform, transforming internal tools for developers, data scientists, and product managers to manage complex technical workflows more efficiently. <br><span style="color: #666;">2021 — 2022 (1 year)</span></span>
+                    </a>
+                </div>
+
+                <!-- Telenor -->
+                <div style="margin-bottom: 3em;">
+                    <a href="telenor-case.html" style="text-decoration: none; color: #0A0A0A; display: flex; align-items: flex-start; gap: 0.75em; cursor: pointer;">
+                        <img src="images/telenor-logo.png" alt="Telenor" style="width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; margin-top: 0.15em;">
+                        <span><span style="text-decoration: underline;">Telenor</span><br>Leading the redesign of My Telenor account experience for Broadband and TV customers, consolidating fragmented platforms and enabling self-service through research-driven design. <br><span style="color: #666;">2019 — 2021 (2 years)</span></span>
+                    </a>
+                </div>
+
+                <!-- H&M -->
+                <div style="margin-bottom: 3em;">
+                    <a href="hm-case.html" style="text-decoration: none; color: #0A0A0A; display: flex; align-items: flex-start; gap: 0.75em; cursor: pointer;">
+                        <img src="images/hm-logo.png" alt="H&M" style="width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; margin-top: 0.15em;">
+                        <span><span style="text-decoration: underline;">H&M</span><br>Leading UX strategy and design teams to overhaul H&M's global membership program, directly contributing to doubling the active member base from 50 million to 100 million across 74 markets in just one year. <br><span style="color: #666;">2015 — 2019 (4 years +)</span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 bg-cloud-dancer">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <p class="text-gray-600">© 2025 Hyojin Yang. Designed with care.</p>
+                <p class="text-sm text-gray-500 mt-2">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

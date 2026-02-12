@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telenor Case Study - Hyojin Yang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cloud-dancer': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'sans': ['Roboto Mono', 'monospace'],
+                        'display': ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Telenor Blue Color Theme */
+        :root {
+            --primary-color: #0077C8;
+            --primary-hover: #005A9C;
+        }
+
+        .case-study-icon:hover {
+            background: #E0E0E0 !important;
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-hover);
+            box-shadow: 0 10px 30px rgba(0, 119, 200, 0.3);
+        }
+
+        .section-label {
+            color: var(--primary-color);
+        }
+
+        .highlight-box {
+            background: rgba(0, 119, 200, 0.1);
+            border-left: 4px solid #0077C8;
+        }
+
+        .contact-button:hover {
+            background: var(--primary-hover);
+            box-shadow: 0 10px 30px rgba(0, 119, 200, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cloud-dancer/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center gap-8 h-16">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-8 w-auto">
+                    <span class="font-semibold text-lg text-gray-900">HJY</span>
+                </a>
+                <ul class="flex gap-8">
+                    <li><a href="index.html#work" class="text-gray-900 font-medium hover:text-gray-600 transition-colors">Work</a></li>
+                    <li><a href="about.html" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Header -->
+    <section class="case-study-hero">
+        <div class="container" style="max-width: 900px;">
+            <a href="index.html#work" class="back-link">← Back Home</a>
+            <div class="case-study-header" style="margin-top: 40px;">
+                <div class="case-study-icon" style="background: #F5F5F5; padding: 12px; border-radius: 12px; transition: background 0.3s ease;">
+                    <img src="images/telenor-logo.png" alt="Telenor Logo" style="width: 48px; height: auto; display: block;">
+                </div>
+                <div class="case-study-meta">
+                    <h1 class="case-study-title">Telenor - Transforming Telenor's Digital Customer Experience</h1>
+                    <p class="case-study-role">Senior UX Designer / UX Lead · 2019-2021</p>
+                </div>
+            </div>
+
+           <!-- context info -->
+            <div style="margin-top: 20px;">
+                    <p style="font-size: 16px; line-height: 1.7; color: #333333; margin-bottom: 16px;">
+                        Telenor's digital ecosystem was fragmented across legacy and modern platforms, creating inconsistent experiences for customers and limiting the organization's ability to deliver unified, self-service solutions.
+                    </p>
+            </div>
+            
+        </div>
+    </section>
+    
+
+    <!-- Case Study Content -->
+    <section class="case-study-content">
+        <div class="container" style="max-width: 900px;">
+
+            <!-- Strategic Challenge -->
+            <div class="content-section">
+                <h2 class="content-section-title">The Strategic Challenge</h2>
+                <div class="content-card">
+                    <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 16px;">Fragmented Platforms & Inconsistent Experiences</h3>
+                    <p style="margin-bottom: 24px;">Telenor's digital ecosystem was split across legacy and modern platforms, creating structural inconsistencies that impacted customer trust, increased support costs, and slowed business agility. The organization needed to modernize while maintaining service continuity.</p>
+
+                    <div class="challenge-item-numbered" style="border: none; background: none;">
+                        <div class="challenge-number" style="background: transparent; color: #0077C8; border: none;">01</div>
+                        <div class="challenge-content">
+                            <strong>Platform Fragmentation</strong> - Legacy B2 for Broadband/TV vs. modern Epi for Mobile created inconsistent experiences
+                        </div>
+                    </div>
+
+                    <div class="challenge-item-numbered" style="border: none; background: none;">
+                        <div class="challenge-number" style="background: transparent; color: #0077C8; border: none;">02</div>
+                        <div class="challenge-content">
+                            <strong>High Activation Failure</strong> - ~1,700 monthly broadband activation failures drove support costs and customer frustration
+                        </div>
+                    </div>
+
+                    <div class="challenge-item-numbered" style="border: none; background: none;">
+                        <div class="challenge-number" style="background: transparent; color: #0077C8; border: none;">03</div>
+                        <div class="challenge-content">
+                            <strong>Complex Digital Commerce</strong> - Poorly differentiated shopping journeys caused drop-offs and confusion
+                        </div>
+                    </div>
+
+                    <div class="challenge-item-numbered" style="border: none; background: none;">
+                        <div class="challenge-number" style="background: transparent; color: #0077C8; border: none;">04</div>
+                        <div class="challenge-content">
+                            <strong>Regulatory Compliance Gap</strong> - New legislation required secure digital communication infrastructure
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- What I Led -->
+            <div style="margin-bottom: 60px;">
+                <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; color: #000000;">What I led</h2>
+                <p style="font-size: 16px; line-height: 1.7; color: #333333;">
+                        I worked to <strong>unify</strong> fragmented customer experiences, <strong>reduce friction</strong> in critical journeys, and <strong>align cross-functional teams</strong> around research-driven, scalable solutions.
+                    </p>
+                <ul style="list-style: none; padding: 0; display: grid; gap: 20px;">
+                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
+                        Led <strong>platform modernization</strong> from legacy B2 to Epi, creating unified account experiences across mobile, broadband, and TV
+                    </li>
+                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
+                        Redesigned <strong>activation experience</strong> to reduce ~1,700 monthly failures and decrease support dependency
+                    </li>
+                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
+                        Re-imagined <strong>digital shopping journey</strong> for TV and streaming services with validated concept flows
+                    </li>
+                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
+                        Designed <strong>secure Message Center</strong> to meet regulatory requirements and establish centralized digital communication
+                    </li>
+                </ul>
+            </div>
+
+            
+
+            <!-- Part 1: Modernizing the Account Platform -->
+            <section style="margin-bottom: 80px;">
+                <div class="section-label">PART 1</div>
+                <h3 class="section-title" style="text-align: left;">MODERNIZING THE ACCOUNT PLATFORM (B2 → EPI)</h3>
+
+                <div class="grid lg:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">Platform Migration, Account Experience</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">CHALLENGE</div>
+                            <div class="meta-value">Legacy B2 platform fragmentation</div>
+                        </div>
+
+                        <div class="context-description">
+                            Broadband and TV account pages were hosted on a non-responsive legacy system, inconsistent with mobile experiences, difficult to maintain, and structurally misaligned. Customers lacked clear subscription overview, easy upgrade paths, transparent invoice access, and consistent navigation.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">WHAT I DID</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Analyzed legacy B2 functionality and user needs</div>
+                            <div class="achievement-detail">Created user story maps to prioritize migration scope and feature parity</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Designed scalable information architecture</div>
+                            <div class="achievement-detail">Established modular design principles aligned across web and app</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Defined iterative roadmap for phased migration</div>
+                            <div class="achievement-detail">Balanced quick wins with long-term platform consolidation goals</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Aligned account structure across all subscription types</div>
+                            <div class="achievement-detail">Created unified foundation enabling consistent self-service experiences</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 32px; padding: 24px; background: #F9F9F9; border-radius: 12px; border-left: 4px solid #0077C8;">
+                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #000000;">Impact</h4>
+                    <ul style="list-style: disc; padding-left: 24px; display: grid; gap: 8px;">
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Unified fixed and mobile account experiences</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Created foundation for decommissioning legacy systems</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Enabled scalable feature expansion</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Strengthened digital self-service capability</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Divider -->
+            <div style="margin: 60px 0; border-top: 1px solid #E5E5E5;"></div>
+
+            <!-- Part 2: Reducing Activation Failure -->
+            <section style="margin-bottom: 80px;">
+                <div class="section-label">PART 2</div>
+                <h3 class="section-title" style="text-align: left;">REDUCING ACTIVATION FAILURE</h3>
+
+                <div class="grid lg:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">Activation Portal Redesign</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">CHALLENGE</div>
+                            <div class="meta-value">~1,700 monthly broadband activation failures</div>
+                        </div>
+
+                        <div class="context-description">
+                            Root causes included confusing flow, poor error messaging, unclear user segmentation, and structural ambiguity between registration and activation. This created increased support costs, customer frustration, and churn risk.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">WHAT I DID</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Facilitated design sprint with cross-functional team</div>
+                            <div class="achievement-detail">Mapped activation journey, identified breakdown points, and prioritized structural fixes</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Prototyped mobile-first activation flows</div>
+                            <div class="achievement-detail">Conducted usability testing focused on completion confidence and error understanding</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Redesigned information hierarchy and branching logic</div>
+                            <div class="achievement-detail">Simplified user segmentation, improved error and progress feedback</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Transformed technical portal into guided journey</div>
+                            <div class="achievement-detail">Shifted from feature-focused UI to trust-building onboarding experience</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 32px; padding: 24px; background: #F9F9F9; border-radius: 12px; border-left: 4px solid #0077C8;">
+                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #000000;">Impact</h4>
+                    <ul style="list-style: disc; padding-left: 24px; display: grid; gap: 8px;">
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Reduced friction in high-stakes onboarding moment</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Created opportunity for ~1M SEK annual support cost savings</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Increased activation clarity and customer confidence</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Supported platform modernization roadmap</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Divider -->
+            <div style="margin: 60px 0; border-top: 1px solid #E5E5E5;"></div>
+
+            <!-- Part 3: Re-imagining Digital Shopping Journey -->
+            <section style="margin-bottom: 80px;">
+                <div class="section-label">PART 3</div>
+                <h3 class="section-title" style="text-align: left;">RE-IMAGINING THE DIGITAL SHOPPING JOURNEY</h3>
+
+                <div class="grid lg:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">TV & Streaming Commerce</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">CHALLENGE</div>
+                            <div class="meta-value">Complex, inconsistent shopping experience</div>
+                        </div>
+
+                        <div class="context-description">
+                            The digital shopping journey was complex and inconsistent, poorly differentiated between TV and streaming, causing drop-offs in sensitive steps, and not aligned with in-store experience. Customers wanted simplicity, personalization, control, and transparency.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">WHAT I DID</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Mapped entire digital commerce journey</div>
+                            <div class="achievement-detail">Identified friction points across package selection, comparison, and checkout</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Facilitated cross-functional ideation workshops</div>
+                            <div class="achievement-detail">Developed two validated concept flows: wizard-based guided journey and single-page filter-based overview</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Introduced early BankID personalization logic</div>
+                            <div class="achievement-detail">Simplified package comparison and add-on selection based on customer context</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Proposed structured A/B experimentation framework</div>
+                            <div class="achievement-detail">Enabled data-driven optimization of commerce flows</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 32px; padding: 24px; background: #F9F9F9; border-radius: 12px; border-left: 4px solid #0077C8;">
+                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #000000;">Impact</h4>
+                    <ul style="list-style: disc; padding-left: 24px; display: grid; gap: 8px;">
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Improved clarity in package differentiation</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Strengthened digital-first commerce strategy</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Reduced cognitive load in checkout</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Enabled scalable experimentation roadmap</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Divider -->
+            <div style="margin: 60px 0; border-top: 1px solid #E5E5E5;"></div>
+
+            <!-- Part 4: Designing Secure Digital Communication -->
+            <section style="margin-bottom: 80px;">
+                <div class="section-label">PART 4</div>
+                <h3 class="section-title" style="text-align: left;">DESIGNING SECURE DIGITAL COMMUNICATION</h3>
+
+                <div class="grid lg:grid-cols-2 gap-8" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
+                    <!-- Context Card -->
+                    <div class="context-card">
+                        <div class="card-heading">CONTEXT</div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">FOCUS</div>
+                            <div class="meta-value">Message Center, Compliance</div>
+                        </div>
+
+                        <div class="meta-row">
+                            <div class="meta-label">CHALLENGE</div>
+                            <div class="meta-value">New legislation requiring encrypted communication</div>
+                        </div>
+
+                        <div class="context-description">
+                            The organization lacked unified message history, secure digital inbox, structured notification logic, and clear ownership. New legislation required encrypted communication for personal data, creating regulatory pressure.
+                        </div>
+                    </div>
+
+                    <!-- Achievements Card -->
+                    <div class="achievements-card">
+                        <div class="card-heading">WHAT I DID</div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Conducted user interviews and survey (428 responses)</div>
+                            <div class="achievement-detail">Mapped communication types and channel expectations across customer segments</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Facilitated design sprint with business, legal, and tech</div>
+                            <div class="achievement-detail">Aligned cross-functional teams on secure Message Center concept and roadmap</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Designed secure Message Center concept</div>
+                            <div class="achievement-detail">Defined MVP vs long-term roadmap with clear prioritization criteria</div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-lead">Structured 1-way → 2-way communication evolution</div>
+                            <div class="achievement-detail">Created phased approach balancing compliance, user needs, and technical feasibility</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 32px; padding: 24px; background: #F9F9F9; border-radius: 12px; border-left: 4px solid #0077C8;">
+                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #000000;">Impact</h4>
+                    <ul style="list-style: disc; padding-left: 24px; display: grid; gap: 8px;">
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Achieved legal compliance readiness</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Created centralized digital message experience</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Improved customer trust and control</li>
+                        <li style="font-size: 15px; line-height: 1.6; color: #333333;">Established roadmap for two-way communication</li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <!-- Key Impact -->
+            <div class="content-section">
+                <h2 class="content-section-title">Key Impact</h2>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-icon" style="color: #0077C8;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                            </svg>
+                        </div>
+                        <p>Reduced activation friction</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon" style="color: #0077C8;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </div>
+                        <p>Improved digital self-service foundation</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon" style="color: #0077C8;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+                        </div>
+                        <p>Enabled legacy decommissioning</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon" style="color: #0077C8;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                            </svg>
+                        </div>
+                        <p>Increased clarity in commerce flows</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon" style="color: #0077C8;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                            </svg>
+                        </div>
+                        <p>Prepared platform for secure digital communication</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon" style="color: #0077C8;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 32px; height: 32px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                            </svg>
+                        </div>
+                        <p>Strengthened UX maturity within organization</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Takeaways -->
+            <div class="content-section">
+                <h2 class="content-section-title">Key Takeaways</h2>
+                <div class="content-card">
+                    <p style="font-size: 16px; line-height: 1.8; color: #000000; font-weight: 500;">At Telenor, UX was not about polishing interfaces — it was about reshaping systems and creating clarity within complex, constraint-heavy environments.</p>
+                    <p style="margin-top: 16px;">The work required balancing customer needs with technical limitations, regulatory requirements, and organizational realities. By leading with research and facilitating cross-functional alignment, I helped turn fragmented digital touchpoints into scalable, self-service experiences that supported both customer confidence and business outcomes.</p>
+                    <ul style="list-style: none; padding: 0; display: grid; gap: 12px; margin-top: 20px;">
+                        <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                            <span style="position: absolute; left: 0; font-weight: 700; color: #0077C8;">→</span>
+                            Unified disconnected platforms into coherent account and commerce journeys
+                        </li>
+                        <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                            <span style="position: absolute; left: 0; font-weight: 700; color: #0077C8;">→</span>
+                            Reduced operational cost by improving activation and self-service flows
+                        </li>
+                        <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                            <span style="position: absolute; left: 0; font-weight: 700; color: #0077C8;">→</span>
+                            Enabled platform modernization without disrupting live services
+                        </li>
+                        <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
+                            <span style="position: absolute; left: 0; font-weight: 700; color: #0077C8;">→</span>
+                            Established research-informed decision-making across teams
+                        </li>
+                    </ul>
+                    <p style="margin-top: 20px;">The foundations, patterns, and practices introduced during this period continue to influence Telenor’s digital product development.</p>
+                </div>
+            </div>
+
+            <!-- More Projects -->
+            <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid #E5E5E5;">
+                <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: #000000; text-align: center;">More Projects</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 48px;">
+                    <!-- King -->
+                    <a href="king-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/king-logo.png" alt="King" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">King</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Driving Strategic UX Design & Maturity</p>
+                    </a>
+                    <!-- Zalando -->
+                    <a href="zalando-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/zalando-logo.png" alt="Zalando" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">Zalando</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Transforming Builder Platform for Enhanced Developer Experience</p>
+                    </a>
+                    <!-- H&M -->
+                    <a href="hm-case.html" style="text-decoration: none; padding: 24px; border: 1px solid #E5E5E5; border-radius: 12px; transition: all 0.2s; display: block;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="images/hm-logo.png" alt="H&M" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">H&M</h4>
+                        </div>
+                        <p style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0;">Scaling the Global Membership Program to 100 Million Users</p>
+                    </a>
+                </div>
+            </div>
+
+            <div style="margin: 60px 0; text-align: center;">
+                <a href="index.html#work" class="cta-button">Back Home</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Hyojin Yang. Designed with care.</p>
+            <p style="font-size: 12px; margin-top: 8px; color: #999999;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

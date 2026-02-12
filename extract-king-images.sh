@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Script to help export King case study images from PDF
+# This creates an automated guide for the user
+
+echo "📸 King Case Study Image Extraction Guide"
+echo "=========================================="
+echo ""
+echo "Please follow these steps to export the images:"
+echo ""
+echo "1. Open the King case study PDF in Preview"
+echo "   File location: /Users/hyojin.yang/Downloads/king-case.pdf"
+echo ""
+echo "2. For each of the following slides, export as PNG:"
+echo ""
+echo "   Slide 6 → king-common-challenges.png (Common Challenges)"
+echo "   Slide 13 → king-ux-vision.png (UX Vision)"
+echo "   Slide 14 → king-ux-pillars.png (UX Pillars)"
+echo "   Slide 25 → king-future-scenario.png (Future Scenario with Tiffy)"
+echo "   Slide 30 → king-ux-canvas-workshop.png (UX Canvas workshop)"
+echo "   Slide 32 → king-ux-playbook.png (UX Design Methods Playbook)"
+echo ""
+echo "3. How to export each slide in Preview:"
+echo "   - Navigate to the slide number"
+echo "   - File → Export"
+echo "   - Format: PNG"
+echo "   - Save to: /Users/hyojin.yang/portfolio/images/"
+echo "   - Use the exact filename shown above"
+echo ""
+echo "OR use this automated command to open the PDF:"
+echo "open /Users/hyojin.yang/Downloads/king-case.pdf"
+echo ""
+echo "Once done, refresh the King case study page to see the images!"
