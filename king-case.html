@@ -192,9 +192,19 @@
                 <!-- Context Summary -->
                 <div class="content-card" style="margin-bottom: 40px;">
                     <p style="font-size: 16px; line-height: 1.8; color: #000000; font-weight: 500;">The internal game engine ecosystem suffered from low adoption and fragmented workflows. Only 30–50% of users were on the latest editor version, meaning critical hotfixes and new features took months to reach production teams.</p>
+                    <div style="margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <figure style="border-radius: 12px; overflow: hidden; border: 1px solid #E5E5E5; margin: 0;">
+                            <img src="images/fiction-launcher-current.png" alt="Fiction Launcher current state - Projects view" width="2206" height="1898" style="width: 100%; height: auto; display: block;">
+                            <figcaption style="font-size: 11px; color: #666666; padding: 8px 10px; background: #F9F9F9;">Fiction Launcher - Projects View</figcaption>
+                        </figure>
+                        <figure style="border-radius: 12px; overflow: hidden; border: 1px solid #E5E5E5; margin: 0;">
+                            <img src="images/fiction-launcher-editors.png" alt="Fiction Launcher current state - Editors view showing multiple editor versions" width="2220" height="1914" style="width: 100%; height: auto; display: block;">
+                            <figcaption style="font-size: 11px; color: #666666; padding: 8px 10px; background: #F9F9F9;">Fiction Launcher - Editors View</figcaption>
+                        </figure>
+                    </div>
                     <p style="margin-top: 16px;">Despite having a launcher tool, the update experience was broken: users bypassed the official launcher, version mismatch errors were common, updates felt risky and disruptive, and manual version tracking via Slack and Jira was required.</p>
                     <p style="margin-top: 16px;">The underlying issue wasn't just tooling — it was trust, predictability, and system coherence.</p>
-                    <p style="margin-top: 20px; font-size: 16px; font-weight: 600; color: #000000;">The mission: Create a Cohesive Content Creation Ecosystem where creators are always just "One click away from their work."</p>
+                    <p style="margin-top: 20px; font-size: 16px; font-weight: 600; color: #000000;">🚀 The mission: Create a Cohesive Content Creation Ecosystem where creators are always just "One click away from their work."</p>
                 </div>
 
                 <!-- The Core Problems -->
@@ -220,9 +230,28 @@
                 <div class="content-card" style="margin-bottom: 40px;">
                     <p style="margin-bottom: 16px;">As the UX lead, I initiated the discovery phase by conducting qualitative research with developers, artists, and technical artists. I synthesized the findings and shared insights broadly to build a shared understanding of why this initiative mattered — not just what needed to be fixed.</p>
 
-                    <!-- Research & Workshop Overview -->
-                    <div style="margin: 24px 0; border-radius: 12px; overflow: hidden; border: 1px solid #E5E5E5; cursor: pointer;" onclick="document.getElementById('lightbox-research').style.display='flex'">
-                        <img src="images/fiction-research-overview.png" alt="Research and workshop overview - discovery findings, user journey mapping, design sprints, and cross-functional alignment sessions" style="width: 100%; height: auto; display: block;">
+                    <!-- Research & Workshop Gallery -->
+                    <div style="margin: 24px 0; display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px;">
+                        <figure style="border-radius: 12px; overflow: hidden; border: 1px solid #E5E5E5; cursor: pointer; flex: 0 0 auto; margin: 0;" onclick="openGallery(0)">
+                            <img src="images/fiction-research-overview.png" alt="Research and workshop overview" width="900" height="500" style="width: auto; height: 180px; object-fit: cover; display: block;">
+                            <figcaption style="font-size: 11px; color: #666666; padding: 8px 10px; background: #F9F9F9; white-space: nowrap;">Research & Workshop Overview</figcaption>
+                        </figure>
+                        <figure style="border-radius: 12px; overflow: hidden; border: 1px solid #E5E5E5; cursor: pointer; flex: 0 0 auto; margin: 0;" onclick="openGallery(1)">
+                            <img src="images/fiction-workshop-1.png" alt="Workshop session 1 - Silent review, idea selection, discussion and evaluation, concept sketching" width="900" height="486" style="width: auto; height: 180px; object-fit: cover; display: block;">
+                            <figcaption style="font-size: 11px; color: #666666; padding: 8px 10px; background: #F9F9F9; white-space: nowrap;">Silent Review, Idea Selection & Concept Sketching</figcaption>
+                        </figure>
+                        <figure style="border-radius: 12px; overflow: hidden; border: 1px solid #E5E5E5; cursor: pointer; flex: 0 0 auto; margin: 0;" onclick="openGallery(2)">
+                            <img src="images/fiction-workshop-2.png" alt="Workshop session 2 - Define the vision and ideate solution, HMW exercises, inspiration gathering" width="900" height="448" style="width: auto; height: 180px; object-fit: cover; display: block;">
+                            <figcaption style="font-size: 11px; color: #666666; padding: 8px 10px; background: #F9F9F9; white-space: nowrap;">Vision Definition & HMW Ideation</figcaption>
+                        </figure>
+                        <figure style="border-radius: 12px; overflow: hidden; border: 1px solid #E5E5E5; cursor: pointer; flex: 0 0 auto; margin: 0;" onclick="openGallery(3)">
+                            <img src="images/fiction-workshop-3.png" alt="Workshop session 3 - HMW voting, vision definition, solution ideation with cross-functional team" width="900" height="396" style="width: auto; height: 180px; object-fit: cover; display: block;">
+                            <figcaption style="font-size: 11px; color: #666666; padding: 8px 10px; background: #F9F9F9; white-space: nowrap;">HMW Voting & Solution Ideation</figcaption>
+                        </figure>
+                        <figure style="border-radius: 12px; overflow: hidden; border: 1px solid #E5E5E5; cursor: pointer; flex: 0 0 auto; margin: 0;" onclick="openGallery(4)">
+                            <img src="images/fiction-workshop-4.png" alt="Opportunity discussion - raw idea generation, solution clustering, and prioritization" width="900" height="705" style="width: auto; height: 180px; object-fit: cover; display: block;">
+                            <figcaption style="font-size: 11px; color: #666666; padding: 8px 10px; background: #F9F9F9; white-space: nowrap;">Opportunity Discussion & Prioritization</figcaption>
+                        </figure>
                     </div>
 
                     <p style="margin-bottom: 16px;">I facilitated a series of cross-functional workshops to prioritize the most critical problem to solve first, define clear problem statements, align UX, engineering, and product around shared objectives, and identify technical enablers required for sustainable change.</p>
@@ -784,11 +813,50 @@
         </div>
     </footer>
 
-    <!-- Lightbox Overlay -->
-    <div id="lightbox-research" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center; cursor: pointer;" onclick="this.style.display='none'">
-        <img src="images/fiction-research-overview.png" alt="Research and workshop overview" style="max-width: 95%; max-height: 95%; object-fit: contain;">
-        <div style="position: absolute; top: 20px; right: 24px; color: white; font-size: 32px; font-weight: 300; line-height: 1;">&times;</div>
+    <!-- Gallery Lightbox -->
+    <div id="gallery-lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;" onclick="if(event.target===this)closeGallery()">
+        <img id="gallery-img" src="" alt="" style="max-width: 90%; max-height: 90%; object-fit: contain;">
+        <div style="position: absolute; top: 20px; right: 24px; color: white; font-size: 32px; font-weight: 300; line-height: 1; cursor: pointer; padding: 8px;" onclick="closeGallery()">&times;</div>
+        <div style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: white; font-size: 36px; cursor: pointer; padding: 12px; user-select: none;" onclick="navigateGallery(-1)">&#8249;</div>
+        <div style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: white; font-size: 36px; cursor: pointer; padding: 12px; user-select: none;" onclick="navigateGallery(1)">&#8250;</div>
+        <div id="gallery-counter" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.7); font-size: 14px;"></div>
     </div>
+    <script>
+        var galleryImages = [
+            { src: 'images/fiction-research-overview.png', alt: 'Research and workshop overview' },
+            { src: 'images/fiction-workshop-1.png', alt: 'Workshop session 1 - Idea selection and concept sketching' },
+            { src: 'images/fiction-workshop-2.png', alt: 'Workshop session 2 - Vision and ideation' },
+            { src: 'images/fiction-workshop-3.png', alt: 'Workshop session 3 - HMW voting and solution ideation' },
+            { src: 'images/fiction-workshop-4.png', alt: 'Opportunity discussion and prioritization' }
+        ];
+        var currentIndex = 0;
+        function openGallery(index) {
+            currentIndex = index;
+            updateGalleryImage();
+            document.getElementById('gallery-lightbox').style.display = 'flex';
+        }
+        function closeGallery() {
+            document.getElementById('gallery-lightbox').style.display = 'none';
+        }
+        function navigateGallery(dir) {
+            currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
+            updateGalleryImage();
+        }
+        function updateGalleryImage() {
+            var img = document.getElementById('gallery-img');
+            img.src = galleryImages[currentIndex].src;
+            img.alt = galleryImages[currentIndex].alt;
+            document.getElementById('gallery-counter').textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+        }
+        document.addEventListener('keydown', function(e) {
+            var lb = document.getElementById('gallery-lightbox');
+            if (lb.style.display === 'flex') {
+                if (e.key === 'Escape') closeGallery();
+                if (e.key === 'ArrowLeft') navigateGallery(-1);
+                if (e.key === 'ArrowRight') navigateGallery(1);
+            }
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
