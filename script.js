@@ -223,7 +223,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateX(0)';
+                    entry.target.style.transform = 'translateY(0)';
                 }, index * 100);
                 approachObserver.unobserve(entry.target);
             }
@@ -232,7 +232,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.approach-item').forEach(item => {
         item.style.opacity = '0';
-        item.style.transform = 'translateX(-30px)';
+        item.style.transform = 'translateY(20px)';
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         approachObserver.observe(item);
     });
