@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,7 +23,7 @@
                         'cloud-dancer': '#FFFFFF',
                     },
                     fontFamily: {
-                        'sans': ['Roboto Mono', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
                         'display': ['Playfair Display', 'serif'],
                     }
                 }
@@ -478,7 +478,7 @@
 
             <!-- View All Toggle -->
             <div style="text-align: center; margin-bottom: 40px;">
-                <button onclick="toggleSections()" id="view-all-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: transparent; border: 1px solid #D0D0D0; border-radius: 8px; font-size: 14px; font-weight: 600; color: #333333; cursor: pointer; font-family: 'Roboto Mono', monospace; transition: all 0.2s;" onmouseover="this.style.borderColor='#FF6B35'; this.style.color='#FF6B35';" onmouseout="this.style.borderColor='#D0D0D0'; this.style.color='#333333';">
+                <button onclick="toggleSections()" id="view-all-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: transparent; border: 1px solid #D0D0D0; border-radius: 8px; font-size: 14px; font-weight: 600; color: #333333; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s;" onmouseover="this.style.borderColor='#FF6B35'; this.style.color='#FF6B35';" onmouseout="this.style.borderColor='#D0D0D0'; this.style.color='#333333';">
                     <span id="view-all-text">View All Other Works</span>
                     <svg id="view-all-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 16px; height: 16px; transition: transform 0.3s;"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                 </button>
