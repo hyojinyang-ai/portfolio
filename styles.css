@@ -51,7 +51,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+h4, h5, h6 {
     font-family: "Roboto Mono", monospace;
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -490,10 +497,12 @@ html {
 }
 
 .case-study-title {
-    font-size: 32px;
-    font-weight: 600;
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    font-weight: 700;
     margin-bottom: 8px;
     color: var(--text-dark);
+    line-height: 1.2;
 }
 
 .case-study-role {
@@ -593,10 +602,12 @@ html {
 }
 
 .content-section-title {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 24px;
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 28px;
     color: var(--text-dark);
+    line-height: 1.2;
 }
 
 .content-card {
@@ -1196,12 +1207,45 @@ html {
 
 /* Footer */
 .footer {
-    padding: 40px 0;
-    text-align: center;
-    background: var(--cloud-dancer);
-    color: var(--text-light);
+    padding: 80px 0 40px 0;
+    background: #0A0A0A;
+    color: #FFFFFF;
     font-size: 14px;
-    border-top: 1px solid var(--border-color);
+    border-top: none;
+}
+
+.footer a {
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #FFFFFF;
+}
+
+/* Work Cards */
+.work-card {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-card:hover {
+    transform: translateY(-4px);
+}
+
+.work-card-inner {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.work-card:hover .work-card-inner {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 /* Responsive Design */

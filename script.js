@@ -4,7 +4,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const navHeight = document.querySelector('.nav').offsetHeight;
+            const nav = document.getElementById('main-nav') || document.querySelector('.nav');
+            const navHeight = nav ? nav.offsetHeight : 80;
             const targetPosition = target.offsetTop - navHeight - 20;
 
             window.scrollTo({
@@ -32,43 +33,48 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe sections for fade-in animation
 window.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.case-study-card, .about-content, .contact-section');
+    const sections = document.querySelectorAll('.case-study-card, .about-content, .contact-section, .content-section');
     sections.forEach(section => {
         section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
+        section.style.transform = 'translateY(40px)';
         section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
         observer.observe(section);
     });
+
+    // Staggered fade-in for work cards
+    const workCards = document.querySelectorAll('.work-card');
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 120);
+                cardObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    workCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        cardObserver.observe(card);
+    });
 });
 
-// Add active state to navigation on scroll
+// Nav scroll shadow effect
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.nav');
-    if (window.scrollY > 100) {
-        nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        nav.style.boxShadow = 'none';
+    const nav = document.getElementById('main-nav') || document.querySelector('.nav');
+    if (nav) {
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            nav.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.06)';
+        } else {
+            nav.style.background = 'rgba(255, 255, 255, 0.8)';
+            nav.style.boxShadow = 'none';
+        }
     }
-
-    // Update active nav link based on scroll position
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.style.color = '';
-        if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = 'var(--primary-color)';
-        }
-    });
 });
 
 // Add hover effect to stat cards

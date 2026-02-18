@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,7 +23,7 @@
                     },
                     fontFamily: {
                         'sans': ['Roboto Mono', 'monospace'],
-                        'display': ['Roboto Mono', 'monospace'],
+                        'display': ['Playfair Display', 'serif'],
                     }
                 }
             }
@@ -38,38 +38,60 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        h1, h2, h3, h4, h5, h6 {
+        h1, h2, h3 {
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        h4, h5, h6 {
             font-family: "Roboto Mono", monospace;
             font-weight: 600;
             letter-spacing: -0.02em;
         }
 
-        /* Animated Gradient Text */
-        .animated-gradient-text {
-            background: linear-gradient(
-                90deg,
-                #000000 0%,
-                #434343 25%,
-                #000000 50%,
-                #434343 75%,
-                #000000 100%
-            );
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-shift 4s ease infinite;
+        .work-card {
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .work-card:hover {
+            transform: translateY(-4px);
+        }
+        .work-card-inner {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .work-card:hover .work-card-inner {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
         }
 
-        @keyframes gradient-shift {
-            0% {
-                background-position: 0% center;
+        /* Dark footer links */
+        .dark-footer a {
+            color: #999999;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .dark-footer a:hover {
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 768px) {
+            .work-grid {
+                grid-template-columns: 1fr !important;
             }
-            50% {
-                background-position: 100% center;
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
             }
-            100% {
-                background-position: 0% center;
+            .footer-bottom {
+                flex-direction: column !important;
+                gap: 8px !important;
+                align-items: flex-start !important;
             }
         }
     </style>
@@ -77,26 +99,26 @@
 <body class="bg-cloud-dancer antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-cloud-dancer/95 backdrop-blur-sm border-b border-gray-200">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background: rgba(255,255,255,0.8);">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center gap-8 h-16">
+            <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
-                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-8 w-auto">
-                    <span class="font-semibold text-lg text-gray-900">HJY</span>
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
+                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: #000;">HJY</span>
                 </a>
-                <ul class="flex gap-8">
-                    <li><a href="index.html#work" class="text-gray-900 font-medium hover:text-gray-600 transition-colors">Work</a></li>
-                    <li><a href="about.html" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">About</a></li>
+                <ul class="flex gap-10">
+                    <li><a href="index.html#work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
+                    <li><a href="about.html" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">About</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-start pt-32 pb-20 lg:pt-40">
+    <section class="relative min-h-screen flex items-start pt-40 pb-24 lg:pt-48">
         <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
-            <img src="images/HyojinYang.png" alt="Hyojin Yang" style="width: 200px; height: auto; margin-bottom: 2em; display: block;">
-            <div style="font-size: 16px; line-height: 1.8; color: #0A0A0A; letter-spacing: 0.01em;">
+            <img src="images/HyojinYang.png" alt="Hyojin Yang" style="width: 200px; height: auto; margin-bottom: 2.5em; display: block; border-radius: 12px;">
+            <div style="font-size: 17px; line-height: 1.8; color: #0A0A0A; letter-spacing: 0.01em;">
                 <p style="margin-bottom: 2em;">
                     Nice to meet you — I'm <b>Hyojin Yang</b>, a UX / Product Designer based in Stockholm.
                 </p>
@@ -118,68 +140,113 @@
                 </p>
 
                 <!-- View Featured Work Button -->
-                <div style="margin-top: 48px;">
-                    <a href="index.html#work" style="display: inline-flex; align-items: center; padding: 16px 32px; background: #0A0A0A; color: white; text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 8px; transition: all 0.2s;">
+                <div style="margin-top: 56px;">
+                    <a href="index.html#work" style="display: inline-flex; align-items: center; padding: 16px 36px; background: #0A0A0A; color: white; text-decoration: none; font-size: 15px; font-weight: 500; border-radius: 8px; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                         View featured work
-                        <span style="margin-left: 8px;">↓</span>
+                        <span style="margin-left: 10px;">↓</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Divider -->
-    <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
-        <div class="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-    </div>
+    <!-- Work Section -->
+    <section id="work" style="background: #F5F5F5; padding: 100px 0;">
+        <div class="mx-auto px-6 lg:px-8" style="max-width: 1000px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; margin-bottom: 60px; color: #000000; letter-spacing: -0.02em;">
+                Selected Work
+            </h2>
 
-    <!-- Experience Section -->
-    <section id="work" class="py-20 lg:py-24">
-        <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
-            <div style="font-size: 16px; line-height: 1.8; color: #0A0A0A; letter-spacing: 0.01em;">
-                <h2 style="margin-bottom: 3em; font-size: 16px; font-weight: 400; letter-spacing: 0.01em;"><b>Work Experience</b></h2>
-
+            <div class="work-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
                 <!-- King -->
-                <div style="margin-bottom: 3em;">
-                    <a href="king-case.html" style="text-decoration: none; color: #0A0A0A; display: flex; align-items: flex-start; gap: 0.75em; cursor: pointer;">
-                        <img src="images/king-logo.png" alt="King" style="width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; margin-top: 0.15em;">
-                        <span><span style="text-decoration: underline;">King</span><br>Transforming fragmented internal tooling into unified, research-driven ecosystems across Game Production and Core Platform — improving adoption, reducing operational friction, and enabling scalable platform evolution. <br><span style="color: #666;">2022 — Current (3 years +) </span></span>
-                    </a>
-                </div>
+                <a href="king-case.html" class="work-card">
+                    <div class="work-card-inner">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <img src="images/king-logo.png" alt="King" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h3 style="font-size: 24px; margin: 0; color: #000;">King</h3>
+                        </div>
+                        <p style="font-size: 14px; line-height: 1.7; color: #525252; margin-bottom: 20px;">
+                            Transforming fragmented internal tooling into unified, research-driven ecosystems across Game Production and Core Platform.
+                        </p>
+                        <span style="font-size: 13px; color: #999; font-weight: 500;">2022 — Current</span>
+                    </div>
+                </a>
 
                 <!-- Zalando -->
-                <div style="margin-bottom: 3em;">
-                    <a href="zalando-case.html" style="text-decoration: none; color: #0A0A0A; display: flex; align-items: flex-start; gap: 0.75em; cursor: pointer;">
-                        <img src="images/zalando-logo.png" alt="Zalando" style="width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; margin-top: 0.15em;">
-                        <span><span style="text-decoration: underline;">Zalando</span><br>Leading product design for Zalando's Builder Platform, transforming internal tools for developers, data scientists, and product managers to manage complex technical workflows more efficiently. <br><span style="color: #666;">2021 — 2022 (1 year)</span></span>
-                    </a>
-                </div>
+                <a href="zalando-case.html" class="work-card">
+                    <div class="work-card-inner">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <img src="images/zalando-logo.png" alt="Zalando" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h3 style="font-size: 24px; margin: 0; color: #000;">Zalando</h3>
+                        </div>
+                        <p style="font-size: 14px; line-height: 1.7; color: #525252; margin-bottom: 20px;">
+                            Leading product design for Zalando's Builder Platform, transforming internal tools for developers and product managers.
+                        </p>
+                        <span style="font-size: 13px; color: #999; font-weight: 500;">2021 — 2022</span>
+                    </div>
+                </a>
 
                 <!-- Telenor -->
-                <div style="margin-bottom: 3em;">
-                    <a href="telenor-case.html" style="text-decoration: none; color: #0A0A0A; display: flex; align-items: flex-start; gap: 0.75em; cursor: pointer;">
-                        <img src="images/telenor-logo.png" alt="Telenor" style="width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; margin-top: 0.15em;">
-                        <span><span style="text-decoration: underline;">Telenor</span><br>Leading the redesign of My Telenor account experience for Broadband and TV customers, consolidating fragmented platforms and enabling self-service through research-driven design. <br><span style="color: #666;">2019 — 2021 (2 years)</span></span>
-                    </a>
-                </div>
+                <a href="telenor-case.html" class="work-card">
+                    <div class="work-card-inner">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <img src="images/telenor-logo.png" alt="Telenor" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h3 style="font-size: 24px; margin: 0; color: #000;">Telenor</h3>
+                        </div>
+                        <p style="font-size: 14px; line-height: 1.7; color: #525252; margin-bottom: 20px;">
+                            Leading the redesign of My Telenor account experience, consolidating fragmented platforms through research-driven design.
+                        </p>
+                        <span style="font-size: 13px; color: #999; font-weight: 500;">2019 — 2021</span>
+                    </div>
+                </a>
 
                 <!-- H&M -->
-                <div style="margin-bottom: 3em;">
-                    <a href="hm-case.html" style="text-decoration: none; color: #0A0A0A; display: flex; align-items: flex-start; gap: 0.75em; cursor: pointer;">
-                        <img src="images/hm-logo.png" alt="H&M" style="width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; margin-top: 0.15em;">
-                        <span><span style="text-decoration: underline;">H&M</span><br>Leading UX strategy and a small design group to overhaul H&M's global membership program, directly contributing to doubling the active member base from 50 million to 100 million across 74 markets. <br><span style="color: #666;">2015 — 2019 (4 years +)</span></span>
-                    </a>
-                </div>
+                <a href="hm-case.html" class="work-card">
+                    <div class="work-card-inner">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <img src="images/hm-logo.png" alt="H&M" style="width: 32px; height: 32px; object-fit: contain;">
+                            <h3 style="font-size: 24px; margin: 0; color: #000;">H&M</h3>
+                        </div>
+                        <p style="font-size: 14px; line-height: 1.7; color: #525252; margin-bottom: 20px;">
+                            Leading UX strategy to overhaul H&M's global membership program, contributing to doubling the active member base to 100 million.
+                        </p>
+                        <span style="font-size: 13px; color: #999; font-weight: 500;">2015 — 2019</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-200 bg-cloud-dancer">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-            <div class="text-center">
-                <p class="text-gray-600">© 2025 Hyojin Yang. Designed with care.</p>
-                <p class="text-sm text-gray-500 mt-2">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+    <footer class="dark-footer" style="background: #0A0A0A; color: white; padding: 80px 0 40px 0;">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+                        <img src="images/hj-logo.png" alt="HJ Logo" style="height: 32px; filter: brightness(0) invert(1);">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;">HJY</span>
+                    </div>
+                    <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">
+                        A UX / Product Designer based in Stockholm, focused on building clear, intuitive experiences for complex systems.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="index.html#work" style="font-size: 14px;">Work</a></li>
+                        <li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px;">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Connect</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="https://www.linkedin.com/in/hyojinyang/" target="_blank" style="font-size: 14px;">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom" style="border-top: 1px solid #262626; padding-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+                <p style="color: #666666; font-size: 13px;">© 2025 Hyojin Yang. Designed with care.</p>
+                <p style="color: #666666; font-size: 12px;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
             </div>
         </div>
     </footer>
