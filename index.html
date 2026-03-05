@@ -20,7 +20,7 @@
             theme: {
                 extend: {
                     colors: {
-                        'cloud-dancer': '#FFFFFF',
+                        'cloud-dancer': '#FAF8F5',
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
@@ -60,15 +60,17 @@
             transform: translateY(-4px);
         }
         .work-card-inner {
-            background: white;
+            background: #FAF8F5;
             border-radius: 12px;
             padding: 32px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s ease;
+            border: 1px solid #E8E4DE;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
             height: 100%;
         }
         .work-card:hover .work-card-inner {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            border-color: #D4CFC8;
         }
 
         /* Dark footer links */
@@ -85,8 +87,8 @@
             display: inline-flex;
             align-items: center;
             padding: 16px 36px;
-            background: #0A0A0A;
-            color: white;
+            background: #1A1A1A;
+            color: #FAF8F5;
             text-decoration: none;
             font-size: 15px;
             font-weight: 500;
@@ -119,12 +121,12 @@
 <body class="bg-cloud-dancer antialiased">
 
     <!-- Navigation -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background: rgba(255,255,255,0.8);">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background: rgba(250,248,245,0.85);">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
                     <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
-                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: #000;">HJY</span>
+                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
                 </a>
                 <ul class="flex gap-10">
                     <li><a href="index.html#work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
@@ -138,7 +140,7 @@
     <section class="relative min-h-screen flex items-start pt-40 pb-24 lg:pt-48">
         <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
             <img src="images/HyojinYang.png" alt="Portrait of Hyojin Yang, UX Designer" style="width: 200px; height: auto; margin-bottom: 2.5em; display: block; border-radius: 12px;">
-            <div style="font-size: 17px; line-height: 1.8; color: #0A0A0A; letter-spacing: 0.01em;">
+            <div style="font-size: 17px; line-height: 1.8; color: #1A1A1A; letter-spacing: 0.01em;">
                 <p style="margin-bottom: 2em;">
                     Nice to meet you — I'm <b>Hyojin Yang</b>, a UX / Product Designer based in Stockholm.
                 </p>
@@ -148,7 +150,7 @@
                 </p>
 
                 <p style="margin-bottom: 2em;">
-                    I'm currently a Principal UX Designer at <a href="https://www.king.com" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #0A0A0A;">King</a>, working closely with product and engineering to shape UX strategy, improve workflows, and help teams move from assumptions to shared understanding. I'm drawn to high-agency environments where problems are ambiguous, collaboration is strong, and design plays a strategic role in decision-making.
+                    I'm currently a Principal UX Designer at <a href="https://www.king.com" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A;">King</a>, working closely with product and engineering to shape UX strategy, improve workflows, and help teams move from assumptions to shared understanding. I'm drawn to high-agency environments where problems are ambiguous, collaboration is strong, and design plays a strategic role in decision-making.
                 </p>
 
                 <p style="margin-bottom: 2em;">
@@ -171,9 +173,9 @@
     </section>
 
     <!-- Work Section -->
-    <section id="work" style="background: #F5F5F5; padding: 100px 0;">
+    <section id="work" style="background: #F3F1ED; padding: 100px 0;">
         <div class="mx-auto px-6 lg:px-8" style="max-width: 1000px;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; margin-bottom: 60px; color: #000000; letter-spacing: -0.02em;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; margin-bottom: 60px; color: #1A1A1A; letter-spacing: -0.02em;">
                 Selected Work
             </h2>
 
@@ -183,9 +185,9 @@
                     <div class="work-card-inner">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                             <img src="images/king-logo.png" alt="King" style="width: 32px; height: 32px; object-fit: contain;">
-                            <h3 style="font-size: 24px; margin: 0; color: #000;">King</h3>
+                            <h3 style="font-size: 24px; margin: 0; color: #1A1A1A;">King</h3>
                         </div>
-                        <p style="font-size: 14px; line-height: 1.7; color: #525252; margin-bottom: 20px;">
+                        <p style="font-size: 14px; line-height: 1.7; color: #5C5C5C; margin-bottom: 20px;">
                             Transforming fragmented internal tooling into unified, research-driven ecosystems across Game Production and Core Platform.
                         </p>
                         <span style="font-size: 13px; color: #999; font-weight: 500;">2022 — Current</span>
@@ -197,9 +199,9 @@
                     <div class="work-card-inner">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                             <img src="images/zalando-logo.png" alt="Zalando" style="width: 32px; height: 32px; object-fit: contain;">
-                            <h3 style="font-size: 24px; margin: 0; color: #000;">Zalando</h3>
+                            <h3 style="font-size: 24px; margin: 0; color: #1A1A1A;">Zalando</h3>
                         </div>
-                        <p style="font-size: 14px; line-height: 1.7; color: #525252; margin-bottom: 20px;">
+                        <p style="font-size: 14px; line-height: 1.7; color: #5C5C5C; margin-bottom: 20px;">
                             Leading product design for Zalando's Builder Platform, transforming internal tools for developers and product managers.
                         </p>
                         <span style="font-size: 13px; color: #999; font-weight: 500;">2021 — 2022</span>
@@ -211,9 +213,9 @@
                     <div class="work-card-inner">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                             <img src="images/telenor-logo.png" alt="Telenor" style="width: 32px; height: 32px; object-fit: contain;">
-                            <h3 style="font-size: 24px; margin: 0; color: #000;">Telenor</h3>
+                            <h3 style="font-size: 24px; margin: 0; color: #1A1A1A;">Telenor</h3>
                         </div>
-                        <p style="font-size: 14px; line-height: 1.7; color: #525252; margin-bottom: 20px;">
+                        <p style="font-size: 14px; line-height: 1.7; color: #5C5C5C; margin-bottom: 20px;">
                             Leading the redesign of My Telenor account experience, consolidating fragmented platforms through research-driven design.
                         </p>
                         <span style="font-size: 13px; color: #999; font-weight: 500;">2019 — 2021</span>
@@ -225,9 +227,9 @@
                     <div class="work-card-inner">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                             <img src="images/hm-logo.png" alt="H&M" style="width: 32px; height: 32px; object-fit: contain;">
-                            <h3 style="font-size: 24px; margin: 0; color: #000;">H&M</h3>
+                            <h3 style="font-size: 24px; margin: 0; color: #1A1A1A;">H&M</h3>
                         </div>
-                        <p style="font-size: 14px; line-height: 1.7; color: #525252; margin-bottom: 20px;">
+                        <p style="font-size: 14px; line-height: 1.7; color: #5C5C5C; margin-bottom: 20px;">
                             Leading UX strategy to overhaul H&M's global membership program, contributing to doubling the active member base to 100 million.
                         </p>
                         <span style="font-size: 13px; color: #999; font-weight: 500;">2015 — 2019</span>
@@ -238,7 +240,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="dark-footer" style="background: #0A0A0A; color: white; padding: 80px 0 40px 0;">
+    <footer class="dark-footer" style="background: #1A1A1A; color: #FAF8F5; padding: 80px 0 40px 0;">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px;">
                 <div>
