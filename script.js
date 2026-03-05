@@ -1,3 +1,5 @@
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -33,11 +35,13 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe sections for fade-in animation
 window.addEventListener('DOMContentLoaded', () => {
+    if (prefersReducedMotion) return;
+
     const sections = document.querySelectorAll('.case-study-card, .about-content, .contact-section, .content-section');
     sections.forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(40px)';
-        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        section.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
         observer.observe(section);
     });
 
@@ -133,14 +137,16 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        const scrolled = window.scrollY;
-        const rate = scrolled * 0.3;
-        heroContent.style.transform = `translateY(${rate}px)`;
-    }
-});
+if (!prefersReducedMotion) {
+    window.addEventListener('scroll', () => {
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            const scrolled = window.scrollY;
+            const rate = scrolled * 0.3;
+            heroContent.style.transform = `translateY(${rate}px)`;
+        }
+    });
+}
 
 // Add copy email functionality
 document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
@@ -224,6 +230,8 @@ if ('IntersectionObserver' in window) {
 
 // Add smooth reveal for approach items
 window.addEventListener('DOMContentLoaded', () => {
+    if (prefersReducedMotion) return;
+
     const approachObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
