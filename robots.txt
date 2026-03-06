@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hyojinyang.com/sitemap.xml
+
+# Block common files
+Disallow: /IMPROVEMENTS_SUMMARY.md
+Disallow: /NEXT_IMPROVEMENTS.md
+Disallow: /CLAUDE.md
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.bkit/

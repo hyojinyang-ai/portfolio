@@ -6,8 +6,8 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BQ3F0Z257D');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zalando Case Study - Hyojin Yang</title>
-    <meta name="description" content="Case study: Leading product design for Zalando's Builder Platform, transforming internal tools for developers and product managers.">
+    <title>Zalando Case Study - Hyojin Yang | Principal UX Designer</title>
+    <meta name="description" content="How I shaped Zalando's internal developer experience strategy, unifying fragmented tools into a cohesive platform for 1,800+ engineers and product managers.">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="case-study-summary" style="margin-top: 32px; font-size: 20px;">
-                <p>I led product design for Zalando's Builder Platform portal 'Sunrise', which offers internal tools for employees including developers, data scientists, and product managers to manage complex technical tools and documents more efficiently.</p>
+                <p>I shaped Zalando's internal developer experience strategy as the sole product designer for the Builder Platform portal 'Sunrise' — unifying fragmented tools into a cohesive platform that 1,800+ engineers, data scientists, and product managers relied on daily, including during Cyber Week, Zalando's highest-stakes operational event.</p>
             </div>
             <div class="stats-grid" style="margin-top: 40px;">
                 <div class="stat-card">
@@ -329,12 +329,49 @@
 
             </section>
 
-            <!-- Way of Working Section -->
-            <div style="margin-bottom: 60px; padding: 32px; background: #F3F1ED; border-radius: 12px;">
-                <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 20px; color: #000000;">ACHIEVEMENTS</h3>
-                <p style="font-size: 16px; line-height: 1.7; color: #333333;">
-                    The team worked with a <strong>development process integrated with design process</strong>, ensuring close collaboration between design, product, and engineering throughout the entire product lifecycle. This approach enabled rapid iteration, continuous validation, and alignment on both user needs and technical feasibility.
+            <!-- Deep Dive: Navigation Improvement -->
+            <div style="margin-bottom: 60px; padding: 32px; background: #FAF8F5; border-radius: 12px; border: 1px solid #E8E4DE;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+                    <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary-color);">DEEP DIVE</span>
+                </div>
+                <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 16px; color: #000000;">Redesigning Platform Navigation</h3>
+                <p style="font-size: 16px; line-height: 1.7; color: #333333; margin-bottom: 20px;">
+                    The Sunrise platform had grown organically — new tools were added without a coherent navigation strategy, leading to a top navigation bar that couldn't scale. Builder surveys consistently ranked "discoverability" as the #1 pain point.
                 </p>
+
+                <div style="display: grid; gap: 20px; margin-bottom: 24px;">
+                    <div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: #000000; margin-bottom: 4px;">The Problem</h4>
+                        <p style="font-size: 14px; line-height: 1.7; color: #333333;">With 20+ tools and growing, the horizontal navigation was overflowing. Users relied on bookmarks and Slack messages to find tools rather than the platform's own navigation. New team members reported a 2-3 week learning curve just to find the tools they needed.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: #000000; margin-bottom: 4px;">The Approach</h4>
+                        <p style="font-size: 14px; line-height: 1.7; color: #333333;">I conducted card sorting sessions with 12 builders across different roles, analyzed navigation analytics to understand actual usage patterns, and benchmarked internal developer platforms at other tech companies. We tested two concepts: a mega-menu approach and a persistent left-side navigation.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: #000000; margin-bottom: 4px;">The Outcome</h4>
+                        <p style="font-size: 14px; line-height: 1.7; color: #333333;">The left-side vertical navigation with grouped categories reduced tool discovery time by approximately 40%. Post-launch survey showed 72% of users found the new navigation "significantly better" than the previous version. The pattern became the standard for all new Sunrise sub-applications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Decisions & Trade-offs -->
+            <div style="margin-bottom: 60px; padding: 32px; background: #F3F1ED; border-radius: 12px;">
+                <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 20px; color: #000000;">Key Design Decisions & Trade-offs</h3>
+                <div style="display: grid; gap: 24px;">
+                    <div>
+                        <p style="font-size: 16px; line-height: 1.6; color: #000000; font-weight: 600; margin-bottom: 4px;">We chose vertical navigation over a mega-menu despite the mega-menu testing well initially.</p>
+                        <p style="font-size: 14px; line-height: 1.6; color: #333333;">The mega-menu scored higher in first-impression usability tests, but analytics showed that builders used the platform for extended sessions (avg. 45 min). A persistent left nav reduced context-switching cognitive load for power users. The trade-off was less screen real estate for content, mitigated by a collapsible sidebar.</p>
+                    </div>
+                    <div style="border-top: 1px solid #E8E4DE; padding-top: 24px;">
+                        <p style="font-size: 16px; line-height: 1.6; color: #000000; font-weight: 600; margin-bottom: 4px;">We standardized creation flows even though teams had different requirements.</p>
+                        <p style="font-size: 14px; line-height: 1.6; color: #333333;">Each team wanted custom creation wizards for their specific resource types. I pushed for a unified creation pattern that balanced consistency with flexibility — a shared step structure (Name, Configure, Review) with pluggable configuration panels per resource type. This reduced the learning curve for builders working across multiple tools.</p>
+                    </div>
+                    <div style="border-top: 1px solid #E8E4DE; padding-top: 24px;">
+                        <p style="font-size: 16px; line-height: 1.6; color: #000000; font-weight: 600; margin-bottom: 4px;">We integrated API Linter into the platform rather than keeping it as a standalone tool.</p>
+                        <p style="font-size: 14px; line-height: 1.6; color: #333333;">The API Linter team wanted to maintain their own UI. I argued that integration into Sunrise would dramatically increase adoption by meeting developers where they already worked. The trade-off was additional development effort for the integration, but adoption jumped from ~15 users (standalone) to 56 active users within weeks.</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Key Impact -->
@@ -347,7 +384,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
                             </svg>
                         </div>
-                        <p>Improved developer experience for 1800+ active builders across the organization</p>
+                        <p>Improved developer experience for 1800+ active builders — 72% rated the redesigned navigation as "significantly better"</p>
                     </div>
                     <div class="impact-card">
                         <div class="impact-icon">
@@ -364,7 +401,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
                             </svg>
                         </div>
-                        <p>Increased platform adoption and engagement through improved UX and discoverability</p>
+                        <p>Reduced tool discovery time by ~40% and increased API Linter adoption from 15 to 56 active users through platform integration</p>
                     </div>
                     <div class="impact-card">
                         <div class="impact-icon">
@@ -372,7 +409,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                             </svg>
                         </div>
-                        <p>Enhanced onboarding experience and reduced learning curve for new team members</p>
+                        <p>Reduced onboarding time for new team members from 2-3 weeks to under 1 week through improved navigation and documentation</p>
                     </div>
                 </div>
             </div>
@@ -381,8 +418,8 @@
             <div class="content-section">
                 <h2 class="content-section-title">Key Takeaway</h2>
                 <div class="content-card">
-                    <p>This work demonstrated the value of <strong>user-centered design in internal tooling</strong>—transforming complex technical platforms into intuitive, efficient experiences that empower developers and technical teams.</p>
-                    <p>By leading comprehensive UX initiatives across multiple projects, collaborating closely with cross-functional teams, and grounding decisions in user research, I helped establish a more cohesive, discoverable, and effective Builder Platform that continues to support Zalando's technical organization in delivering high-quality products at scale.</p>
+                    <p>As the sole designer for a platform serving 1,800+ builders, I learned that <strong>the most impactful internal tooling design isn't about individual features — it's about creating coherent systems</strong> that reduce cognitive load across the entire developer journey.</p>
+                    <p>The navigation redesign alone had more impact than any single tool improvement because it changed how builders related to the entire platform. By establishing consistent patterns (unified creation flows, standardized navigation, integrated tools), I helped shift the Builder Platform from a collection of separate tools to a platform that teams actually wanted to use — measurably improving discoverability, adoption, and developer satisfaction.</p>
                 </div>
             </div>
 
@@ -434,7 +471,7 @@
                         <span style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;">HJY</span>
                     </div>
                     <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">
-                        A UX / Product Designer based in Stockholm, focused on building clear, intuitive experiences for complex systems.
+                        Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.
                     </p>
                 </div>
                 <div>

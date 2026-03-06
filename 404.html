@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Hyojin Yang</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Hyojin Yang's portfolio.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FAF8F5;
+            color: #1A1A1A;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1A1A1A;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #5C5C5C;
+            margin-bottom: 40px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 16px 36px;
+            background: #1A1A1A;
+            color: #FAF8F5;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-home:hover {
+            background: #333;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .links {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #E8E4DE;
+        }
+
+        .links a {
+            color: #5C5C5C;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .links a:hover {
+            color: #1A1A1A;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 80px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .links {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .links a {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+        <a href="index.html" class="btn-home">Back to Home</a>
+
+        <div class="links">
+            <a href="index.html#work">View Work</a>
+            <a href="about.html">About Me</a>
+            <a href="https://www.linkedin.com/in/hyojinyang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </div>
+</body>
+</html>
