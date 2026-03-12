@@ -71,11 +71,30 @@
             letter-spacing: -0.02em;
             line-height: 1.15;
         }
+
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #1A1A1A;
+            color: #FAF8F5;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background: rgba(250,248,245,0.85);">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background: rgba(250,248,245,0.85);" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
@@ -90,8 +109,10 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
     <!-- Case Study Header -->
-    <section class="case-study-hero">
+    <section class="case-study-hero" aria-label="Case study overview">
         <div class="container" style="max-width: 900px;">
             <a href="index.html#work" class="back-link">← Back Home</a>
             <div class="case-study-header" style="margin-top: 40px;">
@@ -596,9 +617,10 @@
 
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="dark-footer" style="background: #1A1A1A; color: #FAF8F5; padding: 80px 0 40px 0;">
+    <footer class="dark-footer" style="background: #1A1A1A; color: #FAF8F5; padding: 80px 0 40px 0;" role="contentinfo">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px;">
                 <div>
