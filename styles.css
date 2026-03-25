@@ -1838,9 +1838,6 @@ img[role="button"]:focus-visible,
     font-size: 15px;
     line-height: 1.7;
     color: #333333;
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid #E5E5E5;
 }
 
 .achievement-item {
