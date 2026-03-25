@@ -37,7 +37,7 @@ const observer = new IntersectionObserver((entries) => {
 window.addEventListener('DOMContentLoaded', () => {
     if (prefersReducedMotion) return;
 
-    const sections = document.querySelectorAll('.case-study-card, .about-content, .contact-section, .content-section');
+    const sections = document.querySelectorAll('.case-study-card, .about-content, .contact-section');
     sections.forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(40px)';
