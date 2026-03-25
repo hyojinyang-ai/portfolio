@@ -6,6 +6,11 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BQ3F0Z257D');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (new URLSearchParams(window.location.search).get('embed') === '1') {
+            document.documentElement.classList.add('embed-mode');
+        }
+    </script>
     <title>Telenor Case Study - Hyojin Yang | Principal UX Designer</title>
     <meta name="description" content="How I unified Telenor's fragmented digital platforms, reducing 1,700 monthly activation failures and saving ~1M SEK annually through research-driven redesign.">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -14,7 +19,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,8 +29,8 @@
                         'cloud-dancer': '#FAF8F5',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['General Sans', 'sans-serif'],
+                        'display': ['General Sans', 'sans-serif'],
                     }
                 }
             }
@@ -34,8 +39,19 @@
     <style>
         /* Telenor Blue Color Theme */
         :root {
+            --ink: #1A1A1A;
+            --paper: #FAF8F5;
+            --surface: #F3F1ED;
+            --muted: #5C5C5C;
+            --line: #E8E4DE;
             --primary-color: #0077C8;
             --primary-hover: #005A9C;
+            /* Compatibility aliases for existing page styles */
+            --text-dark: var(--ink);
+            --text-gray: var(--muted);
+            --bg-white: var(--paper);
+            --bg-light: var(--surface);
+            --border-color: var(--line);
         }
 
         .case-study-icon:hover {
@@ -57,7 +73,7 @@
 
         .highlight-box {
             background: rgba(0, 119, 200, 0.1);
-            border-left: 4px solid #0077C8;
+            border-left: 4px solid var(--primary-color);
         }
 
         .contact-button:hover {
@@ -66,7 +82,7 @@
         }
 
         h1, h2, h3 {
-            font-family: "Playfair Display", serif;
+            font-family: "Space Mono", monospace;
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.15;
@@ -77,8 +93,8 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: #1A1A1A;
-            color: #FAF8F5;
+            background: var(--ink);
+            color: var(--paper);
             padding: 8px 16px;
             text-decoration: none;
             z-index: 100;
@@ -86,6 +102,37 @@
         }
         .skip-link:focus {
             top: 0;
+        }
+
+        html.embed-mode .skip-link,
+        html.embed-mode #main-nav,
+        html.embed-mode .back-link,
+        html.embed-mode footer,
+        html.embed-mode a.cta-button[href="index.html#selected-work"],
+        html.embed-mode .case-study-icon {
+            display: none !important;
+        }
+
+        html.embed-mode .case-study-hero {
+            padding: 24px 0 28px 0 !important;
+        }
+
+        html.embed-mode .case-study-content {
+            padding-top: 0 !important;
+        }
+
+        html.embed-mode .container {
+            max-width: none !important;
+            width: 100% !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
     </style>
 </head>
@@ -99,10 +146,10 @@
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
                     <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
-                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
+                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
                 </a>
                 <ul class="flex gap-10">
-                    <li><a href="index.html#work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
+                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
                     <li><a href="about.html" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">About</a></li>
                 </ul>
             </div>
@@ -114,7 +161,7 @@
     <!-- Case Study Header -->
     <section class="case-study-hero" aria-label="Case study overview">
         <div class="container" style="max-width: 900px;">
-            <a href="index.html#work" class="back-link">← Back Home</a>
+            <a href="index.html#selected-work" class="back-link">← Back Home</a>
             <div class="case-study-header" style="margin-top: 40px;">
                 <div class="case-study-icon" style="background: #F3F1ED; padding: 12px; border-radius: 12px; transition: background 0.3s ease;">
                     <img src="images/telenor-logo.png" alt="Telenor Logo" style="width: 48px; height: auto; display: block;">
@@ -144,6 +191,23 @@
                     <div class="stat-value">500K+</div>
                     <div class="stat-label">Broadband customers impacted</div>
                 </div>
+            </div>
+            <div style="margin-top: 24px; padding: 20px; border: 1px solid #E8E4DE; border-radius: 12px; background: #FAF8F5;">
+                <h2 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #000000;">One-Minute Summary</h2>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0 0 8px;"><strong>Problem:</strong> Customers faced disconnected account, activation, and support journeys across legacy and modern systems.</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0 0 8px;"><strong>Hypothesis:</strong> If activation and account flows become clearer and more cohesive, failure rates and support burden will drop.</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0 0 8px;"><strong>Evidence:</strong> Journey mapping, customer interviews, activation failure data, and service center feedback highlighted recurring breakdowns.</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0 0 8px;"><strong>Decision:</strong> Chose phased modernization, simplified activation, and compliance-safe communication design.</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0;"><strong>Outcome:</strong> Reduced activation failures, lowered support costs, and improved consistency for high-volume broadband customers.</p>
+            </div>
+
+            <div style="margin-top: 16px; padding: 20px; border: 1px solid #E8E4DE; border-radius: 12px; background: #F8F6F2;">
+                <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 10px; color: #000000;">My Decision Scope</h3>
+                <ul style="padding-left: 18px; margin: 0; color: #333333; line-height: 1.7; font-size: 14px;">
+                    <li>Defined north-star UX principles and success metrics for migration, activation, and service continuity.</li>
+                    <li>Prioritized roadmap and MVP scope by balancing reliability impact, risk, and delivery feasibility.</li>
+                    <li>Led cross-functional trade-off decisions across UX quality, technical constraints, and regulatory requirements.</li>
+                </ul>
             </div>
             
         </div>
@@ -580,6 +644,15 @@
                 </div>
             </div>
 
+            <div class="content-section">
+                <h2 class="content-section-title">Outcomes & Next Steps</h2>
+                <div class="content-card">
+                    <p><strong>What changed:</strong> critical customer paths became clearer and less error-prone, reducing support escalations.</p>
+                    <p><strong>What scaled:</strong> phased migration and validation rituals became a repeatable model for platform transitions.</p>
+                    <p><strong>Next:</strong> expand self-service confidence metrics and further reduce operational dependency in high-friction journeys.</p>
+                </div>
+            </div>
+
             <!-- More Projects -->
             <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid #E8E4DE;">
                 <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: #000000; text-align: center;">More Projects</h3>
@@ -612,7 +685,7 @@
             </div>
 
             <div style="margin: 60px 0; text-align: center;">
-                <a href="index.html#work" class="cta-button">Back Home</a>
+                <a href="index.html#selected-work" class="cta-button">Back Home</a>
             </div>
 
         </div>
@@ -626,7 +699,7 @@
                 <div>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
                         <img src="images/hj-logo.png" alt="HJ Logo" style="height: 32px; filter: brightness(0) invert(1);">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;">HJY</span>
+                        <span style="font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700;">HJY</span>
                     </div>
                     <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">
                         Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.
@@ -635,7 +708,7 @@
                 <div>
                     <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;"><a href="index.html#work" style="font-size: 14px;">Work</a></li>
+                        <li style="margin-bottom: 12px;"><a href="index.html#selected-work" style="font-size: 14px;">Work</a></li>
                         <li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px;">About</a></li>
                     </ul>
                 </div>
@@ -653,6 +726,25 @@
         </div>
     </footer>
 
+    <script>
+        (function () {
+            if (!document.documentElement.classList.contains('embed-mode')) return;
+
+            const postHeight = () => {
+                const height = Math.max(
+                    document.body ? document.body.scrollHeight : 0,
+                    document.documentElement ? document.documentElement.scrollHeight : 0
+                );
+                window.parent.postMessage({ type: 'caseHeight', height: height }, window.location.origin);
+            };
+
+            window.addEventListener('load', postHeight);
+            window.addEventListener('resize', postHeight);
+            setTimeout(postHeight, 100);
+            setTimeout(postHeight, 500);
+            setTimeout(postHeight, 1200);
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

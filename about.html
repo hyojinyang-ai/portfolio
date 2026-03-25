@@ -30,8 +30,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="images/AboutHyojin.png" as="image">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -41,21 +40,37 @@
                         'cloud-dancer': '#FAF8F5',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['General Sans', 'sans-serif'],
+                        'display': ['General Sans', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
+        :root {
+            --ink: #1A1A1A;
+            --paper: #FAF8F5;
+            --surface: #F3F1ED;
+            --muted: #5C5C5C;
+            --line: #E8E4DE;
+            --primary-color: #1A1A1A;
+            --primary-hover: #000000;
+            /* Compatibility aliases for existing page styles */
+            --text-dark: var(--ink);
+            --text-gray: var(--muted);
+            --bg-white: var(--paper);
+            --bg-light: var(--surface);
+            --border-color: var(--line);
+        }
+
         /* Skip to main content link for accessibility */
         .skip-link {
             position: absolute;
             top: -40px;
             left: 0;
-            background: #1A1A1A;
-            color: #FAF8F5;
+            background: var(--ink);
+            color: var(--paper);
             padding: 8px 16px;
             text-decoration: none;
             z-index: 100;
@@ -66,14 +81,21 @@
         }
 
         h1, h2, h3 {
-            font-family: "Playfair Display", serif;
+            font-family: "Space Mono", monospace;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.15;
+            letter-spacing: -0.04em;
+            line-height: 1.08;
         }
         h4, h5, h6 {
-            font-family: "Inter", sans-serif;
+            font-family: "Space Mono", monospace;
             font-weight: 600;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Remove hover effects from non-linked CV items */
@@ -100,6 +122,78 @@
         .skill-category {
             transition: none !important;
         }
+
+        .belief-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .career-timeline {
+            position: relative;
+            display: grid;
+            gap: 20px;
+            padding-left: 34px;
+        }
+
+        .career-timeline::before {
+            display: none;
+        }
+
+        .career-item {
+            position: relative;
+            padding: 16px 0 16px 18px;
+        }
+
+        .career-item::before {
+            content: "";
+            position: absolute;
+            left: -32px;
+            top: 22px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-dark);
+            border: 2px solid var(--bg-white);
+            box-shadow: 0 0 0 1px var(--border-color);
+        }
+
+        .career-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: -25px;
+            top: 42px;
+            bottom: -20px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .career-date {
+            display: block;
+            font-size: 13px;
+            color: var(--text-gray);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .career-title-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        .career-logo {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 1024px) {
+            .belief-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -112,10 +206,10 @@
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;" aria-label="Go to homepage">
                     <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
-                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
+                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
                 </a>
                 <ul class="flex gap-10" role="list">
-                    <li><a href="index.html#work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
+                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
                     <li><a href="about.html" class="text-gray-900 font-medium hover:text-black transition-colors" style="font-size: 14px;" aria-current="page">About</a></li>
                 </ul>
             </div>
@@ -126,14 +220,9 @@
     <main id="main-content">
     <section class="case-study-hero">
         <div class="container" style="max-width: 900px;">
-            <!-- Image -->
-            <div style="display: flex; justify-content: center; margin-bottom: 48px;">
-                <img src="images/AboutHyojin.png" alt="Hyojin Yang - Principal UX Designer based in Stockholm" width="200" height="200" style="width: 200px; height: 200px; border-radius: 16px; object-fit: cover;">
-            </div>
-
             <!-- Content -->
             <div style="text-align: center;">
-                <h1 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; margin-bottom: 16px; color: var(--text-dark); letter-spacing: -0.02em;">Hyojin Yang</h1>
+                <h1 style="font-family: 'Space Mono', monospace; font-size: clamp(28px, 4vw, 42px); font-weight: 700; margin-bottom: 16px; color: var(--text-dark); letter-spacing: -0.04em;">Hyojin Yang</h1>
                 <p style="font-size: 18px; line-height: 1.7; color: var(--text-dark); margin-bottom: 24px; font-weight: 500;">
                     Principal UX Designer, Stockholm
                 </p>
@@ -146,77 +235,137 @@
         </div>
     </section>
 
+    <!-- AI & Design -->
+    <section style="padding: 60px 0; background: #FFFFFF;">
+        <div class="container" style="max-width: 900px;">
+            <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">AI in My Design Practice</h2>
+            <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); margin-bottom: 20px;">
+                I use AI throughout the design process — not as a novelty, but as a force multiplier that lets me focus on what requires human judgment: understanding context, navigating ambiguity, and making decisions that serve users and the business.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                <div style="padding: 20px; background: #FFFFFF; border-radius: 12px; border: 1px solid #E8E4DE;">
+                    <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-gray); margin-bottom: 8px;">Research Planning</p>
+                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;">Bouncing ideas and refining study questions with AI before committing to a research plan — sharpening focus faster.</p>
+                </div>
+                <div style="padding: 20px; background: #FFFFFF; border-radius: 12px; border: 1px solid #E8E4DE;">
+                    <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-gray); margin-bottom: 8px;">Insight Repositories</p>
+                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;">Building living research repositories that stakeholders and teams can explore, query, and grow — without waiting for me.</p>
+                </div>
+                <div style="padding: 20px; background: #FFFFFF; border-radius: 12px; border: 1px solid #E8E4DE;">
+                    <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-gray); margin-bottom: 8px;">Rapid Prototyping</p>
+                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;">Generating functional interactive prototypes in hours using AI-assisted coding — shifting team conversations from debating wireframes to reacting to real behavior.</p>
+                </div>
+                <div style="padding: 20px; background: #FFFFFF; border-radius: 12px; border: 1px solid #E8E4DE;">
+                    <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-gray); margin-bottom: 8px;">Early Testing</p>
+                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;">Testing AI-generated prototypes with users before production code is written — validating direction when changes are still cheap.</p>
+                </div>
+                <div style="padding: 20px; background: #FFFFFF; border-radius: 12px; border: 1px solid #E8E4DE;">
+                    <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-gray); margin-bottom: 8px;">Synthesis at Scale</p>
+                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;">Analyzing interview transcripts, survey data, and support tickets with AI — surfacing patterns across hundreds of data points in a fraction of the time.</p>
+                </div>
+                <div style="padding: 20px; background: #FFFFFF; border-radius: 12px; border: 1px solid #E8E4DE;">
+                    <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-gray); margin-bottom: 8px;">No-handoff Implementation</p>
+                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;">Shipping production-quality interfaces with AI-assisted coding (Claude Code, Cursor) — under my review, without traditional design-to-dev translation loss. This portfolio was built this way.</p>
+                </div>
+            </div>
+            <p style="font-size: 15px; line-height: 1.8; color: var(--text-gray); font-style: italic;">
+                The result: higher productivity across the full design cycle, while I stay in control of every decision that matters.
+            </p>
+        </div>
+    </section>
+
     <!-- Career Timeline -->
-    <section style="padding: 60px 0; background: var(--bg-white);">
+    <section style="padding: 60px 0; background: #FFFFFF;">
         <div class="container" style="max-width: 900px;">
             <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">Career Progression</h2>
-            <div style="display: grid; gap: 0;">
-                <div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E8E4DE;">
-                    <div>
-                        <span style="font-size: 13px; color: var(--text-gray); font-weight: 500;">2022 - Present</span>
+            <div class="career-timeline">
+                <div class="career-item">
+                    <span class="career-date">2022 - Present</span>
+                    <div class="career-title-row">
+                        <img src="images/king-logo.png" alt="King" class="career-logo">
+                        <strong style="font-size: 16px; color: var(--text-dark);">Principal UX Designer</strong>
                     </div>
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-                            <img src="images/king-logo.png" alt="King" style="width: 24px; height: 24px; object-fit: contain;">
-                            <strong style="font-size: 16px; color: var(--text-dark);">Principal UX Designer</strong>
-                        </div>
-                        <p style="font-size: 14px; color: var(--text-gray); margin: 0;">King (Activision Blizzard) - Core Platform & Game Production</p>
-                    </div>
+                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">King (Activision Blizzard) - Core Platform & Game Production</p>
                 </div>
-                <div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E8E4DE;">
-                    <div>
-                        <span style="font-size: 13px; color: var(--text-gray); font-weight: 500;">2021 - 2022</span>
+                <div class="career-item">
+                    <span class="career-date">2021 - 2022</span>
+                    <div class="career-title-row">
+                        <img src="images/zalando-logo.png" alt="Zalando" class="career-logo">
+                        <strong style="font-size: 16px; color: var(--text-dark);">Senior Product Designer</strong>
                     </div>
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-                            <img src="images/zalando-logo.png" alt="Zalando" style="width: 24px; height: 24px; object-fit: contain;">
-                            <strong style="font-size: 16px; color: var(--text-dark);">Senior Product Designer</strong>
-                        </div>
-                        <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Zalando - Builder Platform (Internal Developer Experience)</p>
-                    </div>
+                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Zalando - Builder Platform (Internal Developer Experience)</p>
                 </div>
-                <div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E8E4DE;">
-                    <div>
-                        <span style="font-size: 13px; color: var(--text-gray); font-weight: 500;">2019 - 2021</span>
+                <div class="career-item">
+                    <span class="career-date">2019 - 2021</span>
+                    <div class="career-title-row">
+                        <img src="images/telenor-logo.png" alt="Telenor" class="career-logo">
+                        <strong style="font-size: 16px; color: var(--text-dark);">Senior UX Designer / UX Lead</strong>
                     </div>
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-                            <img src="images/telenor-logo.png" alt="Telenor" style="width: 24px; height: 24px; object-fit: contain;">
-                            <strong style="font-size: 16px; color: var(--text-dark);">Senior UX Designer / UX Lead</strong>
-                        </div>
-                        <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Telenor Sweden - Digital Customer Experience</p>
-                    </div>
+                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Telenor Sweden - Digital Customer Experience</p>
                 </div>
-                <div style="display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px 0;">
-                    <div>
-                        <span style="font-size: 13px; color: var(--text-gray); font-weight: 500;">2015 - 2019</span>
+                <div class="career-item">
+                    <span class="career-date">2015 - 2019</span>
+                    <div class="career-title-row">
+                        <img src="images/hm-logo.png" alt="H&M" class="career-logo">
+                        <strong style="font-size: 16px; color: var(--text-dark);">Lead UX Designer</strong>
                     </div>
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-                            <img src="images/hm-logo.png" alt="H&M" style="width: 24px; height: 24px; object-fit: contain;">
-                            <strong style="font-size: 16px; color: var(--text-dark);">Lead UX Designer</strong>
-                        </div>
-                        <p style="font-size: 14px; color: var(--text-gray); margin: 0;">H&M Group - Global Membership & Account Experience</p>
+                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">H&M Group - Global Membership & Account Experience</p>
+                </div>
+                <div class="career-item">
+                    <span class="career-date">Jul 2014 - Aug 2014</span>
+                    <div class="career-title-row">
+                        <strong style="font-size: 16px; color: var(--text-dark);">UX Researcher (Master's Thesis)</strong>
                     </div>
+                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Tom Tits Experiment Museum, Stockholm - Researched and evaluated interactive installation engagement.</p>
+                </div>
+                <div class="career-item">
+                    <span class="career-date">Mar 2012 - Jul 2013</span>
+                    <div class="career-title-row">
+                        <strong style="font-size: 16px; color: var(--text-dark);">UX Designer (Remote)</strong>
+                    </div>
+                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Fitdotlife, Suwon - Designed UX for FitMate activity-tracking device and companion desktop app.</p>
+                </div>
+                <div class="career-item">
+                    <span class="career-date">Mar 2007 - Sep 2011</span>
+                    <div class="career-title-row">
+                        <strong style="font-size: 16px; color: var(--text-dark);">Design Researcher</strong>
+                    </div>
+                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Ubiquitous Convergence Research Institute, Suwon - Led UX research and concept development for smart home and IoT solutions.</p>
+                </div>
+                <div class="career-item">
+                    <span class="career-date">Nov 2005 - Feb 2006</span>
+                    <div class="career-title-row">
+                        <strong style="font-size: 16px; color: var(--text-dark);">Game Ops Intern</strong>
+                    </div>
+                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Nexon SD, Seoul - Supported game operations and early user-facing service workflow analysis.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- What I Believe -->
-    <section style="padding: 60px 0; background: var(--bg-white);">
+    <section style="padding: 60px 0; background: #FFFFFF;">
         <div class="container" style="max-width: 900px;">
             <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">What I Believe</h2>
-            <div style="display: grid; gap: 24px;">
-                <div style="padding: 24px; border-left: 3px solid #1A1A1A;">
+            <div class="belief-grid">
+                <div style="padding: 24px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--text-dark)" style="width: 24px; height: 24px; margin-bottom: 12px;" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                    </svg>
                     <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); font-weight: 500; margin: 0;">Most internal tooling fails not because of bad UI, but because designers never understand the domain deeply enough to question the workflow itself.</p>
                     <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-top: 8px;">I invest heavily in understanding the systems, constraints, and mental models of the people I design for before proposing solutions.</p>
                 </div>
-                <div style="padding: 24px; border-left: 3px solid #1A1A1A;">
+                <div style="padding: 24px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--text-dark)" style="width: 24px; height: 24px; margin-bottom: 12px;" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.742-.479 3 3 0 0 0-4.683-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197M6 18.719a5.971 5.971 0 0 1 .94-3.197m0 0A5.995 5.995 0 0 1 12 12.75a5.995 5.995 0 0 1 5.059 2.772m-10.118 0a3 3 0 0 0-4.682 2.72 8.987 8.987 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                    </svg>
                     <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); font-weight: 500; margin: 0;">UX maturity isn't about having more designers. It's about embedding design thinking into how organizations make decisions.</p>
                     <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-top: 8px;">My most impactful work has been enabling teams without UX support to apply research practices and design frameworks independently.</p>
                 </div>
-                <div style="padding: 24px; border-left: 3px solid #1A1A1A;">
+                <div style="padding: 24px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--text-dark)" style="width: 24px; height: 24px; margin-bottom: 12px;" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v6.75m0 0h6.75M3.75 9.75 9 4.5m-5.25 9.75v6.75m0 0h6.75m-6.75 0L9 15.75m11.25-12v6.75m0 0h-6.75m6.75 0L15 5.25m5.25 9v6.75m0 0h-6.75m6.75 0L15 15.75" />
+                    </svg>
                     <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); font-weight: 500; margin: 0;">The best design leadership is invisible. When teams naturally make user-centered decisions without being told to, you've done your job.</p>
                     <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-top: 8px;">I focus on building systems, rituals, and shared language that outlast any individual project.</p>
                 </div>
@@ -224,66 +373,32 @@
         </div>
     </section>
 
-    <!-- AI & Design -->
-    <section style="padding: 60px 0; background: var(--bg-light);">
+    <!-- Design Leadership -->
+    <section style="padding: 60px 0; background: #FFFFFF;">
         <div class="container" style="max-width: 900px;">
-            <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">AI & Design</h2>
-            <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); margin-bottom: 20px;">
-                I believe AI is fundamentally reshaping how we design, not just what we design. I actively integrate AI into my practice — not as a novelty, but as a force multiplier for research, prototyping, and decision-making.
-            </p>
-            <div style="padding: 28px; background: var(--bg-white); border-radius: 12px; border: 1px solid #E8E4DE; margin-bottom: 24px;">
-                <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 16px;">How I Use AI in My Design Practice</h3>
-                <div style="display: grid; gap: 16px;">
-                    <div style="display: flex; gap: 12px; align-items: start;">
-                        <span style="color: var(--text-dark); font-weight: 700; flex-shrink: 0;">1.</span>
-                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;"><strong>AI-Augmented Prototyping:</strong> At King, I used AI tools to generate interactive prototypes in hours rather than weeks, enabling faster validation cycles with game development teams. This shifted conversations from "should we build this?" to "here's what it could feel like — what would you change?"</p>
-                    </div>
-                    <div style="display: flex; gap: 12px; align-items: start;">
-                        <span style="color: var(--text-dark); font-weight: 700; flex-shrink: 0;">2.</span>
-                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;"><strong>Research Synthesis at Scale:</strong> I leverage AI to analyze interview transcripts, survey data, and support tickets — surfacing patterns across hundreds of data points that would take weeks to identify manually.</p>
-                    </div>
-                    <div style="display: flex; gap: 12px; align-items: start;">
-                        <span style="color: var(--text-dark); font-weight: 700; flex-shrink: 0;">3.</span>
-                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark); margin: 0;"><strong>Design-to-Code Workflow:</strong> I build and iterate on functional prototypes using AI-assisted coding (Claude Code, Cursor, V0.dev), closing the gap between design intent and engineering implementation. This portfolio itself was built using this workflow.</p>
-                    </div>
-                </div>
-            </div>
-            <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark);">
-                My perspective: AI doesn't replace design judgment — it compresses the feedback loop between idea and validation. The designers who thrive will be those who use AI to spend less time on production and more time on the hard problems: understanding context, navigating ambiguity, and making trade-offs that serve both users and the business.
-            </p>
-        </div>
-    </section>
-
-    <!-- Leadership & Mentorship -->
-    <section style="padding: 60px 0; background: var(--bg-white);">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">Leadership & Mentorship</h2>
+            <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">Design Leadership</h2>
             <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); margin-bottom: 24px;">
                 I believe a design leader's greatest impact is measured not by their own output, but by how they multiply the effectiveness of those around them.
             </p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
-                <div style="padding: 24px; background: var(--bg-light); border-radius: 12px;">
+                <div style="padding: 24px; background: #FFFFFF; border-radius: 12px;">
                     <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Growing Designers</h3>
-                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin: 0;">Mentored junior and mid-level designers at H&M, King, and Zalando — helping them develop research skills, stakeholder communication, and design judgment. At H&M, two designers I mentored took on expanded responsibilities within the team.</p>
+                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin: 0;">Mentoring junior and mid-level designers at H&M, King, and Telenor, and also via the ADP list -- helping them develop how to approach the different problems and solutions as designers and build a stakeholder relationship and design judgement.</p>
                 </div>
-                <div style="padding: 24px; background: var(--bg-light); border-radius: 12px;">
+                <div style="padding: 24px; background: #FFFFFF; border-radius: 12px;">
                     <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Building Design Culture</h3>
                     <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin: 0;">At King, I introduced bi-weekly design critiques and research share-outs across platform teams. These rituals increased cross-team collaboration and created a shared vocabulary for discussing UX quality.</p>
                 </div>
-                <div style="padding: 24px; background: var(--bg-light); border-radius: 12px;">
+                <div style="padding: 24px; background: #FFFFFF; border-radius: 12px;">
                     <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Scaling UX Practices</h3>
                     <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin: 0;">Created research playbooks, design templates, and decision-making frameworks that enabled product managers and engineers to run discovery independently — reducing dependency on UX support while maintaining quality.</p>
-                </div>
-                <div style="padding: 24px; background: var(--bg-light); border-radius: 12px;">
-                    <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Managing Agency Partnerships</h3>
-                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin: 0;">At H&M, led the collaboration between internal design team and external agency (AKQA), balancing workload distribution, maintaining UX consistency, and ensuring agency deliverables met our quality standards.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How I Work & How I Can Help -->
-    <section style="padding: 60px 0; background: var(--bg-light);">
+    <section style="padding: 60px 0; background: #FFFFFF;">
         <div class="container" style="max-width: 900px;">
 
             <!-- How I Work -->
@@ -354,60 +469,13 @@
                 </div>
             </div>
 
-            <!-- Current Stack -->
-            <div style="margin-top: 60px;">
-                <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">Current Stack</h2>
-
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tbody>
-                        <tr style="border-bottom: 1px solid #E8E4DE;">
-                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark); width: 50%;">
-                                <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A;">Figma</a>
-                                <span style="font-size: 13px; color: var(--text-gray); display: block;">Design, prototyping, design systems</span>
-                            </td>
-                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
-                                <a href="https://www.notion.so/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A;">Notion</a>
-                                <span style="font-size: 13px; color: var(--text-gray); display: block;">Research repos, documentation</span>
-                            </td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #E8E4DE;">
-                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
-                                <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A;">Claude Code</a>
-                                <span style="font-size: 13px; color: var(--text-gray); display: block;">AI-assisted prototyping & development</span>
-                            </td>
-                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
-                                <a href="https://cursor.sh/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A;">Cursor</a>
-                                <span style="font-size: 13px; color: var(--text-gray); display: block;">AI-powered code editor</span>
-                            </td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #E8E4DE;">
-                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
-                                <a href="https://v0.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A;">V0.dev</a>
-                                <span style="font-size: 13px; color: var(--text-gray); display: block;">Rapid UI generation & iteration</span>
-                            </td>
-                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
-                                <a href="https://lovable.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A;">Lovable</a>
-                                <span style="font-size: 13px; color: var(--text-gray); display: block;">Full-stack AI prototyping</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 16px 0; font-size: 16px; color: var(--text-dark);">
-                                <a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A;">ChatGPT</a>
-                                <span style="font-size: 13px; color: var(--text-gray); display: block;">Research synthesis, ideation</span>
-                            </td>
-                            <td style="padding: 16px 0;"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
         </div>
     </section>
 
     <!-- Back Home Button -->
     <section style="padding: 60px 0; text-align: center;">
         <div class="container" style="max-width: 900px;">
-            <a href="index.html#work" class="cta-button" aria-label="Go back to homepage">Back Home</a>
+            <a href="index.html#selected-work" class="cta-button" aria-label="Go back to homepage">Back Home</a>
         </div>
     </section>
     </main>
@@ -419,7 +487,7 @@
                 <div>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
                         <img src="images/hj-logo.png" alt="HJ Logo" style="height: 32px; filter: brightness(0) invert(1);">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;">HJY</span>
+                        <span style="font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700;">HJY</span>
                     </div>
                     <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">
                         Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.
@@ -428,7 +496,7 @@
                 <div>
                     <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;"><a href="index.html#work" style="font-size: 14px;">Work</a></li>
+                        <li style="margin-bottom: 12px;"><a href="index.html#selected-work" style="font-size: 14px;">Work</a></li>
                         <li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px;">About</a></li>
                     </ul>
                 </div>

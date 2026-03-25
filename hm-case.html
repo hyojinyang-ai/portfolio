@@ -6,6 +6,11 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BQ3F0Z257D');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (new URLSearchParams(window.location.search).get('embed') === '1') {
+            document.documentElement.classList.add('embed-mode');
+        }
+    </script>
     <title>H&M Case Study - Hyojin Yang | Principal UX Designer</title>
     <meta name="description" content="How I led UX strategy to unify H&M's fragmented membership program across 74 markets, contributing to doubling the active member base from 50M to 100M.">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -14,7 +19,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,8 +29,8 @@
                         'cloud-dancer': '#FAF8F5',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['General Sans', 'sans-serif'],
+                        'display': ['General Sans', 'sans-serif'],
                     }
                 }
             }
@@ -34,26 +39,38 @@
     <style>
         /* H&M Red Color Theme Override */
         :root {
+            --ink: #1A1A1A;
+            --paper: #FAF8F5;
+            --surface: #F3F1ED;
+            --muted: #5C5C5C;
+            --line: #E8E4DE;
             --primary-color: #E50010;
+            --primary-hover: #CC0010;
+            /* Compatibility aliases for existing page styles */
+            --text-dark: var(--ink);
+            --text-gray: var(--muted);
+            --bg-white: var(--paper);
+            --bg-light: var(--surface);
+            --border-color: var(--line);
         }
 
         .cta-button:hover {
-            background: #CC0010;
+            background: var(--primary-hover);
             box-shadow: 0 10px 30px rgba(229, 0, 16, 0.3);
         }
 
         .highlight-box {
             background: rgba(229, 0, 16, 0.1);
-            border-left: 4px solid #E50010;
+            border-left: 4px solid var(--primary-color);
         }
 
         .contact-button:hover {
-            background: #CC0010;
+            background: var(--primary-hover);
             box-shadow: 0 10px 30px rgba(229, 0, 16, 0.3);
         }
 
         h1, h2, h3 {
-            font-family: "Playfair Display", serif;
+            font-family: "Space Mono", monospace;
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.15;
@@ -64,8 +81,8 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: #1A1A1A;
-            color: #FAF8F5;
+            background: var(--ink);
+            color: var(--paper);
             padding: 8px 16px;
             text-decoration: none;
             z-index: 100;
@@ -73,6 +90,39 @@
         }
         .skip-link:focus {
             top: 0;
+        }
+
+        html.embed-mode .skip-link,
+        html.embed-mode #main-nav,
+        html.embed-mode .back-link,
+        html.embed-mode footer,
+        html.embed-mode a.cta-button[href="index.html#selected-work"],
+        html.embed-mode .case-study-icon,
+        html.embed-mode #lightbox,
+        html.embed-mode .case-gallery-strip {
+            display: none !important;
+        }
+
+        html.embed-mode .case-study-hero {
+            padding: 24px 0 28px 0 !important;
+        }
+
+        html.embed-mode .case-study-content {
+            padding-top: 0 !important;
+        }
+
+        html.embed-mode .container {
+            max-width: none !important;
+            width: 100% !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
     </style>
 </head>
@@ -86,10 +136,10 @@
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
                     <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
-                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
+                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
                 </a>
                 <ul class="flex gap-10">
-                    <li><a href="index.html#work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
+                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
                     <li><a href="about.html" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">About</a></li>
                 </ul>
             </div>
@@ -101,7 +151,7 @@
     <!-- Case Study Header -->
     <section class="case-study-hero" aria-label="Case study overview">
         <div class="container" style="max-width: 900px;">
-            <a href="index.html#work" class="back-link">← Back Home</a>
+            <a href="index.html#selected-work" class="back-link">← Back Home</a>
             <div class="case-study-header" style="margin-top: 40px;">
                 <div class="case-study-icon">
                     <img src="images/hm-logo.png" alt="H&M Logo" style="width: 48px; height: 48px; object-fit: contain;">
@@ -128,17 +178,34 @@
                     <div class="stat-label">Markets by 2020</div>
                 </div>
             </div>
+            <div style="margin-top: 24px; padding: 20px; border: 1px solid #E8E4DE; border-radius: 12px; background: #FAF8F5;">
+                <h2 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #000000;">One-Minute Summary</h2>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0 0 8px;"><strong>Problem:</strong> Account and membership were split, causing confusion, weak value perception, and inconsistent experiences across markets.</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0 0 8px;"><strong>Hypothesis:</strong> If membership value is clearer and account + loyalty are unified, acquisition and engagement will grow.</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0 0 8px;"><strong>Evidence:</strong> Cross-market research surfaced sign-up friction, channel inconsistency, and low benefit clarity.</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0 0 8px;"><strong>Decision:</strong> Merged experiences, designed market-adaptive flows, and prioritized clear membership value communication.</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin: 0;"><strong>Outcome:</strong> Program scaled from 50M to 100M members with stronger engagement and improved strategic alignment.</p>
+            </div>
+
+            <div style="margin-top: 16px; padding: 20px; border: 1px solid #E8E4DE; border-radius: 12px; background: #F8F6F2;">
+                <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 10px; color: #000000;">My Decision Scope</h3>
+                <ul style="padding-left: 18px; margin: 0; color: #333333; line-height: 1.7; font-size: 14px;">
+                    <li>Defined north-star UX principles and success metrics for unified account and membership experience.</li>
+                    <li>Prioritized roadmap and MVP scope by balancing conversion impact, feasibility, and market adaptation.</li>
+                    <li>Led cross-functional trade-off decisions across UX quality, technical constraints, and global-local needs.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- Image Gallery -->
-    <section style="padding: 60px 0; background: #F3F1ED;">
+    <section class="case-gallery-strip" style="padding: 60px 0; background: #F3F1ED;">
         <div class="container" style="max-width: 900px;">
             <div style="display: flex; gap: 16px; padding-bottom: 16px; align-items: center;">
-                <img src="images/hm-1.png" alt="H&M Membership Program - Overview" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s;">
-                <img src="images/hm-2.png" alt="H&M Membership Program - Member Benefits" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s;">
-                <img src="images/hm-3.png" alt="H&M Membership Program - User Journey" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s;">
-                <img src="images/hm-4.png" alt="H&M Membership Program - Mobile Experience" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s;">
+                <img src="images/hm-1.png" alt="H&M Membership Program - Overview" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer;">
+                <img src="images/hm-2.png" alt="H&M Membership Program - Member Benefits" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer;">
+                <img src="images/hm-3.png" alt="H&M Membership Program - User Journey" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer;">
+                <img src="images/hm-4.png" alt="H&M Membership Program - Mobile Experience" class="gallery-image" style="width: 213px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer;">
             </div>
         </div>
     </section>
@@ -148,12 +215,6 @@
         <span id="close-lightbox" style="position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10000;">&times;</span>
         <img id="lightbox-img" style="display: block; margin: auto; max-width: 90%; max-height: 90%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     </div>
-
-    <style>
-        .gallery-image:hover {
-            transform: scale(1.02);
-        }
-    </style>
 
     <script>
         // Lightbox functionality
@@ -482,6 +543,15 @@
                 </div>
             </div>
 
+            <div class="content-section">
+                <h2 class="content-section-title">Outcomes & Next Steps</h2>
+                <div class="content-card" style="border: none;">
+                    <p><strong>What changed:</strong> customers could better understand membership value and navigate a more coherent account journey.</p>
+                    <p><strong>What scaled:</strong> modular, market-adaptive UX patterns enabled global expansion without losing local relevance.</p>
+                    <p><strong>Next:</strong> continue improving post-signup retention loops and deepen personalization around loyalty behavior.</p>
+                </div>
+            </div>
+
             <!-- More Projects -->
             <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid #E8E4DE;">
                 <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: #000000; text-align: center;">More Projects</h3>
@@ -514,7 +584,7 @@
             </div>
 
             <div style="margin: 60px 0; text-align: center;">
-                <a href="index.html#work" class="cta-button">Back Home</a>
+                <a href="index.html#selected-work" class="cta-button">Back Home</a>
             </div>
 
         </div>
@@ -528,7 +598,7 @@
                 <div>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
                         <img src="images/hj-logo.png" alt="HJ Logo" style="height: 32px; filter: brightness(0) invert(1);">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;">HJY</span>
+                        <span style="font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700;">HJY</span>
                     </div>
                     <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">
                         Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.
@@ -537,7 +607,7 @@
                 <div>
                     <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;"><a href="index.html#work" style="font-size: 14px;">Work</a></li>
+                        <li style="margin-bottom: 12px;"><a href="index.html#selected-work" style="font-size: 14px;">Work</a></li>
                         <li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px;">About</a></li>
                     </ul>
                 </div>
@@ -555,6 +625,25 @@
         </div>
     </footer>
 
+    <script>
+        (function () {
+            if (!document.documentElement.classList.contains('embed-mode')) return;
+
+            const postHeight = () => {
+                const height = Math.max(
+                    document.body ? document.body.scrollHeight : 0,
+                    document.documentElement ? document.documentElement.scrollHeight : 0
+                );
+                window.parent.postMessage({ type: 'caseHeight', height: height }, window.location.origin);
+            };
+
+            window.addEventListener('load', postHeight);
+            window.addEventListener('resize', postHeight);
+            setTimeout(postHeight, 100);
+            setTimeout(postHeight, 500);
+            setTimeout(postHeight, 1200);
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

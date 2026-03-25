@@ -6,6 +6,11 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BQ3F0Z257D');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (new URLSearchParams(window.location.search).get('embed') === '1') {
+            document.documentElement.classList.add('embed-mode');
+        }
+    </script>
     <title>King Case Study - Hyojin Yang | Principal UX Designer</title>
     <meta name="description" content="How I transformed fragmented internal tooling at King (Activision Blizzard) into unified ecosystems, driving adoption from 55% to 93% and reducing setup time by 90%.">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -14,7 +19,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,8 +29,8 @@
                         'cloud-dancer': '#FAF8F5',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['General Sans', 'sans-serif'],
+                        'display': ['General Sans', 'sans-serif'],
                     }
                 }
             }
@@ -34,8 +39,19 @@
     <style>
         /* King Orange Color Theme */
         :root {
+            --ink: #1A1A1A;
+            --paper: #FAF8F5;
+            --surface: #F3F1ED;
+            --muted: #5C5C5C;
+            --line: #E8E4DE;
             --primary-color: #FF6B35;
             --primary-hover: #E65A2E;
+            /* Compatibility aliases for existing page styles */
+            --text-dark: var(--ink);
+            --text-gray: var(--muted);
+            --bg-white: var(--paper);
+            --bg-light: var(--surface);
+            --border-color: var(--line);
         }
 
         /* Skip to main content link for accessibility */
@@ -43,8 +59,8 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: #1A1A1A;
-            color: #FAF8F5;
+            background: var(--ink);
+            color: var(--paper);
             padding: 8px 16px;
             text-decoration: none;
             z-index: 100;
@@ -71,11 +87,63 @@
             color: var(--primary-color);
         }
 
+        .king-focus-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 28px;
+            margin-bottom: 30px;
+        }
+
+        .king-focus-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .king-focus-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         h1, h2, h3 {
-            font-family: "Playfair Display", serif;
+            font-family: "Space Mono", monospace;
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.15;
+        }
+
+        html.embed-mode .skip-link,
+        html.embed-mode #main-nav,
+        html.embed-mode .back-link,
+        html.embed-mode footer,
+        html.embed-mode a.cta-button[href="index.html#selected-work"],
+        html.embed-mode .case-study-icon {
+            display: none !important;
+        }
+
+        html.embed-mode .case-study-hero {
+            padding: 24px 0 28px 0 !important;
+        }
+
+        html.embed-mode .case-study-content {
+            padding-top: 0 !important;
+        }
+
+        html.embed-mode .container {
+            max-width: none !important;
+            width: 100% !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
         }
     </style>
 </head>
@@ -89,10 +157,10 @@
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
                     <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
-                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
+                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
                 </a>
                 <ul class="flex gap-10">
-                    <li><a href="index.html#work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
+                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
                     <li><a href="about.html" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">About</a></li>
                 </ul>
             </div>
@@ -102,9 +170,9 @@
     <!-- Main Content -->
     <main id="main-content">
     <!-- Case Study Header -->
-    <section class="case-study-hero" aria-label="Case study overview">
+    <section class="case-study-hero" aria-label="Case study overview" style="padding-bottom: 0;">
         <div class="container" style="max-width: 900px;">
-            <a href="index.html#work" class="back-link">← Back Home</a>
+            <a href="index.html#selected-work" class="back-link">← Back Home</a>
             <div class="case-study-header" style="margin-top: 40px;">
                 <div class="case-study-icon" style="background: #F3F1ED; padding: 12px; border-radius: 12px; transition: background 0.3s ease;">
                     <img src="images/king-logo.png" alt="King Logo" style="width: 48px; height: auto; display: block;">
@@ -120,29 +188,26 @@
                     <p style="font-size: 16px; line-height: 1.7; color: #333333; margin-bottom: 16px;">
                         Across both Game Production and Core Platform, I led strategic UX initiatives to reduce fragmentation, increase adoption, and create scalable foundations for complex internal systems.
                     </p>
-                    <p style="font-size: 16px; line-height: 1.7; color: #333333; margin-bottom: 16px;">
-                        In <strong>Game Production</strong>, I redesigned the Game Engine Editor update ecosystem to eliminate version mismatch, reduce update anxiety, and increase adoption from under half of users to strong majority adoption — accelerating feature rollout and improving production stability.
-                    </p>
-                    <p style="font-size: 16px; line-height: 1.7; color: #333333; margin-bottom: 16px;">
-                        In <strong>Core Platform</strong>, I drove UX strategy across workspace management, environment workflows, and platform self-service — unifying disconnected tools into coherent, research-informed experiences.
-                    </p>
-                    <p style="font-size: 16px; line-height: 1.7; color: #333333;">
-                        By combining research, cross-functional alignment, architectural collaboration, and iterative validation, I helped transform reactive tooling environments into predictable, trusted platforms that support both creators and engineers.
-                    </p>
-            </div>
-            <div class="stats-grid" style="margin-top: 20px;">
-                <div class="stat-card">
-                    <div class="stat-value">50%</div>
-                    <div class="stat-label">Reduction in access management time</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">10+</div>
-                    <div class="stat-label">Research studies conducted</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">5</div>
-                    <div class="stat-label">Core UX pillars established</div>
-                </div>
+                    <div class="king-focus-cards">
+                        <div class="king-focus-card">
+                            <p style="font-size: 16px; line-height: 1.7; color: #333333; margin: 0;">
+                                <strong>Game Production</strong><br>
+                                - Redesigned the Game Engine Editor update ecosystem to eliminate version mismatch, reduce update anxiety, and increase adoption from under half of users to strong majority adoption — accelerating feature rollout and improving production stability.
+                            </p>
+                        </div>
+                        <div class="king-focus-card">
+                            <img
+                                src="images/core-platform-logo.png"
+                                alt="Core Platform icon"
+                                style="width: 56px; height: 56px; object-fit: contain; margin-bottom: 12px;"
+                                onerror="this.style.display='none';"
+                            >
+                            <p style="font-size: 16px; line-height: 1.7; color: #333333; margin: 0;">
+                                <strong>Coe Platform</strong><br>
+                                - Drove UX strategy across workspace management, game environment management workflows, and platform self-service — unifying disconnected tools into coherent, research-informed experiences.
+                            </p>
+                        </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -152,40 +217,46 @@
         <div class="container" style="max-width: 900px;">
 
             <!-- What I Led -->
-            <div style="margin-bottom: 60px;">
-                <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 16px; color: #000000;">What I Led</h2>
-                <p style="font-size: 16px; line-height: 1.7; color: #333333; margin-bottom: 24px;">Across two organizations, I:</p>
-                <ul style="list-style: none; padding: 0; display: grid; gap: 20px;">
-                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
-                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
-                        Conducted <strong>ecosystem-wide research</strong> to uncover systemic fragmentation and workflow breakdowns
-                    </li>
-                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
-                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
-                        Aligned stakeholders around <strong>shared problem definitions</strong> grounded in user insight
-                    </li>
-                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
-                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
-                        Defined <strong>strategic UX pillars</strong> guiding platform and tooling decisions
-                    </li>
-                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
-                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
-                        Facilitated <strong>cross-functional workshops</strong> to prioritize high-impact problem spaces
-                    </li>
-                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
-                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
-                        Co-developed and validated <strong>MVP solutions</strong> using rapid prototyping
-                    </li>
-                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
-                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
-                        Partnered with engineering on <strong>foundational architecture changes</strong> while maintaining user-centered direction
-                    </li>
-                    <li style="padding-left: 28px; position: relative; font-size: 16px; line-height: 1.7; color: #333333;">
-                        <span style="position: absolute; left: 0; font-weight: 700; color: #000000;">•</span>
-                        Established <strong>scalable UX practices</strong> to support long-term adoption and maturity
-                    </li>
-                </ul>
-                <p style="font-size: 15px; line-height: 1.7; color: #666666; margin-top: 20px; font-style: italic;">This work spanned both production-facing tools and platform infrastructure, requiring systemic thinking beyond individual product surfaces.</p>
+            <div style="margin-top: 28px; margin-bottom: 60px;">
+                <div style="display: grid; gap: 20px;">
+
+                    <div class="achievement-item">
+                        <div class="achievement-lead">Reframed the problem before proposing solutions</div>
+                        <div class="achievement-detail">Conducted ecosystem-wide research to surface systemic fragmentation — shifting conversations from visible symptoms (broken tools) to root causes (trust, workflow coherence, and adoption barriers)</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-lead">Built stakeholder alignment around shared problem definitions</div>
+                        <div class="achievement-detail">Grounded all decision-making in user insight, not assumptions — securing cross-functional buy-in before any design work began, so teams were solving the same problem</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-lead">Defined strategic UX pillars adopted across both organizations</div>
+                        <div class="achievement-detail">Created a framework guiding platform and tooling decisions consistently — giving teams a shared language for quality and direction that outlasted individual projects</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-lead">Prioritized the right problems through cross-functional workshops</div>
+                        <div class="achievement-detail">Facilitated structured sessions to identify high-impact problem spaces — bringing engineering, product, and UX into shared ownership of what to solve, and why, before committing to direction</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-lead">Validated direction before committing to implementation</div>
+                        <div class="achievement-detail">Co-developed MVP solutions using AI-augmented rapid prototyping — moving from concept to testable prototype in hours and iterating through multiple versions before a single line of production code was written</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-lead">Bridged user needs and technical constraints</div>
+                        <div class="achievement-detail">Partnered with engineering on foundational architecture changes while maintaining user-centered direction — ensuring design intent survived technical implementation without compromising either</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-lead">Built UX practices that outlast any single project</div>
+                        <div class="achievement-detail">Established scalable research protocols, design rituals, and decision frameworks that teams continue to use and grow independently — reducing dependency on UX support while raising quality</div>
+                    </div>
+
+                </div>
+                <p style="font-size: 15px; line-height: 1.7; color: #666666; margin-top: 28px; font-style: italic;">This work spanned both production-facing tools and platform infrastructure, requiring systemic thinking beyond individual product surfaces.</p>
             </div>
 
             <!-- Strategic Challenge -->
@@ -532,7 +603,7 @@
 
             <!-- View All Toggle -->
             <div style="text-align: center; margin-bottom: 40px;">
-                <button onclick="toggleSections()" id="view-all-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: transparent; border: 1px solid #D0D0D0; border-radius: 8px; font-size: 14px; font-weight: 600; color: #333333; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s;" onmouseover="this.style.borderColor='#FF6B35'; this.style.color='#FF6B35';" onmouseout="this.style.borderColor='#D0D0D0'; this.style.color='#333333';">
+                <button onclick="toggleSections()" id="view-all-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: transparent; border: 1px solid #D0D0D0; border-radius: 8px; font-size: 14px; font-weight: 600; color: #333333; cursor: pointer; font-family: 'Space Mono', monospace; transition: all 0.2s;" onmouseover="this.style.borderColor='#FF6B35'; this.style.color='#FF6B35';" onmouseout="this.style.borderColor='#D0D0D0'; this.style.color='#333333';">
                     <span id="view-all-text">View All Other Works</span>
                     <svg id="view-all-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 16px; height: 16px; transition: transform 0.3s;"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                 </button>
@@ -889,6 +960,15 @@
                 </div>
             </div>
 
+            <div class="content-section">
+                <h2 class="content-section-title">Outcomes & Next Steps</h2>
+                <div class="content-card">
+                    <p><strong>What changed:</strong> platform workflows became more predictable, reducing coordination friction and improving team confidence.</p>
+                    <p><strong>What scaled:</strong> decision frameworks and collaboration rituals became reusable patterns across Shared Tech initiatives.</p>
+                    <p><strong>Next:</strong> extend the evidence-led model to more platform domains and strengthen telemetry that links UX changes to delivery outcomes.</p>
+                </div>
+            </div>
+
             <!-- More Projects -->
             <div style="margin-top: 80px; padding-top: 60px; border-top: 1px solid #E8E4DE;">
                 <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: #000000; text-align: center;">More Projects</h3>
@@ -921,7 +1001,7 @@
             </div>
 
             <div style="margin: 60px 0; text-align: center;">
-                <a href="index.html#work" class="cta-button">Back Home</a>
+                <a href="index.html#selected-work" class="cta-button">Back Home</a>
             </div>
 
         </div>
@@ -935,7 +1015,7 @@
                 <div>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
                         <img src="images/hj-logo.png" alt="HJ Logo" style="height: 32px; filter: brightness(0) invert(1);">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;">HJY</span>
+                        <span style="font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700;">HJY</span>
                     </div>
                     <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">
                         Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.
@@ -944,7 +1024,7 @@
                 <div>
                     <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;"><a href="index.html#work" style="font-size: 14px;">Work</a></li>
+                        <li style="margin-bottom: 12px;"><a href="index.html#selected-work" style="font-size: 14px;">Work</a></li>
                         <li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px;">About</a></li>
                     </ul>
                 </div>
@@ -1022,6 +1102,25 @@
         }
     </script>
 
+    <script>
+        (function () {
+            if (!document.documentElement.classList.contains('embed-mode')) return;
+
+            const postHeight = () => {
+                const height = Math.max(
+                    document.body ? document.body.scrollHeight : 0,
+                    document.documentElement ? document.documentElement.scrollHeight : 0
+                );
+                window.parent.postMessage({ type: 'caseHeight', height: height }, window.location.origin);
+            };
+
+            window.addEventListener('load', postHeight);
+            window.addEventListener('resize', postHeight);
+            setTimeout(postHeight, 100);
+            setTimeout(postHeight, 500);
+            setTimeout(postHeight, 1200);
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

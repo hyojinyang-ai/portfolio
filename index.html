@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="images/HyojinYang.png" as="image">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -40,8 +40,8 @@
                         'cloud-dancer': '#FAF8F5',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'display': ['Space Mono', 'monospace'],
                     }
                 }
             }
@@ -69,6 +69,13 @@
     </script>
 
     <style>
+        :root {
+            --ink: #0D0D0D;
+            --paper: #FFFFFF;
+            --muted: #555555;
+            --line: rgba(0, 0, 0, 0.1);
+        }
+
         /* Skip to main content link for accessibility */
         .skip-link {
             position: absolute;
@@ -89,18 +96,18 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: "Inter", sans-serif;
+            font-family: "Plus Jakarta Sans", sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         h1, h2, h3 {
-            font-family: "Playfair Display", serif;
+            font-family: "Space Mono", monospace;
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.15;
         }
         h4, h5, h6 {
-            font-family: "Inter", sans-serif;
+            font-family: "Space Mono", monospace;
             font-weight: 600;
             letter-spacing: -0.02em;
         }
@@ -114,17 +121,74 @@
             transform: translateY(-4px);
         }
         .work-card-inner {
-            background: #FAF8F5;
-            border-radius: 12px;
-            padding: 32px;
-            border: 1px solid #E8E4DE;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            background: var(--paper);
+            border-radius: 6px;
+            padding: 28px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
             height: 100%;
         }
         .work-card:hover .work-card-inner {
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-            border-color: #D4CFC8;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .work-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .work-logo {
+            width: 54px;
+            height: 54px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .work-content {
+            flex: 1;
+        }
+        .work-company {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 0 0 8px 0;
+        }
+        .work-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--muted);
+            margin: 0;
+        }
+        .work-meta {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin: 24px 0 0 0;
+            padding: 0;
+        }
+        .work-meta-item {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
+            padding: 8px 12px;
+            background: #F5F5F5;
+        }
+        .work-meta-label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #888888;
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+        .work-meta-value {
+            display: block;
+            font-size: 13px;
+            color: #0D0D0D;
+            line-height: 1.35;
+            font-weight: 500;
         }
 
         /* Dark footer links */
@@ -140,20 +204,33 @@
         .cta-hero {
             display: inline-flex;
             align-items: center;
-            padding: 16px 36px;
-            background: #1A1A1A;
-            color: #FAF8F5;
+            padding: 14px 32px;
+            background: transparent;
+            color: #0D0D0D;
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            border: 1.5px solid #0D0D0D;
+            transition: all 0.18s ease;
+            letter-spacing: 0.01em;
         }
         .cta-hero:hover {
-            background: #1a1a1a;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
+            background: #0D0D0D;
+            color: #FFFFFF;
+        }
+
+        .work-detail-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1A1A1A;
+            text-decoration: none;
+        }
+        .work-detail-link:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -162,6 +239,9 @@
             }
             .work-grid {
                 grid-template-columns: 1fr !important;
+            }
+            .work-meta {
+                grid-template-columns: 1fr;
             }
             .footer-grid {
                 grid-template-columns: 1fr !important;
@@ -180,15 +260,15 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background: rgba(250,248,245,0.85);">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-all duration-300" style="background: rgba(255,255,255,0.92); border-bottom: 1px solid rgba(0,0,0,0.06);">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
                     <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
-                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
+                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
                 </a>
                 <ul class="flex gap-10" role="list">
-                    <li><a href="index.html#work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;" aria-current="page">Work</a></li>
+                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
                     <li><a href="about.html" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">About</a></li>
                 </ul>
             </div>
@@ -202,41 +282,41 @@
             <img src="images/HyojinYang.png" alt="Portrait of Hyojin Yang, Principal UX Designer at King (Activision Blizzard)" width="200" height="200" style="width: 200px; height: auto; margin-bottom: 2.5em; display: block; border-radius: 12px;">
             <div style="font-size: 17px; line-height: 1.8; color: #1A1A1A; letter-spacing: 0.01em;">
 
-                <h1 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 1.2em; letter-spacing: -0.02em;">
-                    Principal UX Designer specializing in complex systems, internal platforms, and design leadership at scale.
+                <h1 style="font-family: 'Space Mono', monospace; font-size: clamp(36px, 5vw, 58px); font-weight: 700; line-height: 1.08; margin-bottom: 1.2em; letter-spacing: -0.04em;">
+                    I use research to help teams focus on the right problems — and AI to move from insight to tested solution, faster.
                 </h1>
 
                 <p style="margin-bottom: 1.5em; color: #5C5C5C;">
-                    Currently at <a href="https://www.king.com" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A; font-weight: 500;">King (Activision Blizzard)</a>, I lead UX strategy across platform and game production — transforming fragmented internal tooling into cohesive ecosystems through research, cross-functional alignment, and AI-augmented design workflows.
+                    Currently at <a href="https://www.king.com" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #1A1A1A; font-weight: 500;">King (Activision Blizzard)</a>, I lead UX strategy across platform and game production. My work starts with structured discovery — running research, building insight repositories teams can access independently, and connecting findings directly to roadmap priorities. Throughout, I use AI to plan studies, synthesize qualitative data, prototype in hours, and implement without traditional design-to-code handoffs.
                 </p>
 
                 <p style="margin-bottom: 2.5em; color: #5C5C5C;">
-                    Previously at Zalando, Telenor, and H&M — where I've shaped developer experiences, unified digital platforms, and scaled membership programs serving millions of users across dozens of markets.
+                    Previously at Zalando, Telenor, and H&M — each role reinforced the same conviction: the most impactful design work isn't about better interfaces. It's about helping organizations ask better questions and act on the answers.
                 </p>
 
                 <!-- Proof Points Grid -->
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 3em; padding: 28px 0; border-top: 1px solid #E8E4DE; border-bottom: 1px solid #E8E4DE;">
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #1A1A1A; margin-bottom: 4px;">93%</div>
-                        <div style="font-size: 13px; color: #5C5C5C; line-height: 1.4;">Tool adoption at King (from 55%)</div>
+                <div class="proof-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 3em; padding: 36px 0; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1);">
+                    <div style="padding-right: 24px;">
+                        <div style="font-family: 'Space Mono', monospace; font-size: clamp(36px, 4vw, 52px); font-weight: 700; color: #0D0D0D; margin-bottom: 8px; letter-spacing: -0.04em; line-height: 1;">93%</div>
+                        <div style="font-size: 13px; color: #555555; line-height: 1.5;">Tool adoption at King (from 55%)</div>
                     </div>
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #1A1A1A; margin-bottom: 4px;">100M</div>
-                        <div style="font-size: 13px; color: #5C5C5C; line-height: 1.4;">H&M members (doubled from 50M)</div>
+                    <div style="padding-right: 24px; border-left: 1px solid rgba(0,0,0,0.08); padding-left: 24px;">
+                        <div style="font-family: 'Space Mono', monospace; font-size: clamp(36px, 4vw, 52px); font-weight: 700; color: #0D0D0D; margin-bottom: 8px; letter-spacing: -0.04em; line-height: 1;">100M</div>
+                        <div style="font-size: 13px; color: #555555; line-height: 1.5;">H&M members (doubled from 50M)</div>
                     </div>
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #1A1A1A; margin-bottom: 4px;">90%</div>
-                        <div style="font-size: 13px; color: #5C5C5C; line-height: 1.4;">Reduction in workspace setup time</div>
+                    <div style="padding-right: 24px; border-left: 1px solid rgba(0,0,0,0.08); padding-left: 24px;">
+                        <div style="font-family: 'Space Mono', monospace; font-size: clamp(36px, 4vw, 52px); font-weight: 700; color: #0D0D0D; margin-bottom: 8px; letter-spacing: -0.04em; line-height: 1;">90%</div>
+                        <div style="font-size: 13px; color: #555555; line-height: 1.5;">Reduction in workspace setup time</div>
                     </div>
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #1A1A1A; margin-bottom: 4px;">10+</div>
-                        <div style="font-size: 13px; color: #5C5C5C; line-height: 1.4;">Years in design leadership</div>
+                    <div style="border-left: 1px solid rgba(0,0,0,0.08); padding-left: 24px;">
+                        <div style="font-family: 'Space Mono', monospace; font-size: clamp(36px, 4vw, 52px); font-weight: 700; color: #0D0D0D; margin-bottom: 8px; letter-spacing: -0.04em; line-height: 1;">10+</div>
+                        <div style="font-size: 13px; color: #555555; line-height: 1.5;">Years in design leadership</div>
                     </div>
                 </div>
 
                 <!-- View Featured Work Button -->
                 <div>
-                    <a href="index.html#work" class="cta-hero" aria-label="View my featured work">
+                    <a href="index.html#selected-work" class="cta-hero" aria-label="View my featured work">
                         View featured work
                         <span style="margin-left: 10px;" aria-hidden="true">↓</span>
                     </a>
@@ -245,67 +325,142 @@
         </div>
     </section>
 
-    <!-- Work Section -->
-    <section id="work" style="background: #F3F1ED; padding: 100px 0;">
-        <div class="mx-auto px-6 lg:px-8" style="max-width: 1000px;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; margin-bottom: 60px; color: #1A1A1A; letter-spacing: -0.02em;">
-                Selected Work
-            </h2>
+    <!-- How I Work -->
+    <section style="padding: 96px 0; background: #FFFFFF; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
+            <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; color: #0D0D0D; margin-bottom: 14px; letter-spacing: -0.04em;">How I Work</h2>
+            <p style="font-size: 16px; line-height: 1.75; color: #555555; max-width: 680px; margin-bottom: 48px;">
+                A research-led loop, with AI accelerating every step that doesn't require human judgment.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,0,0,0.08); border-radius: 6px; overflow: hidden;" class="process-grid">
+                <div style="background: #FFFFFF; padding: 28px 24px;">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #B0A99F; margin-bottom: 10px;">01</div>
+                    <div style="font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 6px;">Research Planning</div>
+                    <div style="font-size: 13px; line-height: 1.6; color: #5C5C5C;">Bouncing ideas and refining questions with AI before committing to a study design.</div>
+                </div>
+                <div style="background: #FFFFFF; padding: 28px 24px;">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #B0A99F; margin-bottom: 10px;">02</div>
+                    <div style="font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 6px;">Insight Repository</div>
+                    <div style="font-size: 13px; line-height: 1.6; color: #5C5C5C;">Building living research repositories that stakeholders can explore and grow independently.</div>
+                </div>
+                <div style="background: #FFFFFF; padding: 28px 24px;">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #B0A99F; margin-bottom: 10px;">03</div>
+                    <div style="font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 6px;">Stakeholder Alignment</div>
+                    <div style="font-size: 13px; line-height: 1.6; color: #5C5C5C;">Connecting research insights to roadmap priorities so teams build the right things.</div>
+                </div>
+                <div style="background: #FFFFFF; padding: 28px 24px;">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #B0A99F; margin-bottom: 10px;">04</div>
+                    <div style="font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 6px;">AI Prototyping</div>
+                    <div style="font-size: 13px; line-height: 1.6; color: #5C5C5C;">Generating functional prototypes in hours to align teams on what we're building before committing.</div>
+                </div>
+                <div style="background: #FFFFFF; padding: 28px 24px;">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #B0A99F; margin-bottom: 10px;">05</div>
+                    <div style="font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 6px;">Early User Testing</div>
+                    <div style="font-size: 13px; line-height: 1.6; color: #5C5C5C;">Testing with users on interactive prototypes before a single line of production code is written.</div>
+                </div>
+                <div style="background: #FFFFFF; padding: 28px 24px;">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #B0A99F; margin-bottom: 10px;">06</div>
+                    <div style="font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 6px;">No-handoff Implementation</div>
+                    <div style="font-size: 13px; line-height: 1.6; color: #5C5C5C;">Using AI-assisted coding to ship production-quality interfaces under my review — no design-to-dev translation loss.</div>
+                </div>
+            </div>
+            <p style="font-size: 14px; line-height: 1.7; color: #B0A99F; margin-top: 20px; font-style: italic;">Throughout, I stay in control: AI handles the mechanical work; I handle the judgment calls.</p>
+        </div>
+    </section>
 
-            <div class="work-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
-                <!-- King -->
-                <a href="king-case.html" class="work-card" aria-label="View King case study - Transforming fragmented internal tooling">
+    <style>
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+
+    <section id="selected-work" style="padding: 24px 0 96px 0; background: #FFFFFF; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div class="mx-auto px-6 lg:px-8" style="max-width: 900px;">
+            <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; color: #0D0D0D; margin-bottom: 14px; letter-spacing: -0.04em;">Featured Work</h2>
+            <p style="font-size: 16px; line-height: 1.75; color: #555555; max-width: 680px; margin-bottom: 48px;">
+                Selected case studies showing how I define strategic direction, validate decisions with evidence, and scale design impact in complex organizations.
+            </p>
+
+            <div class="work-grid" style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                <a href="king-case.html" class="work-card" data-company="king" aria-label="Open King case study">
                     <div class="work-card-inner">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                            <img src="images/king-logo.png" alt="King company logo" style="width: 32px; height: 32px; object-fit: contain;" aria-hidden="true">
-                            <h3 style="font-size: 24px; margin: 0; color: #1A1A1A;">King</h3>
+                        <div class="work-row">
+                            <img src="images/king-logo.png" alt="King logo" class="work-logo">
+                            <div class="work-content">
+                                <h3 class="work-company">King</h3>
+                                <p class="work-description">
+                                    Research revealed the real problem wasn't bad UI — developers were avoiding the launcher because they feared updates would break their builds. Reframing the design around trust and predictability, rather than interface improvements, drove adoption from 55% to 93% and reduced feature rollout time from months to days.
+                                </p>
+                                <ul class="work-meta">
+                                    <li class="work-meta-item"><span class="work-meta-label">Role</span><span class="work-meta-value">Principal UX Designer</span></li>
+                                    <li class="work-meta-item"><span class="work-meta-label">Timeframe</span><span class="work-meta-value">2022 - Present</span></li>
+                                    <li class="work-meta-item"><span class="work-meta-label">Impact</span><span class="work-meta-value">93% adoption</span></li>
+                                </ul>
+                                <span class="work-detail-link">View full details →</span>
+                            </div>
                         </div>
-                        <p style="font-size: 14px; line-height: 1.7; color: #5C5C5C; margin-bottom: 20px;">
-                            Transforming fragmented internal tooling into unified, research-driven ecosystems across Game Production and Core Platform.
-                        </p>
-                        <span style="font-size: 13px; color: #999; font-weight: 500;">2022 — Current</span>
                     </div>
                 </a>
 
-                <!-- Zalando -->
-                <a href="zalando-case.html" class="work-card" aria-label="View Zalando case study - Leading product design for Builder Platform">
+                <a href="zalando-case.html" class="work-card" data-company="zalando" aria-label="Open Zalando case study">
                     <div class="work-card-inner">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                            <img src="images/zalando-logo.png" alt="Zalando company logo" style="width: 32px; height: 32px; object-fit: contain;" aria-hidden="true">
-                            <h3 style="font-size: 24px; margin: 0; color: #1A1A1A;">Zalando</h3>
+                        <div class="work-row">
+                            <img src="images/zalando-logo.png" alt="Zalando logo" class="work-logo">
+                            <div class="work-content">
+                                <h3 class="work-company">Zalando</h3>
+                                <p class="work-description">
+                                    Discovery research uncovered that builders' real frustration wasn't navigation — they couldn't predict the outcome of their own actions. Redirecting from surface-level discoverability fixes to workflow transparency and confidence improved adoption across a platform serving 1,800+ builders.
+                                </p>
+                                <ul class="work-meta">
+                                    <li class="work-meta-item"><span class="work-meta-label">Role</span><span class="work-meta-value">Senior Product Designer</span></li>
+                                    <li class="work-meta-item"><span class="work-meta-label">Timeframe</span><span class="work-meta-value">2021 - 2022</span></li>
+                                    <li class="work-meta-item"><span class="work-meta-label">Impact</span><span class="work-meta-value">1,800+ builders supported</span></li>
+                                </ul>
+                                <span class="work-detail-link">View full details →</span>
+                            </div>
                         </div>
-                        <p style="font-size: 14px; line-height: 1.7; color: #5C5C5C; margin-bottom: 20px;">
-                            Leading product design for Zalando's Builder Platform, transforming internal tools for developers and product managers.
-                        </p>
-                        <span style="font-size: 13px; color: #999; font-weight: 500;">2021 — 2022</span>
                     </div>
                 </a>
 
-                <!-- Telenor -->
-                <a href="telenor-case.html" class="work-card" aria-label="View Telenor case study - Redesigning My Telenor account experience">
+                <a href="telenor-case.html" class="work-card" data-company="telenor" aria-label="Open Telenor case study">
                     <div class="work-card-inner">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                            <img src="images/telenor-logo.png" alt="Telenor company logo" style="width: 32px; height: 32px; object-fit: contain;" aria-hidden="true">
-                            <h3 style="font-size: 24px; margin: 0; color: #1A1A1A;">Telenor</h3>
+                        <div class="work-row">
+                            <img src="images/telenor-logo.png" alt="Telenor logo" class="work-logo">
+                            <div class="work-content">
+                                <h3 class="work-company">Telenor</h3>
+                                <p class="work-description">
+                                    End-to-end journey mapping revealed customers were failing far upstream from where the team assumed — during SIM registration, not the activation screen. Shifting focus to the actual failure point reduced activation failures by ~60%.
+                                </p>
+                                <ul class="work-meta">
+                                    <li class="work-meta-item"><span class="work-meta-label">Role</span><span class="work-meta-value">Senior UX Designer / UX Lead</span></li>
+                                    <li class="work-meta-item"><span class="work-meta-label">Timeframe</span><span class="work-meta-value">2019 - 2021</span></li>
+                                    <li class="work-meta-item"><span class="work-meta-label">Impact</span><span class="work-meta-value">~60% fewer failures</span></li>
+                                </ul>
+                                <span class="work-detail-link">View full details →</span>
+                            </div>
                         </div>
-                        <p style="font-size: 14px; line-height: 1.7; color: #5C5C5C; margin-bottom: 20px;">
-                            Leading the redesign of My Telenor account experience, consolidating fragmented platforms through research-driven design.
-                        </p>
-                        <span style="font-size: 13px; color: #999; font-weight: 500;">2019 — 2021</span>
                     </div>
                 </a>
 
-                <!-- H&M -->
-                <a href="hm-case.html" class="work-card" aria-label="View H&M case study - Scaling global membership program to 100 million users">
+                <a href="hm-case.html" class="work-card" data-company="hm" aria-label="Open H&M case study">
                     <div class="work-card-inner">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                            <img src="images/hm-logo.png" alt="H&M company logo" style="width: 32px; height: 32px; object-fit: contain;" aria-hidden="true">
-                            <h3 style="font-size: 24px; margin: 0; color: #1A1A1A;">H&M</h3>
+                        <div class="work-row">
+                            <img src="images/hm-logo.png" alt="H&M logo" class="work-logo">
+                            <div class="work-content">
+                                <h3 class="work-company">H&amp;M</h3>
+                                <p class="work-description">
+                                    Research across 12 markets exposed the core tension: a single global template would fail, but fully localized builds weren't scalable. The insight shaped a flexible design system with local configuration points — enabling the program to scale from 50M to 100M members without fragmenting.
+                                </p>
+                                <ul class="work-meta">
+                                    <li class="work-meta-item"><span class="work-meta-label">Role</span><span class="work-meta-value">Lead UX Designer</span></li>
+                                    <li class="work-meta-item"><span class="work-meta-label">Timeframe</span><span class="work-meta-value">2015 - 2019</span></li>
+                                    <li class="work-meta-item"><span class="work-meta-label">Impact</span><span class="work-meta-value">50M to 100M members</span></li>
+                                </ul>
+                                <span class="work-detail-link">View full details →</span>
+                            </div>
                         </div>
-                        <p style="font-size: 14px; line-height: 1.7; color: #5C5C5C; margin-bottom: 20px;">
-                            Leading UX strategy to overhaul H&M's global membership program, contributing to doubling the active member base to 100 million.
-                        </p>
-                        <span style="font-size: 13px; color: #999; font-weight: 500;">2015 — 2019</span>
                     </div>
                 </a>
             </div>
@@ -320,7 +475,7 @@
                 <div>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
                         <img src="images/hj-logo.png" alt="HJ Logo - Hyojin Yang" width="32" height="32" style="height: 32px; filter: brightness(0) invert(1);">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;">HJY</span>
+                        <span style="font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700;">HJY</span>
                     </div>
                     <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">
                         Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.
@@ -329,7 +484,7 @@
                 <div>
                     <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;"><a href="index.html#work" style="font-size: 14px;">Work</a></li>
+                        <li style="margin-bottom: 12px;"><a href="index.html#selected-work" style="font-size: 14px;">Work</a></li>
                         <li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px;">About</a></li>
                     </ul>
                 </div>
