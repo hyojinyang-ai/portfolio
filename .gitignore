@@ -1,6 +1,8 @@
 .DS_Store
 .claude/
 .vercel
+node_modules/
+tailwind.css
 # Development folders
 .bkit/
 .vscode/
