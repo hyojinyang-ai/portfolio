@@ -1283,7 +1283,7 @@ img[role="button"]:focus-visible,
 
 .work-card-inner {
     background: var(--bg-white);
-    border-radius: 32px;
+    border-radius: 44px;
     padding: 32px;
     border: 1px solid var(--border-color);
     box-shadow: none;
