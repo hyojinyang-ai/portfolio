@@ -237,7 +237,7 @@ img[role="button"]:focus-visible,
     background: var(--primary-color);
     color: white;
     text-decoration: none;
-    border-radius: var(--radius-md);
+    border-radius: 100px;
     font-weight: 500;
     font-size: 14px;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
