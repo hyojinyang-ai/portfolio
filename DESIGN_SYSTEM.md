@@ -89,13 +89,13 @@ Based on a **4px base unit** with an 8px rhythm. Use these tokens for all `paddi
 ### Font Sizes
 | Token | Value | Usage |
 |---|---|---|
-| `--text-xs` | `11px` | Labels, uppercase tags, step numbers |
-| `--text-sm` | `13px` | Captions, meta text, button labels |
+| `--text-xs` | `12px` | Labels, uppercase tags, step numbers |
+| `--text-sm` | `14px` | Captions, meta text, button labels |
 | `--text-base` | `15px` | Card body, secondary content |
 | `--text-md` | `16px` | Primary body text (default) |
 | `--text-lg` | `18px` | Lead paragraphs |
-| `--text-xl` | `22px` | Small section headings |
-| `--text-2xl` | `28px` | Section headings |
+| `--text-xl` | `20px` | Small section headings |
+| `--text-2xl` | `24px` | Section headings |
 | `--text-3xl` | `clamp(28px, 3.5vw, 40px)` | Page-level headings (responsive) |
 
 ### Font Weights

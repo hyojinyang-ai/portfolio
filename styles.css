@@ -55,13 +55,13 @@
     --space-30:  120px;
 
     /* ─── TYPOGRAPHY SCALE ─────────────────────────────── */
-    --text-xs:   11px;   /* labels, tags */
-    --text-sm:   13px;   /* captions, meta */
+    --text-xs:   12px;   /* labels, tags */
+    --text-sm:   14px;   /* captions, meta */
     --text-base: 15px;   /* body default */
     --text-md:   16px;   /* body large */
     --text-lg:   18px;   /* lead text */
-    --text-xl:   22px;   /* small headings */
-    --text-2xl:  28px;   /* section headings */
+    --text-xl:   20px;   /* small headings */
+    --text-2xl:  24px;   /* section headings */
     --text-3xl:  clamp(28px, 3.5vw, 40px); /* page headings */
 
     --weight-regular: 400;
