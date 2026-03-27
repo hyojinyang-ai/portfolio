@@ -37,21 +37,16 @@
         }
     </script>
     <style>
-        /* King Orange Color Theme */
+        /* King — brand color override */
         :root {
-            --ink: #1A1A1A;
-            --paper: #FAF8F5;
-            --surface: #F3F1ED;
-            --muted: #5C5C5C;
-            --line: #E8E4DE;
-            --primary-color: #FF6B35;
-            --primary-hover: #E65A2E;
-            /* Compatibility aliases for existing page styles */
-            --text-dark: var(--ink);
-            --text-gray: var(--muted);
-            --bg-white: var(--paper);
-            --bg-light: var(--surface);
-            --border-color: var(--line);
+            --primary-color:  #FF6B35;
+            --primary-hover:  #E65A2E;
+            /* Map to global design tokens */
+            --text-dark:      var(--color-ink-mid);
+            --text-gray:      var(--color-muted);
+            --bg-white:       var(--color-bg);
+            --bg-light:       var(--color-bg-tint);
+            --border-color:   var(--color-border-mid);
         }
 
         /* Skip to main content link for accessibility */
