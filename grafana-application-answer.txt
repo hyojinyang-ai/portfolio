@@ -1,0 +1,10 @@
+GRAFANA APPLICATION QUESTION:
+"Provide an example of an experience where users automagically complete tasks and reach their goals with minimal effort. Add a sentence or two about what you believe makes it effective."
+
+---
+
+ANSWER:
+
+At King, game developers had to manually track which editor version matched their project, navigate a launcher to find it, check compatibility, and hope the update wouldn't break their workspace. Our Smart Project Launch system eliminated all of this: double-click a project file, and the correct editor version launches automatically — no version selection, no compatibility checks, no anxiety. If an update is available, it downloads silently in the background while you work. Your workspace layout, panels, and shortcuts persist across updates, so there's zero disruption.
+
+What makes it effective is that we didn't just automate the steps — we removed the need for users to think about them. The system resolves version compatibility, preserves workspace state, and uses trust signals (severity labels, "Team-Tested" badges) so users can make informed decisions about major changes without doing research. Adoption went from 55% to 93% because the friction wasn't in the UI — it was in the cognitive load of managing versions manually. The best "automagical" experiences don't just make tasks easier; they make the user forget the task ever existed.
