@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ3F0Z257D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BQ3F0Z257D');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King - Core Platform | Internal Platform UX Improvement</title>
+    <meta name="description" content="A UX case study on improving King's internal Core Platform experience by reducing fragmentation, increasing self-service, and creating clearer platform workflows.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://hyojinyang.com/king-core-platform.html">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tailwind.css">
+    <style>
+        :root {
+            --primary-color: #FF6B35;
+            --primary-hover: #E65A2E;
+            --text-dark: var(--color-ink-mid);
+            --text-gray: var(--color-muted);
+            --bg-white: var(--color-bg);
+            --bg-light: var(--color-bg-tint);
+            --border-color: var(--color-border-mid);
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3 {
+            font-family: "Space Mono", monospace;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus { top: 0; }
+        .cta-button { background: var(--primary-color); }
+        .cta-button:hover { background: var(--primary-hover); box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3); }
+        .section-label { color: var(--primary-color); }
+
+        .case-layout-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .case-panel {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .evidence-card {
+            background: #FFFFFF;
+            border: 1px solid #E8E4DE;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .evidence-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #777777;
+            margin-bottom: 8px;
+        }
+
+        .evidence-value {
+            font-family: "Space Mono", monospace;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1A1A1A;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .case-layout-grid,
+            .evidence-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Gate -->
+    <div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#FAF8F5;display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;max-width:360px;padding:0 24px;">
+            <div style="font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:#1A1A1A;margin-bottom:8px;">HJY</div>
+            <p style="font-size:14px;color:#666;margin-bottom:24px;line-height:1.6;">This case study is password-protected.<br>Please enter the password to continue.</p>
+            <form id="pw-form" style="display:flex;gap:8px;">
+                <input id="pw-input" type="password" placeholder="Password" autocomplete="off" style="flex:1;padding:12px 16px;border:1.5px solid #D0D0D0;border-radius:100px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#1A1A1A'" onblur="this.style.borderColor='#D0D0D0'">
+                <button type="submit" style="padding:12px 24px;background:#1A1A1A;color:#fff;border:none;border-radius:100px;font-size:14px;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;">Enter</button>
+            </form>
+            <p id="pw-error" style="font-size:13px;color:#CC0000;margin-top:12px;display:none;">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var h='aHlvamluMjAyNg==';
+        if(sessionStorage.getItem('pw-ok')==='1'){document.getElementById('pw-gate').style.display='none';return;}
+        document.getElementById('pw-form').addEventListener('submit',function(e){
+            e.preventDefault();
+            if(btoa(document.getElementById('pw-input').value)===h){
+                sessionStorage.setItem('pw-ok','1');
+                document.getElementById('pw-gate').style.display='none';
+            }else{
+                document.getElementById('pw-error').style.display='block';
+                document.getElementById('pw-input').value='';
+                document.getElementById('pw-input').focus();
+            }
+        });
+        document.getElementById('pw-input').focus();
+    })();
+    </script>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background: rgba(250,248,245,0.85);" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
+                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
+                </a>
+                <ul class="flex gap-10">
+                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
+                    <li><a href="about.html" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="case-study-hero" aria-label="Case study overview" style="padding-bottom: 60px;">
+            <div class="container" style="max-width: 900px;">
+                <a href="index.html#selected-work" class="back-link">← Back Home</a>
+                <div class="case-study-header" style="margin-top: 40px;">
+                    <div class="case-study-icon" style="background: #F3F1ED; padding: 12px; border-radius: 12px; transition: background 0.3s ease;">
+                        <img src="images/king-logo.png" alt="King Logo" style="width: 48px; height: auto; display: block;">
+                    </div>
+                    <div class="case-study-meta">
+                        <h1 class="case-study-title">King - Core Platform: Internal Platform UX Improvement</h1>
+                        <p class="case-study-role">Principal UX Designer · Core Platform · 2022-Present</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <p style="font-size: 16px; line-height: 1.7; color: #333333; margin-bottom: 16px;">
+                        I led UX strategy across King's internal Core Platform to improve how game teams discover, access, and manage platform capabilities. The work focused on turning disconnected internal tools into clearer, more self-service workflows grounded in research, shared mental models, and reusable platform patterns.
+                    </p>
+                    <div class="case-layout-grid">
+                        <div class="case-panel">
+                            <p style="font-size: 16px; line-height: 1.7; color: #333333; margin: 0;"><strong>Challenge</strong><br>Core Platform teams supported many critical workflows, but the user experience was fragmented across tools, permissions, workspace setup, environment management, and support channels.</p>
+                        </div>
+                        <div class="case-panel">
+                            <p style="font-size: 16px; line-height: 1.7; color: #333333; margin: 0;"><strong>Outcome</strong><br>The work created clearer UX direction, reusable research practices, self-service patterns, and a stronger platform vision for internal users and product teams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-content" style="padding-top: 0;">
+            <div class="container" style="max-width: 900px;">
+                <div class="content-section" style="margin-top: 60px;">
+                    <h2 class="content-section-title">The Strategic Challenge</h2>
+                    <div style="padding: 32px; background: #FAF8F5; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #E8E4DE;">
+                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 8px; color: #000000;">A powerful platform that felt fragmented to its users</h3>
+                        <p style="font-size: 15px; line-height: 1.7; color: #333333; margin-bottom: 28px;">Game teams relied on Core Platform for essential production workflows, but the experience required too much coordination, context switching, and prior knowledge.</p>
+
+                        <div style="display: grid; gap: 24px; margin-bottom: 28px;">
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;"><span style="width: 22px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FF6B35; color: #FFFFFF; font-size: 12px; font-weight: 700; border-radius: 50%;">1</span><h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">Disconnected entry points</h4></div>
+                                <p style="font-size: 14px; line-height: 1.6; color: #333333; padding-left: 32px;">Users had to move across multiple tools and support channels to understand what existed, what applied to their game, and what action to take next.</p>
+                            </div>
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;"><span style="width: 22px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FF6B35; color: #FFFFFF; font-size: 12px; font-weight: 700; border-radius: 50%;">2</span><h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">Low self-service confidence</h4></div>
+                                <p style="font-size: 14px; line-height: 1.6; color: #333333; padding-left: 32px;">Workspace, access, and environment flows depended on manual coordination because users could not always see system state, ownership, or safe next steps.</p>
+                            </div>
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;"><span style="width: 22px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FF6B35; color: #FFFFFF; font-size: 12px; font-weight: 700; border-radius: 50%;">3</span><h4 style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">No shared UX language</h4></div>
+                                <p style="font-size: 14px; line-height: 1.6; color: #333333; padding-left: 32px;">Teams were solving related problems with different mental models, making it hard to scale quality across the platform.</p>
+                            </div>
+                        </div>
+
+                        <div style="padding-top: 20px; border-top: 1px solid #E8E4DE;"><p style="font-size: 16px; font-weight: 600; color: #000000; margin: 0;">The design challenge was to make the platform feel coherent, predictable, and usable without requiring users to understand the organization behind it.</p></div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-section-title">My Role</h2>
+                    <div class="content-card">
+                        <p>I worked as the Principal UX Designer across discovery, strategy, synthesis, stakeholder alignment, and product direction. My contribution was not limited to interface design: I helped define how the organization should understand platform users, prioritize problems, and translate research into reusable product patterns.</p>
+                        <div class="evidence-grid">
+                            <div class="evidence-card"><div class="evidence-label">Scope</div><div class="evidence-value">Platform</div><p style="font-size: 14px; line-height: 1.6; color: #555555; margin: 0;">Workspace management, IAM, environment management, research operations, and platform hub strategy.</p></div>
+                            <div class="evidence-card"><div class="evidence-label">Users</div><div class="evidence-value">Game Teams</div><p style="font-size: 14px; line-height: 1.6; color: #555555; margin: 0;">Developers, tech leads, operations, workspace owners, and adjacent internal platform users.</p></div>
+                            <div class="evidence-card"><div class="evidence-label">Method</div><div class="evidence-value">Research-led</div><p style="font-size: 14px; line-height: 1.6; color: #555555; margin: 0;">Interviews, journey mapping, synthesis, workshops, concept validation, and requirements framing.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-section-title">Research & Synthesis</h2>
+                    <div class="content-card">
+                        <p>I established a clearer insight loop for Core Platform by collecting user evidence, turning scattered feedback into structured themes, and connecting findings to planning conversations.</p>
+                        <ul class="features-list">
+                            <li>Mapped user workflows across workspace setup, access management, environment management, and platform discovery.</li>
+                            <li>Identified where users relied on Slack, manual support, or individual knowledge instead of self-service product flows.</li>
+                            <li>Built reusable research templates and helped teams use Dovetail as a more centralized insight repository.</li>
+                            <li>Connected research findings to roadmap discussions, OKRs, and product prioritization.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-section-title">Design Direction</h2>
+                    <div class="challenges-grid">
+                        <div class="challenge-item"><strong>1. Make ownership and state visible</strong><br>Users needed to understand who owned a workspace, what access existed, what state an environment was in, and what was safe to change.</div>
+                        <div class="challenge-item"><strong>2. Move repeated tasks into self-service flows</strong><br>The platform needed to reduce support dependency by giving workspace owners clearer actions, guardrails, and confirmation states.</div>
+                        <div class="challenge-item"><strong>3. Create reusable platform patterns</strong><br>Similar workflows needed consistent structures for setup, configuration, review, troubleshooting, and recovery.</div>
+                        <div class="challenge-item"><strong>4. Connect tools through a platform mental model</strong><br>Users should experience Core Platform as a connected product ecosystem, not a set of unrelated internal tools.</div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-section-title">Key Workstreams</h2>
+                    <div style="display: grid; gap: 24px;">
+                        <div class="content-card"><h3 style="font-size: 20px; margin-bottom: 12px;">Workspace & IAM Self-Service</h3><p>I defined journeys and requirements for workspace owners so they could manage access and permissions with less manual coordination, clearer confirmation, and more confidence.</p></div>
+                        <div class="content-card"><h3 style="font-size: 20px; margin-bottom: 12px;">Environment Management</h3><p>I helped simplify how developers and QA understood available environments, configuration state, and troubleshooting paths, balancing common workflows with advanced needs.</p></div>
+                        <div class="content-card"><h3 style="font-size: 20px; margin-bottom: 12px;">Centralized Platform Experience</h3><p>I proposed and validated a more unified platform hub concept to improve discoverability, reduce context switching, and give game teams a clearer starting point for platform tasks.</p></div>
+                        <div class="content-card"><h3 style="font-size: 20px; margin-bottom: 12px;">UX Maturity & Research Operations</h3><p>I introduced research rituals, templates, insight structures, and practical UX principles that helped product teams make more evidence-led decisions even without dedicated UX support.</p></div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-section-title">Impact</h2>
+                    <div class="context-card" style="max-width: 100%;">
+                        <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 12px;">
+                            <li class="achievement-item"><div class="achievement-lead">Improved strategic clarity for Core Platform UX</div><div class="achievement-detail">Created a shared language for platform quality, self-service, discoverability, and coherent internal workflows.</div></li>
+                            <li class="achievement-item"><div class="achievement-lead">Reduced dependency on manual coordination</div><div class="achievement-detail">Moved key workflows toward clearer productized paths, helping users act with more confidence and fewer support handoffs.</div></li>
+                            <li class="achievement-item"><div class="achievement-lead">Scaled research practices across teams</div><div class="achievement-detail">Introduced templates, evidence structures, and insight repositories that made research easier to reuse in planning.</div></li>
+                            <li class="achievement-item"><div class="achievement-lead">Established reusable platform patterns</div><div class="achievement-detail">Turned recurring problems into patterns that could be applied across workspace, IAM, environment, and platform hub experiences.</div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="content-section-title">Key Takeaway</h2>
+                    <div class="content-card"><p>The work reframed Core Platform UX from a collection of separate product problems into an ecosystem challenge. The most important design opportunity was not only improving individual screens, but helping teams create a platform experience users could understand, trust, and operate independently.</p></div>
+                </div>
+
+                <div style="margin: 60px 0; text-align: center;"><a href="index.html#selected-work" class="cta-button">Back Home</a></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dark-footer" style="background: #1A1A1A; color: #FAF8F5; padding: 80px 0 40px 0;" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px;">
+                <div><div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;"><img src="images/hj-logo.png" alt="HJ Logo" style="height: 32px; filter: brightness(0) invert(1);"><span style="font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700;">HJY</span></div><p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.</p></div>
+                <div><h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4><ul style="list-style: none; padding: 0; margin: 0;"><li style="margin-bottom: 12px;"><a href="index.html#selected-work" style="font-size: 14px;">Work</a></li><li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px;">About</a></li></ul></div>
+                <div><h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Connect</h4><ul style="list-style: none; padding: 0; margin: 0;"><li style="margin-bottom: 12px;"><a href="https://www.linkedin.com/in/hyojinyang/" target="_blank" style="font-size: 14px;">LinkedIn</a></li></ul></div>
+            </div>
+            <div style="border-top: 1px solid #262626; padding-top: 32px; display: flex; justify-content: space-between; align-items: center;"><p style="color: #666666; font-size: 13px;">© 2025 Hyojin Yang. Designed with care.</p><p style="color: #666666; font-size: 12px;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p></div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
