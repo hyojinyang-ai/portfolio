@@ -285,10 +285,47 @@ const insertHomepageCardAfter = (workGrid, card, anchor) => {
     }
 };
 
+const labelOriginalKingCase = (workGrid) => {
+    const originalKingCard = workGrid.querySelector('a[href="king-case.html"]');
+    if (!originalKingCard) return;
+
+    originalKingCard.setAttribute('aria-label', 'Open King seamless distribution and adoption case study');
+
+    const title = originalKingCard.querySelector('.work-company');
+    if (title) title.textContent = 'King - Seamless Distribution & Adoption';
+
+    const impact = originalKingCard.querySelector('.work-impact');
+    if (impact) impact.textContent = '93% adoption | Months to days feature rollout';
+};
+
+const addOriginalKingCaseToOverview = () => {
+    const splitTitle = document.getElementById('split-title');
+    if (!splitTitle || document.querySelector('a.case-link-card[href="king-case.html"]')) return;
+
+    const caseMap = splitTitle.closest('.section')?.querySelector('.case-map');
+    if (!caseMap) return;
+
+    const originalCase = document.createElement('a');
+    originalCase.className = 'case-link-card';
+    originalCase.href = 'king-case.html';
+    originalCase.innerHTML = `
+        <small>Original Case</small>
+        <h3>Seamless Distribution & Adoption</h3>
+        <p>The game-engine editor update story: reducing update anxiety, rebuilding trust in version management, and driving adoption from 55% to 93%.</p>
+        <span class="link-arrow">View case -&gt;</span>
+    `;
+
+    caseMap.insertBefore(originalCase, caseMap.firstElementChild);
+};
+
 // Add detailed King case entries to the homepage without rewriting the static markup.
 window.addEventListener('DOMContentLoaded', () => {
+    addOriginalKingCaseToOverview();
+
     const workGrid = document.querySelector('#selected-work .work-grid');
     if (!workGrid) return;
+
+    labelOriginalKingCase(workGrid);
 
     const corePlatformCard = workGrid.querySelector('a[href="king-core-platform.html"]');
     const kingCard = workGrid.querySelector('a[href="king-case.html"]');
