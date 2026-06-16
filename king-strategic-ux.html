@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ3F0Z257D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BQ3F0Z257D');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King - Strategic UX Design and Maturity | Hyojin Yang</title>
+    <meta name="description" content="A King internal platform UX leadership case study covering strategic UX direction, design maturity, research operations, and platform product experience improvements.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://hyojinyang.com/king-strategic-ux.html">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="king-strategy.css">
+</head>
+<body class="strategy-case">
+    <div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#FAF8F5;display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;max-width:360px;padding:0 24px;">
+            <div style="font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:#1A1A1A;margin-bottom:8px;">HJY</div>
+            <p style="font-size:14px;color:#666;margin-bottom:24px;line-height:1.6;">This case study is password-protected.<br>Please enter the password to continue.</p>
+            <form id="pw-form" style="display:flex;gap:8px;">
+                <input id="pw-input" type="password" placeholder="Password" autocomplete="off" style="flex:1;padding:12px 16px;border:1.5px solid #D0D0D0;border-radius:100px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#1A1A1A'" onblur="this.style.borderColor='#D0D0D0'">
+                <button type="submit" style="padding:12px 24px;background:#1A1A1A;color:#fff;border:none;border-radius:100px;font-size:14px;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;">Enter</button>
+            </form>
+            <p id="pw-error" style="font-size:13px;color:#CC0000;margin-top:12px;display:none;">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var h='aHlvamluMjAyNg==';
+        if(sessionStorage.getItem('pw-ok')==='1'){document.getElementById('pw-gate').style.display='none';return;}
+        document.getElementById('pw-form').addEventListener('submit',function(e){
+            e.preventDefault();
+            if(btoa(document.getElementById('pw-input').value)===h){
+                sessionStorage.setItem('pw-ok','1');
+                document.getElementById('pw-gate').style.display='none';
+            }else{
+                document.getElementById('pw-error').style.display='block';
+                document.getElementById('pw-input').value='';
+                document.getElementById('pw-input').focus();
+            }
+        });
+        document.getElementById('pw-input').focus();
+    })();
+    </script>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-all duration-300" style="background: rgba(250,248,245,0.92); border-bottom: 1px solid rgba(0,0,0,0.06);" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
+                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
+                </a>
+                <ul class="flex gap-10" role="list">
+                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
+                    <li><a href="about.html" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="case-shell">
+        <a href="index.html#selected-work" class="case-back">Back Home</a>
+        <header>
+            <div class="case-topline">
+                <div class="case-icon"><img src="images/king-logo.png" alt="King logo"></div>
+                <div>
+                    <div class="eyebrow">King / Internal Platform UX Leadership</div>
+                    <h1 class="hero-title">King: Driving Strategic UX Design and Maturity</h1>
+                    <p class="hero-role">Principal UX Designer | King (Activision Blizzard) | 2023-Present</p>
+                </div>
+            </div>
+            <p class="lead">This work sits above a single feature launch. I partnered across Core Platform and internal tooling teams to turn fragmented technical systems into clearer product experiences, while raising the UX maturity of a highly engineering-led platform organization.</p>
+            <div class="summary-grid">
+                <div class="summary-block">
+                    <h3>Context</h3>
+                    <p>Core Platform supported game operations, developer workflows, internal applications, and shared services used across multiple King titles.</p>
+                </div>
+                <div class="summary-block">
+                    <h3>Design Mandate</h3>
+                    <p>Move UX from reactive screen delivery into strategic product shaping, evidence-led decision making, and reusable platform patterns.</p>
+                </div>
+            </div>
+            <div class="metric-grid" aria-label="Impact themes">
+                <div class="metric-card"><div class="metric-label">Influence</div><div class="metric-value">Product strategy</div></div>
+                <div class="metric-card"><div class="metric-label">Maturity</div><div class="metric-value">Shared practice</div></div>
+                <div class="metric-card"><div class="metric-label">Efficiency</div><div class="metric-value">Reusable flows</div></div>
+                <div class="metric-card"><div class="metric-label">Validation</div><div class="metric-value">Evidence loop</div></div>
+            </div>
+        </header>
+
+        <section class="section" aria-labelledby="split-title">
+            <h2 id="split-title">Why I split this into separate cases</h2>
+            <p class="section-intro">The original board captured several different kinds of work: product strategy, research operations, self-service platform UX, navigation redesign, and future-facing concept work. Keeping them together made the story feel too broad, so I separated them into focused cases with clearer user problems and outcomes.</p>
+            <div class="case-map">
+                <a class="case-link-card" href="king-project-setup.html"><small>Case 01</small><h3>Project Setup &amp; Workflow Strategy</h3><p>Turning a fragmented project setup process into a clearer self-service workflow with supporting documentation and ownership clarity.</p><span class="link-arrow">View case -&gt;</span></a>
+                <a class="case-link-card" href="king-research-ops.html"><small>Case 02</small><h3>UX Research Bank &amp; Design Logs</h3><p>Building the research and decision infrastructure that made UX evidence easier to reuse across platform teams.</p><span class="link-arrow">View case -&gt;</span></a>
+                <a class="case-link-card" href="king-self-service.html"><small>Case 03</small><h3>Workspace &amp; Application Self-Service</h3><p>Helping workspace owners manage access, permissions, and application availability across King's internal platform.</p><span class="link-arrow">View case -&gt;</span></a>
+                <a class="case-link-card" href="king-environment-navigation.html"><small>Case 04</small><h3>Environment Manager &amp; Navigation</h3><p>Reducing platform complexity through clearer information architecture, status visibility, and operational flows.</p><span class="link-arrow">View case -&gt;</span></a>
+                <a class="case-link-card" href="king-game-space.html"><small>Case 05</small><h3>Game Space Strategic Initiative</h3><p>Exploring a game-centered workspace concept to connect tools, environments, ownership, and team workflows.</p><span class="link-arrow">View case -&gt;</span></a>
+                <a class="case-link-card" href="king-core-platform.html"><small>Foundation</small><h3>Core Platform UX Improvement</h3><p>The broader platform improvement story that frames how fragmented internal tooling moved toward a more coherent ecosystem.</p><span class="link-arrow">View case -&gt;</span></a>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="challenge-title">
+            <h2 id="challenge-title">Key challenges</h2>
+            <div class="panel-grid">
+                <div class="panel"><h3>Low UX maturity</h3><p>UX was often brought in after technical decisions were already shaped. I needed to build influence through useful artifacts, evidence, and practical delivery.</p></div>
+                <div class="panel"><h3>Fragmented ownership</h3><p>Internal platform experiences crossed many teams, systems, and permission models. Users felt the fragmentation even when the org chart explained it.</p></div>
+                <div class="panel"><h3>Scattered evidence</h3><p>Research findings, design decisions, and rationale were not easy to find or reuse, which slowed alignment and repeated earlier debates.</p></div>
+                <div class="panel"><h3>Strategic ambiguity</h3><p>The platform needed a clearer product direction, not only interface improvements. Design had to connect day-to-day usability work with long-term strategy.</p></div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="led-title">
+            <h2 id="led-title">What I led</h2>
+            <div class="panel">
+                <ul>
+                    <li>Defined UX strategy across multiple internal platform workstreams and connected tactical delivery to platform-level outcomes.</li>
+                    <li>Facilitated discovery, stakeholder alignment, journey mapping, and cross-functional decision-making with PM, engineering, and support partners.</li>
+                    <li>Created reusable research and design documentation practices so teams could work from shared evidence instead of scattered memory.</li>
+                    <li>Translated complex technical workflows into clearer product models, self-service flows, navigation patterns, and future-state concepts.</li>
+                </ul>
+                <div class="tag-row"><span class="tag">UX strategy</span><span class="tag">Platform systems</span><span class="tag">Research ops</span><span class="tag">Product discovery</span><span class="tag">Design maturity</span></div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="takeaway-title">
+            <h2 id="takeaway-title">Key takeaway</h2>
+            <div class="panel">
+                <p>The strongest contribution was not only improving screens. It was creating the conditions for better platform decisions: clearer user evidence, reusable design patterns, shared language, and strategic UX presence in spaces where design had previously been underrepresented.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="strategy-footer" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="footer-grid">
+                <div><div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;"><img src="images/hj-logo.png" alt="HJ Logo" width="32" height="32" style="height:32px;filter:brightness(0) invert(1);"><span style="font-family:'Space Mono',monospace;font-size:26px;font-weight:700;">HJY</span></div><p style="color:#999999;line-height:1.7;font-size:14px;max-width:360px;">Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.</p></div>
+                <div><h4 style="font-size:12px;font-weight:600;text-transform:uppercase;margin-bottom:20px;color:#666666;">Navigation</h4><ul style="list-style:none;padding:0;margin:0;"><li style="margin-bottom:12px;"><a href="index.html#selected-work" style="font-size:14px;">Work</a></li><li><a href="about.html" style="font-size:14px;">About</a></li></ul></div>
+                <div><h4 style="font-size:12px;font-weight:600;text-transform:uppercase;margin-bottom:20px;color:#666666;">Connect</h4><a href="https://www.linkedin.com/in/hyojinyang/" target="_blank" rel="noopener noreferrer" style="font-size:14px;">LinkedIn</a></div>
+            </div>
+            <div class="footer-bottom"><p style="color:#666666;font-size:13px;">&copy; 2025 Hyojin Yang. Designed with care.</p><p style="color:#666666;font-size:12px;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

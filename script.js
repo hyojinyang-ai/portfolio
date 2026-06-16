@@ -252,42 +252,72 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add the detailed King self-service case to the homepage without rewriting the static markup.
-window.addEventListener('DOMContentLoaded', () => {
-    const workGrid = document.querySelector('#selected-work .work-grid');
-    if (!workGrid || document.querySelector('a[href="king-self-service.html"]')) return;
-
+const buildHomepageCaseCard = ({ href, company, ariaLabel, title, meta, description, impact }) => {
     const card = document.createElement('a');
-    card.href = 'king-self-service.html';
+    card.href = href;
     card.className = 'work-card';
-    card.dataset.company = 'king-self-service';
-    card.setAttribute('aria-label', 'Open King self-service case study');
+    card.dataset.company = company;
+    card.setAttribute('aria-label', ariaLabel);
     card.innerHTML = `
         <div class="work-card-inner">
             <div class="work-row">
                 <img src="images/king-logo.png" alt="King logo" class="work-logo">
                 <div class="work-content">
-                    <h3 class="work-company">King - Self-Service at Scale</h3>
-                    <p class="work-meta-inline">Principal UX Designer · 2023 - Present</p>
-                    <p class="work-description">
-                        Designed self-service workspace and application management for King's internal platform, helping workspace owners handle access, permissions, and application availability directly across 296 workspaces and 68 integrated applications.
-                    </p>
-                    <p class="work-impact">50% faster access management · 20% fewer support requests</p>
-                    <span class="work-detail-link">View full details →</span>
+                    <h3 class="work-company">${title}</h3>
+                    <p class="work-meta-inline">${meta}</p>
+                    <p class="work-description">${description}</p>
+                    <p class="work-impact">${impact}</p>
+                    <span class="work-detail-link">View full details -&gt;</span>
                 </div>
             </div>
         </div>
     `;
+    return card;
+};
+
+const insertHomepageCardAfter = (workGrid, card, anchor) => {
+    if (anchor && anchor.nextElementSibling) {
+        workGrid.insertBefore(card, anchor.nextElementSibling);
+    } else if (anchor) {
+        workGrid.appendChild(card);
+    } else {
+        workGrid.prepend(card);
+    }
+};
+
+// Add detailed King case entries to the homepage without rewriting the static markup.
+window.addEventListener('DOMContentLoaded', () => {
+    const workGrid = document.querySelector('#selected-work .work-grid');
+    if (!workGrid) return;
 
     const corePlatformCard = workGrid.querySelector('a[href="king-core-platform.html"]');
     const kingCard = workGrid.querySelector('a[href="king-case.html"]');
     const anchor = corePlatformCard || kingCard;
 
-    if (anchor && anchor.nextSibling) {
-        workGrid.insertBefore(card, anchor.nextSibling);
-    } else if (anchor) {
-        workGrid.appendChild(card);
-    } else {
-        workGrid.prepend(card);
+    let strategicCard = workGrid.querySelector('a[href="king-strategic-ux.html"]');
+    if (!strategicCard) {
+        strategicCard = buildHomepageCaseCard({
+            href: 'king-strategic-ux.html',
+            company: 'king-strategic-ux',
+            ariaLabel: 'Open King strategic UX and maturity case study',
+            title: 'King - Strategic UX & Maturity',
+            meta: 'Principal UX Designer | 2023 - Present',
+            description: 'A platform UX leadership story split into focused cases across strategy, research operations, self-service, navigation, and future platform concepts for King internal tooling.',
+            impact: 'UX maturity | Research ops | Platform strategy'
+        });
+        insertHomepageCardAfter(workGrid, strategicCard, anchor);
+    }
+
+    if (!workGrid.querySelector('a[href="king-self-service.html"]')) {
+        const selfServiceCard = buildHomepageCaseCard({
+            href: 'king-self-service.html',
+            company: 'king-self-service',
+            ariaLabel: 'Open King self-service case study',
+            title: 'King - Self-Service at Scale',
+            meta: 'Principal UX Designer | 2023 - Present',
+            description: "Designed self-service workspace and application management for King's internal platform, helping workspace owners handle access, permissions, and application availability directly across 296 workspaces and 68 integrated applications.",
+            impact: '50% faster access management | 20% fewer support requests'
+        });
+        insertHomepageCardAfter(workGrid, selfServiceCard, strategicCard || anchor);
     }
 });
