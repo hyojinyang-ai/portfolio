@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ3F0Z257D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BQ3F0Z257D');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King - Self-Service at Scale | Workspace & Application Management</title>
+    <meta name="description" content="A King internal platform UX case study on designing self-service workspace and application management for workspace owners and game teams.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://hyojinyang.com/king-self-service.html">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tailwind.css">
+    <style>
+        :root {
+            --case-accent: #FF6B35;
+            --case-accent-soft: #FFF0E8;
+            --case-ink: #1A1A1A;
+            --case-muted: #5C5C5C;
+            --case-line: #E8E4DE;
+            --case-paper: #FAF8F5;
+            --case-card: #FFFFFF;
+        }
+
+        body {
+            background: #FAF8F5;
+            color: var(--case-ink);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Space Mono", monospace;
+            letter-spacing: -0.035em;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--case-ink);
+            color: #FFFFFF;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus { top: 0; }
+
+        .case-shell {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 128px 28px 80px;
+        }
+
+        .case-topline {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .case-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            background: #F3F1ED;
+            border: 1px solid var(--case-line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .case-icon img {
+            width: 38px;
+            height: auto;
+            display: block;
+        }
+
+        .eyebrow {
+            font-family: "Space Mono", monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--case-accent);
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.06;
+            margin: 0 0 16px;
+            max-width: 720px;
+        }
+
+        .hero-role {
+            font-size: 14px;
+            color: #777777;
+            margin-bottom: 28px;
+        }
+
+        .lead {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333333;
+            max-width: 700px;
+            margin-bottom: 34px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+
+        .summary-block h3 {
+            font-size: 12px;
+            color: var(--case-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        .summary-block p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: #333333;
+            margin: 0;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin: 36px 0 80px;
+        }
+
+        .metric-card {
+            background: #FFFFFF;
+            border: 1px solid var(--case-line);
+            border-radius: 10px;
+            padding: 18px 16px;
+        }
+
+        .metric-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #9A8F86;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-family: "Space Mono", monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: #111111;
+            line-height: 1.15;
+        }
+
+        .section {
+            margin: 0 0 72px;
+        }
+
+        .section h2 {
+            font-size: 25px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .chapter-label {
+            font-family: "Space Mono", monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            color: var(--case-accent);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .panel {
+            background: #FFFFFF;
+            border: 1px solid var(--case-line);
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        .panel + .panel {
+            margin-top: 18px;
+        }
+
+        .panel p,
+        .panel li {
+            font-size: 14px;
+            line-height: 1.75;
+            color: #333333;
+        }
+
+        .panel p + p,
+        .panel ul + p,
+        .panel p + ul {
+            margin-top: 16px;
+        }
+
+        .panel h3 {
+            font-size: 18px;
+            margin: 0 0 14px;
+        }
+
+        .panel h4 {
+            font-size: 15px;
+            margin: 22px 0 8px;
+        }
+
+        .phase-placeholder {
+            min-height: 132px;
+            border-radius: 10px;
+            border: 1px solid #F2D8CA;
+            background: repeating-linear-gradient(135deg, #FFF5EF 0, #FFF5EF 10px, #FFEDE3 10px, #FFEDE3 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #B58166;
+            font-family: "Space Mono", monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            padding: 18px;
+        }
+
+        .impact-table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .impact-table th {
+            background: #F3F1ED;
+            color: #7A726B;
+            font-size: 11px;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 14px 12px;
+        }
+
+        .impact-table td {
+            border-top: 1px solid var(--case-line);
+            padding: 14px 12px;
+            color: #333333;
+            vertical-align: top;
+        }
+
+        .impact-table strong {
+            color: var(--case-accent);
+        }
+
+        .quote-panel {
+            background: #F3F1ED;
+            border-left: 3px solid var(--case-accent);
+            padding: 18px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #4A4039;
+            margin-top: 20px;
+        }
+
+        .reflection-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .more-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .more-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #FFFFFF;
+            border: 1px solid var(--case-line);
+            border-radius: 10px;
+            padding: 18px;
+            min-height: 118px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .more-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0,0,0,0.18);
+        }
+
+        .more-card img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        .more-card h3 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .more-card p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #666666;
+            margin: 0;
+        }
+
+        .cta-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 34px;
+        }
+
+        .case-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 24px;
+            border-radius: 100px;
+            background: var(--case-accent);
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .case-button:hover {
+            background: #E65A2E;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 760px) {
+            .case-shell {
+                padding: 112px 20px 64px;
+            }
+
+            .summary-grid,
+            .metric-grid,
+            .reflection-grid,
+            .more-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .panel {
+                padding: 22px;
+            }
+
+            .impact-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Gate -->
+    <div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#FAF8F5;display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;max-width:360px;padding:0 24px;">
+            <div style="font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:#1A1A1A;margin-bottom:8px;">HJY</div>
+            <p style="font-size:14px;color:#666;margin-bottom:24px;line-height:1.6;">This case study is password-protected.<br>Please enter the password to continue.</p>
+            <form id="pw-form" style="display:flex;gap:8px;">
+                <input id="pw-input" type="password" placeholder="Password" autocomplete="off" style="flex:1;padding:12px 16px;border:1.5px solid #D0D0D0;border-radius:100px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#1A1A1A'" onblur="this.style.borderColor='#D0D0D0'">
+                <button type="submit" style="padding:12px 24px;background:#1A1A1A;color:#fff;border:none;border-radius:100px;font-size:14px;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;">Enter</button>
+            </form>
+            <p id="pw-error" style="font-size:13px;color:#CC0000;margin-top:12px;display:none;">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var h='aHlvamluMjAyNg==';
+        if(sessionStorage.getItem('pw-ok')==='1'){document.getElementById('pw-gate').style.display='none';return;}
+        document.getElementById('pw-form').addEventListener('submit',function(e){
+            e.preventDefault();
+            if(btoa(document.getElementById('pw-input').value)===h){
+                sessionStorage.setItem('pw-ok','1');
+                document.getElementById('pw-gate').style.display='none';
+            }else{
+                document.getElementById('pw-error').style.display='block';
+                document.getElementById('pw-input').value='';
+                document.getElementById('pw-input').focus();
+            }
+        });
+        document.getElementById('pw-input').focus();
+    })();
+    </script>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-all duration-300" style="background: rgba(250,248,245,0.92); border-bottom: 1px solid rgba(0,0,0,0.06);" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;">
+                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
+                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
+                </a>
+                <ul class="flex gap-10" role="list">
+                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
+                    <li><a href="about.html" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="case-shell">
+        <a href="index.html#selected-work" class="back-link">← Back Home</a>
+
+        <header style="margin-top: 36px;">
+            <div class="case-topline">
+                <div class="case-icon"><img src="images/king-logo.png" alt="King logo"></div>
+                <div>
+                    <div class="eyebrow">King Internal Platform</div>
+                    <h1 class="hero-title">Designing Self-Service at Scale: Workspace &amp; Application Management for King's Internal Platform</h1>
+                    <p class="hero-role">Principal UX Designer · King (Activision Blizzard) · 2023-Present</p>
+                </div>
+            </div>
+            <p class="lead">I led the end-to-end UX strategy, research, and design for Workspace Management inside King's internal platform, helping workspace owners manage access, applications, and permissions directly without relying on central platform support.</p>
+
+            <div class="summary-grid" aria-label="Case summary">
+                <div class="summary-block">
+                    <h3>Platform Scale</h3>
+                    <p><strong>296 workspaces, 68 integrated applications, 1,489 MAU, and 26 active Workspace Owners</strong> across King's internal platform ecosystem.</p>
+                </div>
+                <div class="summary-block">
+                    <h3>Core Focus</h3>
+                    <p>Reframing IAM from a centralized admin workflow into a scalable self-service system for workspace owners and game teams.</p>
+                </div>
+            </div>
+
+            <div class="metric-grid" aria-label="Outcome metrics">
+                <div class="metric-card"><div class="metric-label">Access Time</div><div class="metric-value">50% faster</div></div>
+                <div class="metric-card"><div class="metric-label">Satisfaction</div><div class="metric-value">+9 points</div></div>
+                <div class="metric-card"><div class="metric-label">Support Load</div><div class="metric-value">20% fewer</div></div>
+                <div class="metric-card"><div class="metric-label">Usage</div><div class="metric-value">121% growth</div></div>
+            </div>
+        </header>
+
+        <section class="section" aria-labelledby="impact-title">
+            <h2 id="impact-title">Impact at a Glance</h2>
+            <div class="panel">
+                <table class="impact-table">
+                    <thead>
+                        <tr><th>Metric</th><th>Before</th><th>After</th><th>Change</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Access management time</td><td>10-30m</td><td>5-15m</td><td><strong>50% faster</strong></td></tr>
+                        <tr><td>User satisfaction score</td><td>78%</td><td>87%</td><td><strong>+9 points</strong></td></tr>
+                        <tr><td>Support requests</td><td>~10/week</td><td>~8/week</td><td><strong>20% lower</strong></td></tr>
+                        <tr><td>App usage/action</td><td>1,029</td><td>2,276</td><td><strong>+121%</strong></td></tr>
+                    </tbody>
+                </table>
+                <p>Workspace owners now handle access requests confidently without relying on platform support. End-users gain timely access to the tools they need, helping game teams deliver value faster.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="context-title">
+            <h2 id="context-title">Context</h2>
+            <div class="panel">
+                <div class="phase-placeholder">Phase Placeholder · Context<br>Replace with platform overview, architecture snapshot, or workspace-management landscape visual.</div>
+                <p>King's IUP portal is the internal platform powering game operations, developer tooling, and live-service management across all King titles. Candy Crush, Farm Heroes, and more than 30 adjacent tools depend on it. All integrated applications and 1,489 monthly active users rely on the platform for managing who can access what, govern what, and why.</p>
+                <p>Originally, access and identity management was handled centrally by platform admins. Every access request funneled through one team. That worked at small scale, but it did not survive growth.</p>
+                <p>To address that, we introduced the Workspace Owner role: game-team representatives who could manage access directly through a Workspace Management application. The idea was right, but the execution exposed a new class of usability, trust, and governance problems that were brought into scope.</p>
+                <p>My role: Principal UX Designer. I led UX strategy, research, and design for Workspace Management across multiple iterations, partnering closely with PMs, engineers, and the 26 active workspace owners who were our primary users.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="chapter-one-title">
+            <div class="chapter-label">Chapter 1</div>
+            <h2 id="chapter-one-title">Fixing the Access Request Bottleneck</h2>
+            <div class="panel">
+                <div class="phase-placeholder">Phase Placeholder · Access Requests<br>Replace with consolidated request review interface, requester profile card, or permission-visibility flow.</div>
+                <h3>The Problem</h3>
+                <p>Despite having a self-service tool, pending access requests were piling up, especially for the largest game titles. End-users were blocked from doing their work, support tickets kept climbing, and the tool meant to empower workspace owners was frustrating both sides.</p>
+                <p>Through contextual interviews and a survey with workspace owners and end-users, I identified the root causes.</p>
+
+                <h4>For Workspace Owners</h4>
+                <ul>
+                    <li>No visibility into who was requesting access, forcing owners to message requesters on Slack just to understand the request.</li>
+                    <li>Opaque groups and permission structures, with no easy way to see what each group actually granted.</li>
+                    <li>Inconsistent naming conventions that made group selection guesswork.</li>
+                    <li>Managing requests across multiple games amplified confusion because each title carried a different permission model.</li>
+                </ul>
+
+                <h4>For End-Users</h4>
+                <ul>
+                    <li>Requests sat in limbo for days or weeks.</li>
+                    <li>There was no feedback on whether a request was seen, pending, or stuck.</li>
+                    <li>The fallback was asking for help in the platform channel, increasing load on the platform team.</li>
+                </ul>
+
+                <h3>Design Rationale: Surface context, don't add steps</h3>
+                <p>I chose Option B: surface the right information in the current flow. Workspace owners were not confused about the process; they were missing the context needed to make a decision. The fix was information architecture, not workflow architecture.</p>
+
+                <h4>What I Designed</h4>
+                <ul>
+                    <li><strong>Consolidated decision view:</strong> pending requests and group list shown side by side.</li>
+                    <li><strong>Requester profile card:</strong> name, team, and role surfaced from Slack integration.</li>
+                    <li><strong>Inline permission visibility:</strong> owners could inspect included apps before granting access.</li>
+                    <li><strong>Deliberate non-automation:</strong> no smart recommendation yet, because workspace owners needed to understand the system first.</li>
+                </ul>
+
+                <div class="quote-panel">The consolidated view with pending requests plus group list was the most appreciated change. Workspace owners specifically wanted to see requester identity before making access decisions.</div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="chapter-two-title">
+            <div class="chapter-label">Chapter 2</div>
+            <h2 id="chapter-two-title">Scaling to Application Management</h2>
+            <div class="panel">
+                <div class="phase-placeholder">Phase Placeholder · Application Management<br>Replace with policy-editing screen, application entitlement overview, or role-flow concept.</div>
+                <h3>The Evolution</h3>
+                <p>The access-request improvements shaped and delivered measurable results. But as the platform grew from 40 to 68 integrated applications, workspace owners needed to manage not only who had access, but which applications were available and what permission those applications required.</p>
+
+                <h3>Design Rationale: Three key decisions</h3>
+                <h4>1. Progressive filtering for role discovery</h4>
+                <p>I designed a sequence of Scope -> Application -> Role. This reduced cognitive load from scanning hundreds of roles to evaluating only the few that were relevant.</p>
+
+                <h4>2. Fix the save interaction</h4>
+                <p>I recommended treating the explicit Add &amp; Save version first. It gave users clearer control and reduced the risk of accidental permission changes.</p>
+
+                <h4>3. Show application status inline</h4>
+                <p>Instead of splitting enabled and disabled applications into separate tabs, I designed a status indicator directly in the application list.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="patterns-title">
+            <h2 id="patterns-title">Designing for Scale: Patterns Over One-offs</h2>
+            <div class="panel">
+                <p>A recurring theme in this work was the difference between solving one problem and establishing a pattern that solves a whole category of problems. The shipped features improved the metrics, and the patterns became infrastructure the team could keep building on.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="reflection-title">
+            <h2 id="reflection-title">Reflection</h2>
+            <div class="panel reflection-grid">
+                <div>
+                    <h3>What worked well</h3>
+                    <ul>
+                        <li>Embedding developers in research sessions accelerated alignment.</li>
+                        <li>Leading with information, not workflow changes, proved right in Chapter 1.</li>
+                        <li>Maintaining a continuous research loop meant every round informed the next iteration.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>What I'd do differently</h3>
+                    <ul>
+                        <li>Quantify the problem earlier.</li>
+                        <li>Test the notification model sooner.</li>
+                        <li>Push harder on smart defaults.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="role-title">
+            <h2 id="role-title">My Role &amp; Responsibilities</h2>
+            <div class="panel">
+                <ul>
+                    <li>Led UX strategy and design for end-to-end workspace management and IAM experience.</li>
+                    <li>Ran continuous research across multiple years.</li>
+                    <li>Defined success metrics and led multiple design iterations.</li>
+                    <li>Partnered directly with PMs and engineers on product discovery.</li>
+                    <li>Advocated for scalable self-service patterns reusable across the platform.</li>
+                    <li>Created handover documentation for team continuity.</li>
+                </ul>
+                <p style="margin-top: 16px; color: #777777; font-size: 12px;">Platform scale: 296 workspaces · 68 integrated applications · 1,489 MAU · 26 active Workspace Owners</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="more-title" style="border-top: 1px solid var(--case-line); padding-top: 44px; margin-bottom: 24px;">
+            <h2 id="more-title" style="text-align:center;font-size:18px;">More Projects</h2>
+            <div class="more-grid">
+                <a class="more-card" href="zalando-case.html"><img src="images/zalando-logo.png" alt="Zalando logo"><h3>Zalando</h3><p>Transforming Builder Platform for Enhanced Developer Experience</p></a>
+                <a class="more-card" href="telenor-case.html"><img src="images/telenor-logo.png" alt="Telenor logo"><h3>Telenor</h3><p>Driving Customer-Centered Account Experience</p></a>
+                <a class="more-card" href="hm-case.html"><img src="images/hm-logo.png" alt="H&M logo"><h3>H&amp;M</h3><p>Building Global Membership Program to 100 Million Users</p></a>
+            </div>
+            <div class="cta-row"><a href="index.html#selected-work" class="case-button">Back Home</a></div>
+        </section>
+    </main>
+
+    <footer class="dark-footer" style="background: #1A1A1A; color: #FAF8F5; padding: 80px 0 40px 0;" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+                        <img src="images/hj-logo.png" alt="HJ Logo - Hyojin Yang" width="32" height="32" style="height: 32px; filter: brightness(0) invert(1);">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700;">HJY</span>
+                    </div>
+                    <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="index.html#selected-work" style="font-size: 14px; color:#999999; text-decoration:none;">Work</a></li>
+                        <li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px; color:#999999; text-decoration:none;">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Connect</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="https://www.linkedin.com/in/hyojinyang/" target="_blank" rel="noopener noreferrer" style="font-size: 14px; color:#999999; text-decoration:none;">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom" style="border-top: 1px solid #262626; padding-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+                <p style="color: #666666; font-size: 13px;">© 2025 Hyojin Yang. Designed with care.</p>
+                <p style="color: #666666; font-size: 12px;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

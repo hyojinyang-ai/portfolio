@@ -251,3 +251,43 @@ window.addEventListener('DOMContentLoaded', () => {
         approachObserver.observe(item);
     });
 });
+
+// Add the detailed King self-service case to the homepage without rewriting the static markup.
+window.addEventListener('DOMContentLoaded', () => {
+    const workGrid = document.querySelector('#selected-work .work-grid');
+    if (!workGrid || document.querySelector('a[href="king-self-service.html"]')) return;
+
+    const card = document.createElement('a');
+    card.href = 'king-self-service.html';
+    card.className = 'work-card';
+    card.dataset.company = 'king-self-service';
+    card.setAttribute('aria-label', 'Open King self-service case study');
+    card.innerHTML = `
+        <div class="work-card-inner">
+            <div class="work-row">
+                <img src="images/king-logo.png" alt="King logo" class="work-logo">
+                <div class="work-content">
+                    <h3 class="work-company">King - Self-Service at Scale</h3>
+                    <p class="work-meta-inline">Principal UX Designer · 2023 - Present</p>
+                    <p class="work-description">
+                        Designed self-service workspace and application management for King's internal platform, helping workspace owners handle access, permissions, and application availability directly across 296 workspaces and 68 integrated applications.
+                    </p>
+                    <p class="work-impact">50% faster access management · 20% fewer support requests</p>
+                    <span class="work-detail-link">View full details →</span>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const corePlatformCard = workGrid.querySelector('a[href="king-core-platform.html"]');
+    const kingCard = workGrid.querySelector('a[href="king-case.html"]');
+    const anchor = corePlatformCard || kingCard;
+
+    if (anchor && anchor.nextSibling) {
+        workGrid.insertBefore(card, anchor.nextSibling);
+    } else if (anchor) {
+        workGrid.appendChild(card);
+    } else {
+        workGrid.prepend(card);
+    }
+});
