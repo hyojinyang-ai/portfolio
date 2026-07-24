@@ -8,444 +8,480 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Hyojin Yang | Principal UX Designer</title>
     <meta name="description" content="Principal UX Designer with 10+ years leading design strategy at King, Zalando, Telenor, and H&M. Specializing in complex systems, internal platforms, and AI-augmented design workflows.">
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://hyojinyang.com/about.html">
     <meta property="og:title" content="About - Hyojin Yang | Principal UX Designer">
     <meta property="og:description" content="Principal UX Designer with 10+ years leading design strategy at King, Zalando, Telenor, and H&M.">
     <meta property="og:image" content="https://hyojinyang.com/images/AboutHyojin.png">
-
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hyojinyang.com/about.html">
     <meta property="twitter:title" content="About - Hyojin Yang | Principal UX Designer">
     <meta property="twitter:description" content="Principal UX Designer with 10+ years leading design strategy at King, Zalando, Telenor, and H&M.">
     <meta property="twitter:image" content="https://hyojinyang.com/images/AboutHyojin.png">
-
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="canonical" href="https://hyojinyang.com/about.html">
-    <link rel="stylesheet" href="styles.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="tailwind.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'cloud-dancer': '#FAF8F5',
-                    },
-                    fontFamily: {
-                        'sans': ['General Sans', 'sans-serif'],
-                        'display': ['General Sans', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Uses global design tokens from styles.css */
-            --text-dark:   var(--color-ink-mid);
-            --text-gray:   var(--color-muted);
-            --bg-white:    var(--color-bg);
-            --bg-light:    var(--color-bg-tint);
-            --border-color: var(--color-border-mid);
-        }
-
-        /* Skip to main content link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--ink);
-            color: var(--paper);
-            padding: 8px 16px;
-            text-decoration: none;
-            z-index: 100;
-            border-radius: 0 0 4px 0;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-
-        h1, h2, h3 {
-            font-family: "Space Mono", monospace;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1.08;
-        }
-        h4, h5, h6 {
-            font-family: "Space Mono", monospace;
-            font-weight: 600;
-        }
-
+        * { box-sizing: border-box; }
         body {
-            background: var(--paper);
-            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            background: #FAF8F5;
+            color: #1A1A1A;
+            margin: 0;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        }
+        a { color: inherit; text-decoration: none; }
+        a:hover { color: #1A1A1A; }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: #1A1A1A; color: #FAF8F5;
+            padding: 8px 16px; text-decoration: none;
+            z-index: 100; border-radius: 0 0 4px 0;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* NAV */
+        #main-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            background: rgba(250,248,245,0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #E8E4DE;
+        }
+        .nav-inner {
+            max-width: 960px; margin: 0 auto;
+            padding: 0 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 10px;
+            font-family: 'Space Mono', monospace;
+            font-size: 20px; font-weight: 500; color: #1A1A1A;
+        }
+        .nav-links { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { font-size: 14px; font-weight: 500; color: #5C5C5C; transition: color .2s; }
+        .nav-links a:hover { color: #1A1A1A; }
+
+        /* HERO */
+        .hero {
+            max-width: 680px; margin: 0 auto;
+            padding: 100px 32px 24px;
+            text-align: center;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+        .hero-name {
+            font-family: 'Space Mono', monospace;
+            font-size: 52px; font-weight: 400;
+            letter-spacing: -0.01em; line-height: 1.1;
+            color: #1A1A1A; margin: 0 0 12px;
+        }
+        .hero-title {
+            font-size: 15px; font-weight: 500;
+            color: #5C5C5C; margin: 0 0 20px;
+        }
+        .hero-bio {
+            font-size: 16px; line-height: 1.75;
+            color: #5C5C5C; margin: 0 0 36px;
+        }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 28px;
+            background: #1A1A1A; color: #FAF8F5;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px; font-weight: 500;
+            border-radius: 8px; text-decoration: none;
+            transition: all .2s; box-shadow: 0 2px 8px rgba(0,0,0,.1);
+        }
+        .btn-primary:hover { box-shadow: 0 6px 16px rgba(0,0,0,.15); transform: translateY(-1px); color: #FAF8F5; }
+
+        /* FULL-WIDTH IMAGE */
+        .hero-image {
+            width: 100%; max-height: 480px;
+            object-fit: cover; display: block;
         }
 
-        /* Remove hover effects from non-linked CV items */
-        .cv-item {
-            transition: none !important;
+        /* SECTION */
+        .section { max-width: 800px; margin: 0 auto; padding: 48px 32px; }
+        .section-label {
+            font-size: 11px; font-weight: 700;
+            letter-spacing: .14em; text-transform: uppercase;
+            color: #999; margin-bottom: 36px;
         }
 
-        .cv-item:hover {
-            box-shadow: none !important;
-            transform: none !important;
-        }
-
-        /* Remove hover effects from skill tags */
-        .skill-tag {
-            transition: none !important;
-        }
-
-        .skill-tag:hover {
-            border-color: var(--border-color) !important;
-            color: var(--text-dark) !important;
-        }
-
-        /* Remove hover effects from skill categories */
-        .skill-category {
-            transition: none !important;
-        }
-
-        .belief-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .career-timeline {
-            position: relative;
-            display: grid;
-            gap: 20px;
-            padding-left: 34px;
-        }
-
-        .career-timeline::before {
-            display: none;
-        }
-
+        /* CAREER */
         .career-item {
-            position: relative;
-            padding: 16px 0 16px 18px;
+            display: grid; grid-template-columns: 160px 1fr;
+            gap: 20px; padding: 22px 0;
+            border-bottom: 1px solid #E8E4DE;
+            align-items: start;
         }
+        .career-item:last-child { border-bottom: none; }
+        .career-date { font-size: 13px; color: #999; font-weight: 500; padding-top: 2px; }
+        .career-logo-row { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+        .career-logo { width: 20px; height: 20px; object-fit: contain; }
+        .career-role { font-size: 15px; font-weight: 600; color: #1A1A1A; }
+        .career-org { font-size: 13px; color: #5C5C5C; margin-top: 2px; line-height: 1.5; }
 
-        .career-item::before {
-            content: "";
-            position: absolute;
-            left: -32px;
-            top: 22px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--text-dark);
-            border: 2px solid var(--bg-white);
-            box-shadow: 0 0 0 1px var(--border-color);
+        /* WHAT I BELIEVE */
+        .beliefs-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
+        .belief-card {
+            background: #F3F1ED; border-radius: 12px;
+            padding: 24px;
+        }
+        .belief-icon {
+            width: 36px; height: 36px; margin-bottom: 16px;
+            color: #1A1A1A;
+        }
+        .belief-headline {
+            font-size: 14px; font-weight: 600; color: #1A1A1A;
+            line-height: 1.55; margin-bottom: 10px;
+        }
+        .belief-body { font-size: 13px; color: #5C5C5C; line-height: 1.65; }
 
-        .career-item:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            left: -25px;
-            top: 42px;
-            bottom: -20px;
-            width: 2px;
-            background: var(--border-color);
+        /* HOW I WORK */
+        .how-intro {
+            font-size: 16px; line-height: 1.8; color: #5C5C5C;
+            margin-bottom: 40px;
         }
+        .capabilities-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border: 1px solid #E8E4DE; border-radius: 12px;
+            overflow: hidden;
+        }
+        .cap-item {
+            padding: 24px 28px;
+            border-bottom: 1px solid #E8E4DE;
+            border-right: 1px solid #E8E4DE;
+        }
+        .cap-item:nth-child(2n) { border-right: none; }
+        .cap-item:nth-last-child(-n+2) { border-bottom: none; }
+        .cap-title {
+            font-size: 14px; font-weight: 600; color: #1A1A1A;
+            margin-bottom: 6px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .cap-title svg { flex-shrink: 0; color: #1A1A1A; }
+        .cap-body { font-size: 13px; color: #5C5C5C; line-height: 1.65; }
 
-        .career-date {
-            display: block;
-            font-size: 13px;
-            color: var(--text-gray);
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
+        /* FOOTER */
+        .dark-footer { background: #1A1A1A; color: #FAF8F5; padding: 72px 0 36px; }
+        .dark-footer a { color: #999; text-decoration: none; transition: color .2s; }
+        .dark-footer a:hover { color: #fff; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 56px; }
+        .footer-brand { font-family: 'Space Mono', monospace; font-size: 24px; font-weight: 500; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .footer-tagline { font-size: 13px; color: #999; line-height: 1.6; max-width: 320px; }
+        .footer-heading { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #555; margin-bottom: 16px; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { font-size: 14px; }
+        .footer-bottom { border-top: 1px solid #262626; padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-copy { font-size: 12px; color: #555; }
 
-        .career-title-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 4px;
+        .back-btn {
+            display: inline-flex; align-items: center;
+            padding: 12px 24px; border: 1px solid #E8E4DE;
+            border-radius: 8px; font-size: 14px; font-weight: 500;
+            color: #1A1A1A; text-decoration: none;
+            transition: all .2s;
         }
+        .back-btn:hover { background: #F3F1ED; color: #1A1A1A; }
 
-        .career-logo {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
-
-        @media (max-width: 1024px) {
-            .belief-grid {
-                grid-template-columns: 1fr;
-            }
-        }
         @media (max-width: 768px) {
-            .process-grid {
-                grid-template-columns: 1fr !important;
-            }
+            .beliefs-grid { grid-template-columns: 1fr; }
+            .capabilities-grid { grid-template-columns: 1fr; }
+            .cap-item { border-right: none; }
+            .cap-item:nth-last-child(-n+2) { border-bottom: 1px solid #E8E4DE; }
+            .cap-item:last-child { border-bottom: none; }
+            .career-item { grid-template-columns: 1fr; gap: 4px; }
+            .career-date { font-size: 12px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-name { font-size: 38px; }
         }
     </style>
 </head>
 <body>
-    <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background: rgba(250,248,245,0.85);" role="navigation" aria-label="Main navigation">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-3" style="text-decoration: none;" aria-label="Go to homepage">
-                    <img src="images/hj-logo.png" alt="HJ Logo" class="h-9 w-auto">
-                    <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 22px; color: #1A1A1A;">HJY</span>
-                </a>
-                <ul class="flex gap-10" role="list">
-                    <li><a href="index.html#selected-work" class="text-gray-700 font-medium hover:text-black transition-colors" style="font-size: 14px;">Work</a></li>
-                    <li><a href="about.html" class="text-gray-900 font-medium hover:text-black transition-colors" style="font-size: 14px;" aria-current="page">About</a></li>
-                </ul>
-            </div>
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="images/hj-logo.png" alt="HJ Logo" style="height:32px; width:auto;">
+                HJY
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- About Hero -->
     <main id="main-content">
-    <section class="case-study-hero">
-        <div class="container" style="max-width: 900px;">
-            <!-- Content -->
-            <div style="text-align: center;">
-                <h1 style="font-family: 'Space Mono', monospace; font-size: clamp(28px, 4vw, 42px); font-weight: 700; margin-bottom: 16px; color: var(--text-dark); letter-spacing: -0.04em;">Hyojin Yang</h1>
-                <p style="font-size: 18px; line-height: 1.7; color: var(--text-dark); margin-bottom: 12px; font-weight: 500;">
-                    Principal UX Designer, Stockholm
-                </p>
-                <p style="font-size: 16px; line-height: 1.7; color: var(--text-gray); margin-bottom: 24px;">
-                    I specialize in reducing complexity for technical users — developers, operators, and engineers — where clarity directly impacts delivery speed.
-                </p>
 
-                <a href="CV_Hyojin Yang.pdf" target="_blank" rel="noopener noreferrer" class="view-project-button" style="margin-top: 32px; display: inline-flex;" aria-label="Download Hyojin Yang's CV (PDF)">
-                    Download CV
-                    <span class="arrow" aria-hidden="true">↓</span>
+        <!-- Hero -->
+        <section class="hero" style="flex-direction: column; flex-wrap: wrap;">
+            <h1 class="hero-name">Hyojin Yang</h1>
+            <p class="hero-title">Principal UX Designer, Stockholm</p>
+            <p class="hero-bio">I specialize in reducing complexity for technical users — developers, operators, and engineers — where clarity directly impacts delivery speed.</p>
+            <a href="https://drive.google.com/file/d/1COMyEeFf27f_bjp3qnabcZuDtmXxk1TN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Download CV &darr;
+            </a>
+        </section>
+
+
+
+        <!-- Career Progression -->
+        <section class="section">
+            <div class="section-label">Career Progression</div>
+            <div>
+                <div class="career-item">
+                    <div class="career-date">2022 – Present</div>
+                    <div>
+                        <div class="career-logo-row">
+                            <img src="images/king-logo.png" alt="King" class="career-logo">
+                            <span class="career-role">Principal UX Designer</span>
+                        </div>
+                        <div class="career-org">King (Activision Blizzard) – Core Platform &amp; Game Production</div>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-date">2021 – 2022</div>
+                    <div>
+                        <div class="career-logo-row">
+                            <img src="images/zalando-logo.png" alt="Zalando" class="career-logo">
+                            <span class="career-role">Senior Product Designer</span>
+                        </div>
+                        <div class="career-org">Zalando – Builder Platform (Internal Developer Experience)</div>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-date">2019 – 2021</div>
+                    <div>
+                        <div class="career-logo-row">
+                            <img src="images/telenor-logo.png" alt="Telenor" class="career-logo">
+                            <span class="career-role">Senior UX Designer / UX Lead</span>
+                        </div>
+                        <div class="career-org">Telenor Sweden – Digital Customer Experience</div>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-date">2015 – 2019</div>
+                    <div>
+                        <div class="career-logo-row">
+                            <img src="images/hm-logo.png" alt="H&amp;M" class="career-logo">
+                            <span class="career-role">Lead UX Designer</span>
+                        </div>
+                        <div class="career-org">H&amp;M Group – Global Membership &amp; Account Experience</div>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-date">Jul 2014 – Aug 2014</div>
+                    <div>
+                        <div class="career-logo-row">
+                            <span class="career-role">UX Researcher (Master's Thesis)</span>
+                        </div>
+                        <div class="career-org">Tom Tits Experiment Museum, Stockholm – Researched and evaluated interactive installation engagement.</div>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-date">Mar 2012 – Jul 2013</div>
+                    <div>
+                        <div class="career-logo-row">
+                            <span class="career-role">UX Designer (Remote)</span>
+                        </div>
+                        <div class="career-org">Fitdotlife, Suwon – Designed UX for FitMate activity-tracking device and companion desktop app.</div>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-date">Mar 2007 – Sep 2011</div>
+                    <div>
+                        <div class="career-logo-row">
+                            <span class="career-role">Design Researcher</span>
+                        </div>
+                        <div class="career-org">Ubiquitous Convergence Research Institute, Suwon – Led UX research and concept development for smart home and IoT solutions.</div>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-date">Nov 2005 – Feb 2006</div>
+                    <div>
+                        <div class="career-logo-row">
+                            <span class="career-role">Game Ops Intern</span>
+                        </div>
+                        <div class="career-org">Nexon SD, Seoul – Supported game operations and early user-facing service workflow analysis.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What I Believe -->
+        <section class="section" style="background: #FAF8F5; padding-top: 0;">
+            <div class="section-label">What I Believe</div>
+            <div class="beliefs-grid">
+                <div class="belief-card">
+                    <svg class="belief-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 01-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437" /></svg>
+                    <p class="belief-headline">Consumer products fail not because of bad UI, but because designers never deeply understand why people come back — or why they stop.</p>
+                    <p class="belief-body">I invest heavily in understanding the systems, constraints, and mental models of the people I design for before proposing solutions.</p>
+                </div>
+                <div class="belief-card">
+                    <svg class="belief-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+                    <p class="belief-headline">UX maturity isn't about having more designers. It's about embedding design thinking into how organizations make decisions.</p>
+                    <p class="belief-body">My most impactful work has been enabling teams without UX support to apply research practices and design frameworks independently.</p>
+                </div>
+                <div class="belief-card">
+                    <svg class="belief-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <p class="belief-headline">The best design leadership is invisible. When teams naturally make user-centered decisions without being told to, you've done your job.</p>
+                    <p class="belief-body">I focus on building systems, rituals, and shared language that outlast any individual project.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vibe Design / Coding Playground -->
+        <section class="section">
+            <div class="section-label">Vibe Design &middot; Coding Playground</div>
+            <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:32px;">
+                <h2 style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:400; letter-spacing:-0.01em; margin:0; color:#1A1A1A;">I build things, not just design them.</h2>
+                <p style="font-size:15px; line-height:1.8; color:#5C5C5C; margin:0; max-width:560px;">A collection of web apps I built from scratch — using AI-assisted coding to turn ideas into working products. This is where design intent meets implementation.</p>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+            <!-- Card 1: Travel Mate Diary -->
+            <div style="border:1px solid #E8E4DE; border-radius:16px; overflow:hidden; background:#F3F1ED; display:flex; flex-direction:column;">
+                <a href="https://travel-mate-diary.lovable.app" target="_blank" rel="noopener noreferrer" style="display:block;">
+                    <img src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7f9086de-2362-47bc-b14f-cd8dd9d48c38/id-preview-d15f8799--897db18b-aaf0-4403-89fe-9eabb3175196.lovable.app-1782666122607.png" alt="Travel planner app preview" style="width:100%; height:200px; object-fit:cover; display:block;">
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Design Philosophy Visual -->
-    <section style="padding: 0; background: #0A0A0A; position: relative; overflow: hidden;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <img src="images/design-philosophy.png" alt="Conceptual installation showing layered system architecture — data layer, interface layer, workflow layer — with people navigating paths between team silos, representing the invisible labor of UX design in complex organizations" style="width: 100%; height: auto; display: block; opacity: 0.92;">
-        </div>
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to top, #FFFFFF, transparent); pointer-events: none;"></div>
-    </section>
-
-    <!-- Career Timeline -->
-    <section style="padding: 60px 0; background: #FFFFFF;">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">Career Progression</h2>
-            <div class="career-timeline">
-                <div class="career-item">
-                    <span class="career-date">2022 - Present</span>
-                    <div class="career-title-row">
-                        <img src="images/king-logo.png" alt="King" class="career-logo">
-                        <strong style="font-size: 16px; color: var(--text-dark);">Principal UX Designer</strong>
+                <div style="padding:20px 24px; display:flex; flex-direction:column; gap:12px; justify-content:space-between; flex-grow:1;">
+                    <div>
+                        <div style="font-size:14px; font-weight:600; color:#1A1A1A; margin-bottom:4px;">&#xC5EC;&#xC815; &middot; Collaborative Travel Planner</div>
+                        <div style="font-size:12px; color:#5C5C5C; line-height:1.6;">Plan travel itineraries and leave notes with friends in real time.</div>
                     </div>
-                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">King (Activision Blizzard) - Core Platform & Game Production</p>
-                </div>
-                <div class="career-item">
-                    <span class="career-date">2021 - 2022</span>
-                    <div class="career-title-row">
-                        <img src="images/zalando-logo.png" alt="Zalando" class="career-logo">
-                        <strong style="font-size: 16px; color: var(--text-dark);">Senior Product Designer</strong>
-                    </div>
-                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Zalando - Builder Platform (Internal Developer Experience)</p>
-                </div>
-                <div class="career-item">
-                    <span class="career-date">2019 - 2021</span>
-                    <div class="career-title-row">
-                        <img src="images/telenor-logo.png" alt="Telenor" class="career-logo">
-                        <strong style="font-size: 16px; color: var(--text-dark);">Senior UX Designer / UX Lead</strong>
-                    </div>
-                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Telenor Sweden - Digital Customer Experience</p>
-                </div>
-                <div class="career-item">
-                    <span class="career-date">2015 - 2019</span>
-                    <div class="career-title-row">
-                        <img src="images/hm-logo.png" alt="H&M" class="career-logo">
-                        <strong style="font-size: 16px; color: var(--text-dark);">Lead UX Designer</strong>
-                    </div>
-                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">H&M Group - Global Membership & Account Experience</p>
-                </div>
-                <div class="career-item">
-                    <span class="career-date">Jul 2014 - Aug 2014</span>
-                    <div class="career-title-row">
-                        <img src="images/tomtits-logo.png" alt="Tom Tits Experiment" class="career-logo" style="filter: invert(1);">
-                        <strong style="font-size: 16px; color: var(--text-dark);">UX Researcher (Master's Thesis)</strong>
-                    </div>
-                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Tom Tits Experiment Museum, Stockholm - Researched and evaluated interactive installation engagement.</p>
-                </div>
-                <div class="career-item">
-                    <span class="career-date">Mar 2012 - Jul 2013</span>
-                    <div class="career-title-row">
-                        <strong style="font-size: 16px; color: var(--text-dark);">UX Designer (Remote)</strong>
-                    </div>
-                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Fitdotlife, Suwon - Designed UX for FitMate activity-tracking device and companion desktop app.</p>
-                </div>
-                <div class="career-item">
-                    <span class="career-date">Mar 2007 - Sep 2011</span>
-                    <div class="career-title-row">
-                        <strong style="font-size: 16px; color: var(--text-dark);">Design Researcher</strong>
-                    </div>
-                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Ubiquitous Convergence Research Institute, Suwon - Led UX research and concept development for smart home and IoT solutions.</p>
-                </div>
-                <div class="career-item">
-                    <span class="career-date">Nov 2005 - Feb 2006</span>
-                    <div class="career-title-row">
-                        <img src="images/nexon-logo.png" alt="Nexon" class="career-logo">
-                        <strong style="font-size: 16px; color: var(--text-dark);">Game Ops Intern</strong>
-                    </div>
-                    <p style="font-size: 14px; color: var(--text-gray); margin: 0;">Nexon SD, Seoul - Supported game operations and early user-facing service workflow analysis.</p>
+                    <a href="https://travel-mate-diary.lovable.app" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#1A1A1A; color:#FAF8F5; font-size:12px; font-weight:600; border-radius:8px; text-decoration:none; white-space:nowrap; font-family:'DM Sans',sans-serif;">Open app &rarr;</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- What I Believe -->
-    <section style="padding: 60px 0; background: #FFFFFF;">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 32px;">What I Believe</h2>
-            <div class="belief-grid">
-                <div style="padding: 24px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--text-dark)" style="width: 24px; height: 24px; margin-bottom: 12px;" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
-                    </svg>
-                    <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); font-weight: 500; margin: 0;">Most internal tooling fails not because of bad UI, but because designers never understand the domain deeply enough to question the workflow itself.</p>
-                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-top: 8px;">I invest heavily in understanding the systems, constraints, and mental models of the people I design for before proposing solutions.</p>
-                </div>
-                <div style="padding: 24px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--text-dark)" style="width: 24px; height: 24px; margin-bottom: 12px;" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.742-.479 3 3 0 0 0-4.683-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197M6 18.719a5.971 5.971 0 0 1 .94-3.197m0 0A5.995 5.995 0 0 1 12 12.75a5.995 5.995 0 0 1 5.059 2.772m-10.118 0a3 3 0 0 0-4.682 2.72 8.987 8.987 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-                    </svg>
-                    <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); font-weight: 500; margin: 0;">UX maturity isn't about having more designers. It's about embedding design thinking into how organizations make decisions.</p>
-                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-top: 8px;">My most impactful work has been enabling teams without UX support to apply research practices and design frameworks independently.</p>
-                </div>
-                <div style="padding: 24px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--text-dark)" style="width: 24px; height: 24px; margin-bottom: 12px;" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v6.75m0 0h6.75M3.75 9.75 9 4.5m-5.25 9.75v6.75m0 0h6.75m-6.75 0L9 15.75m11.25-12v6.75m0 0h-6.75m6.75 0L15 5.25m5.25 9v6.75m0 0h-6.75m6.75 0L15 15.75" />
-                    </svg>
-                    <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); font-weight: 500; margin: 0;">The best design leadership is invisible. When teams naturally make user-centered decisions without being told to, you've done your job.</p>
-                    <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-top: 8px;">I focus on building systems, rituals, and shared language that outlast any individual project.</p>
+            <!-- Card 2: Weather Time Machine -->
+            <div style="border:1px solid #E8E4DE; border-radius:16px; overflow:hidden; background:#F3F1ED; display:flex; flex-direction:column;">
+                <a href="https://weather-echo-past.lovable.app" target="_blank" rel="noopener noreferrer" style="display:block;">
+                    <img src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6f7092c1-9fda-4582-9249-bb468e3d0ddc/id-preview-81ea7602--026e63d0-dfb0-472c-9972-079e6403beab.lovable.app-1782220169820.png" alt="Weather Time Machine preview" style="width:100%; height:200px; object-fit:cover; display:block;">
+                </a>
+                <div style="padding:20px 24px; display:flex; flex-direction:column; gap:12px; justify-content:space-between; flex-grow:1;">
+                    <div>
+                        <div style="font-size:14px; font-weight:600; color:#1A1A1A; margin-bottom:4px;">Weather Time Machine</div>
+                        <div style="font-size:12px; color:#5C5C5C; line-height:1.6;">Compare today's weather with the same day 1–11 years ago, anywhere in the world.</div>
+                    </div>
+                    <a href="https://weather-echo-past.lovable.app" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#1A1A1A; color:#FAF8F5; font-size:12px; font-weight:600; border-radius:8px; text-decoration:none; white-space:nowrap; font-family:'DM Sans',sans-serif;">Open app &rarr;</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-
-    <!-- How I Work -->
-    <section style="padding: 60px 0; background: #F3F1ED;">
-        <div class="container" style="max-width: 900px;">
-            <h2 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 16px;">How I Work</h2>
-            <p style="font-size: 16px; line-height: 1.8; color: var(--text-dark); margin-bottom: 32px;">
-                I focus on what requires human judgment — understanding context, navigating ambiguity, and making decisions that serve users and the business. I use AI as a force multiplier to compress the time between hypothesis and validation, so teams can spend more time on the hard decisions.
-            </p>
-
-            <div style="padding: 32px; background: var(--paper); border-radius: 12px; border: 1px solid var(--line);">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px;">
+            <!-- Card 3: Visible Designers Sweden -->
+            <div style="border:1px solid #E8E4DE; border-radius:16px; overflow:hidden; background:#F3F1ED; display:flex; flex-direction:column;">
+                <a href="https://visible-designers.lovable.app" target="_blank" rel="noopener noreferrer" style="display:block;">
+                    <img src="https://image.thum.io/get/width/800/crop/500/https://visible-designers.lovable.app" alt="Visible Designers Sweden hero" style="width:100%; height:200px; object-fit:cover; object-position:top; display:block;">
+                </a>
+                <div style="padding:20px 24px; display:flex; flex-direction:column; gap:12px; justify-content:space-between; flex-grow:1;">
                     <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px; color: #333; flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg>
-                            <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin: 0;">Product Discovery & Direction</h3>
-                        </div>
-                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px; padding-left: 30px;">Frame problems, validate ideas through rapid prototyping, and define what to build before production code is written.</p>
+                        <div style="font-size:14px; font-weight:600; color:#1A1A1A; margin-bottom:4px;">Visible Designers Sweden</div>
+                        <div style="font-size:12px; color:#5C5C5C; line-height:1.6;">A career community for international female and non-binary designers in Sweden — mentorship, events, and belonging.</div>
                     </div>
-
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px; color: #333; flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" /></svg>
-                            <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin: 0;">Research at Scale</h3>
+                    <a href="https://visible-designers.lovable.app" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#1A1A1A; color:#FAF8F5; font-size:12px; font-weight:600; border-radius:8px; text-decoration:none; white-space:nowrap; font-family:'DM Sans',sans-serif;">Open app &rarr;</a>
+                </div>
+            </div>
+            </div><!-- end grid -->
+        </section>
+        <section class="section" style="background: #F3F1ED; max-width: 100%; padding: 72px 0;">
+            <div style="max-width: 800px; margin: 0 auto; padding: 0 32px;">
+                <div class="section-label">How I Work</div>
+                <p class="how-intro">I focus on what requires human judgment — understanding context, navigating ambiguity, and making decisions that serve users and the business. I use AI as a force multiplier to compress the time between hypothesis and validation, so teams can spend more time on the hard decisions.</p>
+                <div class="capabilities-grid" style="background:#FAF8F5;">
+                    <div class="cap-item">
+                        <div class="cap-title">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                            Product Discovery &amp; Direction
                         </div>
-                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px; padding-left: 30px;">Plan studies, synthesize transcripts and data, and build living insight repositories that teams can explore and grow independently.</p>
+                        <p class="cap-body">Frame problems, validate ideas through rapid prototyping, and define what to build before production code is written.</p>
                     </div>
-
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px; color: #333; flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>
-                            <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin: 0;">Cross-Functional Execution</h3>
+                    <div class="cap-item">
+                        <div class="cap-title">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
+                            Research at Scale
                         </div>
-                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px; padding-left: 30px;">Move teams from insight to shipped outcomes with clarity and alignment across design, product, and engineering.</p>
+                        <p class="cap-body">Plan studies, synthesize transcripts and data, and build living insight repositories that teams can explore and grow independently.</p>
                     </div>
-
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px; color: #333; flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
-                            <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin: 0;">UX Vision & Strategy</h3>
+                    <div class="cap-item">
+                        <div class="cap-title">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Cross-Functional Execution
                         </div>
-                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px; padding-left: 30px;">Define principles, direction, and experience foundations that align teams and guide long-term decisions.</p>
+                        <p class="cap-body">Move teams from insight to shipped outcomes with clarity and alignment across design, product, and engineering.</p>
                     </div>
-
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px; color: #333; flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg>
-                            <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin: 0;">UX Maturity & Enablement</h3>
+                    <div class="cap-item">
+                        <div class="cap-title">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            UX Vision &amp; Strategy
                         </div>
-                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px; padding-left: 30px;">Help teams grow confidence, autonomy, and consistency — through coaching, playbooks, and practices that scale beyond any single project.</p>
+                        <p class="cap-body">Define principles, direction, and experience foundations that align teams and guide long-term decisions.</p>
                     </div>
-
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px; color: #333; flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></svg>
-                            <h3 style="font-size: 15px; font-weight: 700; color: var(--text-dark); margin: 0;">Remote-First & Open Source</h3>
+                    <div class="cap-item">
+                        <div class="cap-title">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            UX Maturity &amp; Enablement
                         </div>
-                        <p style="color: var(--text-gray); line-height: 1.6; font-size: 14px; padding-left: 30px;">5+ years in distributed teams across time zones. Experienced designing within open-source ecosystems (Backstage), balancing transparency with product needs.</p>
+                        <p class="cap-body">Help teams grow confidence, autonomy, and consistency — through coaching, playbooks, and practices that scale beyond any single project.</p>
+                    </div>
+                    <div class="cap-item">
+                        <div class="cap-title">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            Remote-First &amp; Open Source
+                        </div>
+                        <p class="cap-body">5+ years in distributed teams across time zones. Experienced designing within open-source ecosystems (Backstage), balancing transparency with product needs.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Back Home Button -->
-    <section style="padding: 60px 0; text-align: center; background: #FFFFFF;">
-        <div class="container" style="max-width: 900px;">
-            <a href="index.html#selected-work" class="cta-button" aria-label="Go back to homepage">Back Home</a>
-        </div>
-    </section>
+        <section style="padding: 56px 0; text-align: center;">
+            <a href="index.html#work" class="back-btn">Back Home</a>
+        </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="dark-footer" style="background: #1A1A1A; color: #FAF8F5; padding: 80px 0 40px 0;">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px;">
+    <footer class="dark-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
                 <div>
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
-                        <img src="images/hj-logo.png" alt="HJ Logo" style="height: 32px; filter: brightness(0) invert(1);">
-                        <span style="font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700;">HJY</span>
+                    <div class="footer-brand">
+                        <img src="images/hj-logo.png" alt="HJ Logo" style="height:28px; filter:brightness(0) invert(1);">
+                        HJY
                     </div>
-                    <p style="color: #999999; line-height: 1.7; font-size: 14px; max-width: 360px;">
-                        Principal UX Designer specializing in complex systems, internal platforms, and strategic design leadership.
-                    </p>
+                    <p class="footer-tagline">Principal UX Designer specializing in consumer products, engagement, retention, and growth at scale.</p>
                 </div>
                 <div>
-                    <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Navigation</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;"><a href="index.html#selected-work" style="font-size: 14px;">Work</a></li>
-                        <li style="margin-bottom: 12px;"><a href="about.html" style="font-size: 14px;">About</a></li>
+                    <div class="footer-heading">Navigation</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html#work">Work</a></li>
+                        <li><a href="about.html">About</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: #666666;">Connect</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;"><a href="https://www.linkedin.com/in/hyojinyang/" target="_blank" style="font-size: 14px;">LinkedIn</a></li>
+                    <div class="footer-heading">Connect</div>
+                    <ul class="footer-links">
+                        <li><a href="https://www.linkedin.com/in/hyojinyang/" target="_blank">LinkedIn</a></li>
+                        <li><a href="mailto:hyojin.yang@gmail.com">hyojin.yang@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
-            <div style="border-top: 1px solid #262626; padding-top: 32px; display: flex; justify-content: space-between; align-items: center;">
-                <p style="color: #666666; font-size: 13px;">© 2025 Hyojin Yang. Designed with care.</p>
-                <p style="color: #666666; font-size: 12px;">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2025 Hyojin Yang. Designed with care.</p>
+                <p class="footer-copy">Featuring Pantone Color of the Year 2026: Cloud Dancer</p>
             </div>
         </div>
     </footer>

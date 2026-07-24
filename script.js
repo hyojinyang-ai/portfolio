@@ -29,15 +29,16 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0, rootMargin: '0px 0px -80px 0px' });
 
 // Observe sections for fade-in animation
 window.addEventListener('DOMContentLoaded', () => {
     if (prefersReducedMotion) return;
 
-    const sections = document.querySelectorAll('.case-study-card, .about-content, .contact-section');
+    const sections = document.querySelectorAll('.case-study-card, .about-content, .contact-section, .content-section');
     sections.forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(40px)';
@@ -249,154 +250,5 @@ window.addEventListener('DOMContentLoaded', () => {
         item.style.transform = 'translateY(20px)';
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         approachObserver.observe(item);
-    });
-});
-
-const buildHomepageCaseCard = ({ href, company, ariaLabel, title, meta, description, impact }) => {
-    const card = document.createElement('a');
-    card.href = href;
-    card.className = 'work-card';
-    card.dataset.company = company;
-    card.setAttribute('aria-label', ariaLabel);
-    card.innerHTML = `
-        <div class="work-card-inner">
-            <div class="work-row">
-                <img src="images/king-logo.png" alt="King logo" class="work-logo">
-                <div class="work-content">
-                    <h3 class="work-company">${title}</h3>
-                    <p class="work-meta-inline">${meta}</p>
-                    <p class="work-description">${description}</p>
-                    <p class="work-impact">${impact}</p>
-                    <span class="work-detail-link">View full details -&gt;</span>
-                </div>
-            </div>
-        </div>
-    `;
-    return card;
-};
-
-const insertHomepageCardAfter = (workGrid, card, anchor) => {
-    if (anchor && anchor.nextElementSibling) {
-        workGrid.insertBefore(card, anchor.nextElementSibling);
-    } else if (anchor) {
-        workGrid.appendChild(card);
-    } else {
-        workGrid.prepend(card);
-    }
-};
-
-const labelOriginalKingCase = (workGrid) => {
-    const originalKingCard = workGrid.querySelector('a[href="king-case.html"]');
-    if (!originalKingCard) return;
-
-    originalKingCard.setAttribute('aria-label', 'Open King seamless distribution and adoption case study');
-
-    const title = originalKingCard.querySelector('.work-company');
-    if (title) title.textContent = 'King - Seamless Distribution & Adoption';
-
-    const impact = originalKingCard.querySelector('.work-impact');
-    if (impact) impact.textContent = '93% adoption | Months to days feature rollout';
-};
-
-const addOriginalKingCaseToOverview = () => {
-    const splitTitle = document.getElementById('split-title');
-    if (!splitTitle || document.querySelector('a.case-link-card[href="king-case.html"]')) return;
-
-    const caseMap = splitTitle.closest('.section')?.querySelector('.case-map');
-    if (!caseMap) return;
-
-    const originalCase = document.createElement('a');
-    originalCase.className = 'case-link-card';
-    originalCase.href = 'king-case.html';
-    originalCase.innerHTML = `
-        <small>Original Case</small>
-        <h3>Seamless Distribution & Adoption</h3>
-        <p>The game-engine editor update story: reducing update anxiety, rebuilding trust in version management, and driving adoption from 55% to 93%.</p>
-        <span class="link-arrow">View case -&gt;</span>
-    `;
-
-    caseMap.insertBefore(originalCase, caseMap.firstElementChild);
-};
-
-const kingCaseCards = [
-    {
-        href: 'king-strategic-ux.html',
-        company: 'king-strategic-ux',
-        ariaLabel: 'Open King strategic UX and maturity case study',
-        title: 'King - Strategic UX & Maturity',
-        meta: 'Principal UX Designer | 2023 - Present',
-        description: 'A platform UX leadership hub connecting strategy, research operations, self-service, navigation, and future platform concepts for King internal tooling.',
-        impact: 'UX maturity | Research ops | Platform strategy'
-    },
-    {
-        href: 'king-project-setup.html',
-        company: 'king-project-setup',
-        ariaLabel: 'Open King project setup and workflow strategy case study',
-        title: 'King - Project Setup & Workflow Strategy',
-        meta: 'Principal UX Designer | 2023 - Present',
-        description: 'Turned a fragmented project setup process into a clearer self-service workflow with visible dependencies, ownership clarity, and contextual support documentation.',
-        impact: 'Self-service workflow | Documentation UX'
-    },
-    {
-        href: 'king-research-ops.html',
-        company: 'king-research-ops',
-        ariaLabel: 'Open King UX research bank and design logs case study',
-        title: 'King - UX Research Bank & Design Logs',
-        meta: 'Principal UX Designer | 2023 - Present',
-        description: 'Built reusable research and decision-making practices so platform teams could connect user evidence, design rationale, and roadmap decisions more consistently.',
-        impact: 'Reusable evidence | Higher UX maturity'
-    },
-    {
-        href: 'king-self-service.html',
-        company: 'king-self-service',
-        ariaLabel: 'Open King self-service case study',
-        title: 'King - Self-Service at Scale',
-        meta: 'Principal UX Designer | 2023 - Present',
-        description: "Designed self-service workspace and application management for King's internal platform, helping workspace owners handle access, permissions, and application availability directly across 296 workspaces and 68 integrated applications.",
-        impact: '50% faster access management | 20% fewer support requests'
-    },
-    {
-        href: 'king-environment-navigation.html',
-        company: 'king-environment-navigation',
-        ariaLabel: 'Open King environment manager and navigation redesign case study',
-        title: 'King - Environment Manager & Navigation',
-        meta: 'Principal UX Designer | 2023 - Present',
-        description: 'Reduced platform complexity through clearer information architecture, environment status visibility, and task-oriented navigation across internal tools.',
-        impact: 'Operational UX | Navigation systems'
-    },
-    {
-        href: 'king-game-space.html',
-        company: 'king-game-space',
-        ariaLabel: 'Open King Game Space strategic initiative case study',
-        title: 'King - Game Space Strategic Initiative',
-        meta: 'Principal UX Designer | 2023 - Present',
-        description: 'Explored a game-centered workspace concept connecting tools, environments, ownership, and team workflows into a clearer future platform direction.',
-        impact: 'Strategic vision | Scenario prototyping'
-    }
-];
-
-// Add detailed King case entries to the homepage without rewriting the static markup.
-window.addEventListener('DOMContentLoaded', () => {
-    addOriginalKingCaseToOverview();
-
-    const workGrid = document.querySelector('#selected-work .work-grid');
-    if (!workGrid) return;
-
-    labelOriginalKingCase(workGrid);
-
-    const corePlatformCard = workGrid.querySelector('a[href="king-core-platform.html"]');
-    const kingCard = workGrid.querySelector('a[href="king-case.html"]');
-    let insertionAnchor = corePlatformCard || kingCard;
-
-    kingCaseCards.forEach(cardData => {
-        const existingCard = workGrid.querySelector(`a[href="${cardData.href}"]`);
-        if (existingCard) {
-            insertionAnchor = existingCard;
-            return;
-        }
-
-        const card = buildHomepageCaseCard(cardData);
-        insertHomepageCardAfter(workGrid, card, insertionAnchor);
-        insertionAnchor = card;
     });
 });
